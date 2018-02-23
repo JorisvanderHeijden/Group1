@@ -1,0 +1,1277 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Assignment 1}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{HTML}
+        \PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+s1}{\PYZlt{}style\PYZgt{}html, body}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{overflow\PYZhy{}y: visible !important\PYZcb{} .CodeMirror}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{min\PYZhy{}width:105}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{ !important;\PYZcb{} .rise\PYZhy{}enabled .CodeMirror, .rise\PYZhy{}enabled .output\PYZus{}subarea}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{font\PYZhy{}size:140}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{; line\PYZhy{}height:1.2; overflow: visible;\PYZcb{} .output\PYZus{}subarea pre}\PY{l+s+si}{\PYZob{}width:110\PYZpc{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/style\PYZgt{}}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} For slides}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}9}]:} <IPython.core.display.HTML object>
+\end{Verbatim}
+            
+    \section{Foundations of Data Mining: Assignment
+1}\label{foundations-of-data-mining-assignment-1}
+
+Please complete all assignments in this notebook. You should submit this
+notebook, as well as a PDF version (See File \textgreater{} Download
+as).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{} Please fill in your names here}
+         \PY{n}{NAME\PYZus{}STUDENT\PYZus{}1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Bram van der Pol}\PY{l+s+s2}{\PYZdq{}}
+         \PY{n}{NAME\PYZus{}STUDENT\PYZus{}2} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Joris van der Heijden}\PY{l+s+s2}{\PYZdq{}}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+         \PY{k+kn}{from} \PY{n+nn}{preamble} \PY{k}{import} \PY{o}{*}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{100} \PY{c+c1}{\PYZsh{} This controls the size of your figures}
+         \PY{c+c1}{\PYZsh{} Comment out and restart notebook if you only want the last output of each cell.}
+         \PY{n}{InteractiveShell}\PY{o}{.}\PY{n}{ast\PYZus{}node\PYZus{}interactivity} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{all}\PY{l+s+s2}{\PYZdq{}}
+\end{Verbatim}
+
+
+    \subsection{MoneyBall (5 points,
+1+2+1+1)}\label{moneyball-5-points-1211}
+
+In the early 2000s, 2 baseball scouts completely changed the game of
+baseball by analysing the available data about baseball players and
+hiring the best ones. The
+\href{https://www.openml.org/d/41021}{MoneyBall dataset} contains this
+data (click the link for more details). The goal is to accurately
+predict the number of 'runs' each player can score.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}168}]:} \PY{n}{moneyball} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{41021}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download MoneyBall data}
+          \PY{c+c1}{\PYZsh{} Get the predictors X and the target y}
+          \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{attribute\PYZus{}names} \PY{o}{=} \PY{n}{moneyball}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{moneyball}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{,} \PY{n}{return\PYZus{}attribute\PYZus{}names}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          \PY{c+c1}{\PYZsh{} Describe the data with pandas, just to get an overview}
+          \PY{c+c1}{\PYZsh{}ballframe = pd.DataFrame(X, columns=attribute\PYZus{}names)}
+          \PY{c+c1}{\PYZsh{}ballframe.describe()}
+          
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}
+          \PY{c+c1}{\PYZsh{}n, bins, patches = ax.hist(X, num\PYZus{}bins, normed=1)}
+          
+          \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
+          \PY{l+s+sd}{for index in range(len(X.T)):}
+          \PY{l+s+sd}{    print(index)}
+          \PY{l+s+sd}{    print(X[:,index])}
+          \PY{l+s+sd}{    column=X[:,index]}
+          \PY{l+s+sd}{    Filtered\PYZus{}column=column[\PYZti{}np.isnan(column)]}
+          \PY{l+s+sd}{    fig1 = plt.figure()}
+          \PY{l+s+sd}{    matplotlib.pyplot.hist(Filtered\PYZus{}column)}
+          \PY{l+s+sd}{    matplotlib.pyplot.title(\PYZdq{}Index \PYZdq{}+str(index),fontweight=\PYZsq{}bold\PYZsq{},fontsize=15)}
+          \PY{l+s+sd}{ \PYZsq{}\PYZsq{}\PYZsq{}}   
+          
+          \PY{k}{for} \PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{T}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{}if (index \PYZlt{} 8):}
+              \PY{n+nb}{print}\PY{p}{(}\PY{n}{index}\PY{p}{)}
+              \PY{n}{column}\PY{o}{=}\PY{n}{X}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{index}\PY{p}{]}
+              \PY{n}{Filtered\PYZus{}column1}\PY{o}{=}\PY{n}{column}\PY{p}{[}\PY{o}{\PYZti{}}\PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{column}\PY{p}{)}\PY{p}{]}
+                  
+              \PY{n}{Filtered\PYZus{}column2} \PY{o}{=} \PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{nan} \PY{k}{if} \PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{k}{else} \PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{column}\PY{p}{]}
+                  
+              \PY{n}{fig1} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{Filtered\PYZus{}column1}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Histogram}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+              
+              
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{Filtered\PYZus{}column2}\PY{p}{,}\PY{n}{y}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Scatter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{X}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+              
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{n}{attribute\PYZus{}names}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{o}{+}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ Index }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{index}\PY{p}{)} \PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+              \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{subplots\PYZus{}adjust}\PY{p}{(}\PY{n}{left}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,}\PY{n}{wspace}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{,}\PY{n}{top}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{)}
+              
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} '\textbackslash{}nfor index in range(len(X.T)):\textbackslash{}n    print(index)\textbackslash{}n    print(X[:,index])\textbackslash{}n    column=X[:,index]\textbackslash{}n    Filtered\_column=column[\textasciitilde{}np.isnan(column)]\textbackslash{}n    fig1 = plt.figure()\textbackslash{}n    matplotlib.pyplot.hist(Filtered\_column)\textbackslash{}n    matplotlib.pyplot.title("Index "+str(index),fontweight=\textbackslash{}'bold\textbackslash{}',fontsize=15)\textbackslash{}n '
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+0
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa784009b0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([152., 188., 152.,  98., 141., 175., 132.,  95.,  78.,  21.]),
+           array([ 0. ,  3.8,  7.6, 11.4, 15.2, 19. , 22.8, 26.6, 30.4, 34.2, 38. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7c808c50>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7b1f6cc0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'Team Index 0')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+1
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7b1f6f28>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([616.,   0.,   0.,   0.,   0.,   0.,   0.,   0.,   0., 616.]),
+           array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa79ba2f60>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7cd04cf8>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'League Index 1')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+2
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7cd041d0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([100., 112.,  96., 104., 130., 130.,  82., 148., 150., 180.]),
+           array([1962., 1967., 1972., 1977., 1982., 1987., 1992., 1997., 2002.,
+                  2007., 2012.]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa76689a58>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa76d53320>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'Year Index 2')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+3
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa783a9be0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([ 20., 110., 239., 327., 270., 163.,  77.,  24.,   1.,   1.]),
+           array([ 472. ,  535.1,  598.2,  661.3,  724.4,  787.5,  850.6,  913.7,
+                   976.8, 1039.9, 1103. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7b16ba90>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7cb0ce48>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'RA Index 3')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+4
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7cb0cef0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([  2.,  17.,  50., 167., 243., 291., 286., 134.,  39.,   3.]),
+           array([ 40. ,  47.6,  55.2,  62.8,  70.4,  78. ,  85.6,  93.2, 100.8,
+                  108.4, 116. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa76be2d68>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa769ed978>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'W Index 4')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+5
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7cb564e0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([  7.,  22.,  64., 193., 322., 266., 225.,  81.,  45.,   7.]),
+           array([0.277, 0.287, 0.296, 0.306, 0.315, 0.325, 0.335, 0.344, 0.354,
+                  0.363, 0.373]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7994ef28>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7c860eb8>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'OBP Index 5')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+6
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa79a22940>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([ 13.,  31., 100., 186., 276., 258., 202.,  93.,  57.,  16.]),
+           array([0.301, 0.32 , 0.339, 0.358, 0.377, 0.396, 0.415, 0.434, 0.453,
+                  0.472, 0.491]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7c81ff28>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7ce6b550>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'SLG Index 6')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+7
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa79a529b0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([  4.,  14.,  41., 102., 242., 329., 229., 186.,  58.,  27.]),
+           array([0.214, 0.222, 0.23 , 0.238, 0.246, 0.254, 0.262, 0.27 , 0.278,
+                  0.286, 0.294]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7cb43668>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa77d705f8>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'BA Index 7')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+8
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7cd71208>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([988.,   0.,   0.,   0.,   0.,   0.,   0.,   0.,   0., 244.]),
+           array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa79b2b3c8>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa76cd4ac8>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'Playoffs Index 8')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+9
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa798e0160>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([52., 53., 44.,  0., 44., 21.,  0., 20.,  9.,  1.]),
+           array([0. , 0.7, 1.4, 2.1, 2.8, 3.5, 4.2, 4.9, 5.6, 6.3, 7. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa78615b70>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7d4d00f0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'RankSeason Index 9')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+10
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7d5700b8>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([47.,  0., 47.,  0.,  0., 80.,  0., 68.,  0.,  2.]),
+           array([0. , 0.4, 0.8, 1.2, 1.6, 2. , 2.4, 2.8, 3.2, 3.6, 4. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa76d27668>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7cb3def0>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'RankPlayoffs Index 10')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+11
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7c799940>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([  1.,  10.,  23.,   0., 139., 954.,   0.,  93.,  10.,   2.]),
+           array([0. , 0.7, 1.4, 2.1, 2.8, 3.5, 4.2, 4.9, 5.6, 6.3, 7. ]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7c507b00>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa79d81cf8>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'G Index 11')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+12
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa750bd828>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([ 4., 33., 64., 89., 94., 74., 41., 15.,  5.,  1.]),
+           array([0.294, 0.303, 0.312, 0.321, 0.33 , 0.339, 0.348, 0.357, 0.366,
+                  0.375, 0.384]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7ce93198>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa79838a20>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'OOBP Index 12')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+13
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7caaa390>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} (array([ 6., 14., 36., 92., 82., 82., 61., 31., 14.,  2.]),
+           array([0.346, 0.361, 0.377, 0.392, 0.407, 0.422, 0.438, 0.453, 0.468,
+                  0.484, 0.499]),
+           <a list of 10 Patch objects>)
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Histogram')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1aa7cc6bb38>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} <matplotlib.collections.PathCollection at 0x1aa7ca5d588>
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,1,'Scatter')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0,'X')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0,0.5,'y')
+\end{Verbatim}
+            
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}168}]:} Text(0.5,0.98,'OSLG Index 13')
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_141.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_142.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_143.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_144.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_145.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_146.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_147.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_148.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_149.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_150.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_151.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_152.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_153.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_154.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    1 . Visually explore the data. Plot the distribution of each feature
+(e.g. histograms), as well as the target. Visualize the dependency of
+the target on each feature (use a 2d scatter plot). Is there anything
+that stands out? Is there something that you think might require special
+treatment? - Feel free to create additional plots that help you
+understand the data - Only visualize the data, you don't need to change
+it (yet)
+
+\textbf{Answers:} The first column of figures shows the histograms of
+each column of the data in X. The second column shows the relationship
+between y and x. \emph{Is there anything that stands out?} The dataset
+containts non real numbers, so the data set must first be cleaned to
+visualize it. Beside the NaN the data the figures that do not show a
+clear distrubution are: 1, 8, 10 and 11. The scatterplots shows
+
+Is there something that you think might require special treatment?
+
+    2 . Compare all linear regression algorithms that we covered in class
+(Linear Regression, Ridge, Lasso and ElasticNet), as well as kNN.
+Evaluate using cross-validation and the \(R^2\) score, with the default
+parameters. Does scaling the data with StandardScaler help? Provide a
+concise but meaningful interpretation of the results. - Preprocess the
+data as needed (e.g. are there nominal features that are not ordinal?).
+If you don't know how to proceed, remove the feature and continue.
+
+    3 . Do a default, shuffled train-test split and optimize the linear
+models for the degree of regularization (\(alpha\)) and choice of
+penalty (L1/L2). For Ridge and Lasso, plot a curve showing the effect of
+the training and test set performance (\(R^2\)) while increasing the
+degree of regularization for different penalties. For ElasticNet, plot a
+heatmap \(alpha \times l1\_ratio \rightarrow R^2\) using test set
+performance. Report the optimal performance. Again, provide a concise
+but meaningful interpretation. What does the regularization do? Can you
+get better results? - Think about how you get the L1/L2 loss. This is
+not a hyperparameter in regression. - We've seen how to generate such
+heatmaps in Lecture 3.
+
+    4 . Visualize the coefficients of the optimized models. Do they agree on
+which features are important? Compare the results with the feature
+importances returned by a RandomForest. Does it agree with the linear
+models? What would look for when scouting for a baseball player?
+
+    \subsection{Nepalese character recognition (5 points,
+1+2+2)}\label{nepalese-character-recognition-5-points-122}
+
+The \href{https://www.openml.org/d/40923}{Devnagari-Script dataset}
+contains 92,000 images (32x32 pixels) of 46 characters from Devanagari
+script. Your goal is to learn to recognize the right letter given the
+image.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}63}]:} \PY{n}{devnagari} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{40923}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download Devnagari data}
+         \PY{c+c1}{\PYZsh{} Get the predictors X and the labels y}
+         \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{devnagari}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;} 
+         \PY{n}{classes} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{retrieve\PYZus{}class\PYZus{}labels}\PY{p}{(}\PY{n}{target\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{character}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} This one takes a while, skip if not needed}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}68}]:} \PY{k+kn}{from} \PY{n+nn}{random} \PY{k}{import} \PY{n}{randint}
+         \PY{c+c1}{\PYZsh{} Take some random examples, reshape to a 32x32 image and plot}
+         \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,}  \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
+             \PY{n}{n} \PY{o}{=} \PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{90000}\PY{p}{)}
+             \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{,} \PY{l+m+mi}{32}\PY{p}{)}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{cm}\PY{o}{.}\PY{n}{gray\PYZus{}r}\PY{p}{)}
+             \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Class: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{classes}\PY{p}{[}\PY{n}{y}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_12_0.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Evaluate k-Nearest Neighbors, Logistic Regression and RandomForests
+  with their default settings.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Take a stratified 10\% subsample of the data.
+  \item
+    Use the default train-test split and predictive accuracy. Is
+    predictive accuracy a good scoring measure for this problem?
+  \item
+    Try to build the same models on increasingly large samples of the
+    dataset (e.g. 10\%, 20\%,...). Plot the training time and the
+    predictive performance for each. Stop when the training time becomes
+    prohibitively large (this will be different for different models).
+  \end{itemize}
+\end{enumerate}
+
+    2 . Optimize the value for the number of neighbors \(k\) (keep \(k\)
+\textless{} 50) and the number of trees (keep \(n\_estimators\)
+\textless{} 100) on the stratified 10\% subsample. - Use 10-fold
+crossvalidation and plot \(k\) and \(n\_estimators\) against the
+predictive accuracy. Which value of \(k\), \(n\_estimators\) should you
+pick?
+
+    3 . For the RandomForest, optimize both \(n\_estimators\) and
+\(max\_features\) at the same time on the entire dataset. - Use a nested
+cross-validation and a random search over the possible values, and
+measure the accuracy. Explore how fine-grained this grid/random search
+can be, given your computational resources. What is the optimal
+performance you find? - Hint: choose a nested cross-validation that is
+feasible. Don't use too many folds in the outer loop. - Repeat the grid
+search and visualize the results as a plot (heatmap)
+\(n\_estimators \times max\_features \rightarrow ACC\) with ACC
+visualized as the color of the data point. Try to make the grid as fine
+as possible. Interpret the results. Can you explain your observations?
+What did you learn about tuning RandomForests?
+
+    \subsection{3. Understanding Ensembles (5 points
+(3+2))}\label{understanding-ensembles-5-points-32}
+
+Do a deeper analysis of how RandomForests and Gradient Boosting reduce
+their prediction error. We'll use the MAGIC telescope dataset
+(http://www.openml.org/d/1120). When high-energy particles hit the
+atmosphere, they produce chain reactions of other particles called
+'showers', and you need to detect whether these are caused by gamma rays
+or cosmic rays.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} Get the data}
+        \PY{n}{magic\PYZus{}data} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{1120}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download MAGIC Telescope data}
+        \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} Quick visualization}
+        \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{attribute\PYZus{}names} \PY{o}{=} \PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{,} \PY{n}{return\PYZus{}attribute\PYZus{}names}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+        \PY{n}{magic} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{n}{attribute\PYZus{}names}\PY{p}{)}
+        \PY{n}{magic}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} Also plot the target: 1 = gamma, 0 = background}
+        \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_0.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_1.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    1 . Do a bias-variance analysis of both algorithms. For each, vary the
+number of trees on a log scale from 1 to 1024, and plot the bias error
+(squared), variance, and total error (in one plot per algorithm).
+Interpret the results. Which error is highest for small ensembles, and
+which reduced most by each algorithm as you use a larger ensemble? When
+are both algorithms under- or overfitting? Provide a detailed
+explanation of why random forests and gradient boosting behave this way.
+- See lecture 3 for an example on how to do the bias-variance
+decomposition - To save time, you can use a 10\% stratified subsample in
+your initial experiments, but show the plots for the full dataset in
+your report.
+
+    2 . A \emph{validation curve} can help you understand when a model
+starts under- or overfitting. It plots both training and test set error
+as you change certain characteristics of your model, e.g. one or more
+hyperparameters. Build validation curves for gradient boosting,
+evaluated using AUROC, by varying the number of iterations between 1 and
+500. In addition, use at least two values for the learning rate (e.g.
+0.1 and 1), and tree depth (e.g. 1 and 4). This will yield at least 4
+curves. Interpret the results and provide a clear explanation for the
+results. When is the model over- or underfitting? Discuss the effect of
+the different combinations learning rate and tree depth and provide a
+clear explanation. - While scikit-learn has a \texttt{validation\_curve}
+function, we'll use a modified version (below) that provides a lot more
+detail and can be used to study more than one hyperparameter. You can
+use a default train-test split.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} Plots validation curves for every classifier in clfs. }
+        \PY{c+c1}{\PYZsh{} Also indicates the optimal result by a vertical line}
+        \PY{c+c1}{\PYZsh{} Uses 1\PYZhy{}AUROC, so lower is better}
+        \PY{k}{def} \PY{n+nf}{validation\PYZus{}curve}\PY{p}{(}\PY{n}{clfs}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}\PY{p}{:}
+            \PY{k}{for} \PY{n}{n}\PY{p}{,}\PY{n}{clf} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{clfs}\PY{p}{)}\PY{p}{:}
+                \PY{n}{test\PYZus{}score} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{empty}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{estimators\PYZus{}}\PY{p}{)}\PY{p}{)}
+                \PY{n}{train\PYZus{}score} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{empty}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{estimators\PYZus{}}\PY{p}{)}\PY{p}{)}
+        
+                \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{pred} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{staged\PYZus{}decision\PYZus{}function}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{test\PYZus{}score}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{pred}\PY{p}{)}
+        
+                \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{pred} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{staged\PYZus{}decision\PYZus{}function}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{train\PYZus{}score}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{pred}\PY{p}{)}
+        
+                \PY{n}{best\PYZus{}iter} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argmin}\PY{p}{(}\PY{n}{test\PYZus{}score}\PY{p}{)}
+                \PY{n}{learn} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{get\PYZus{}params}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{learning\PYZus{}rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+                \PY{n}{depth} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{get\PYZus{}params}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}depth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+                \PY{n}{test\PYZus{}line} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{test\PYZus{}score}\PY{p}{,}
+                                     \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{learn=}\PY{l+s+si}{\PYZpc{}.1f}\PY{l+s+s1}{ depth=}\PY{l+s+si}{\PYZpc{}i}\PY{l+s+s1}{ (}\PY{l+s+si}{\PYZpc{}.2f}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{o}{\PYZpc{}}\PY{p}{(}\PY{n}{learn}\PY{p}{,}\PY{n}{depth}\PY{p}{,}
+                                                                         \PY{n}{test\PYZus{}score}\PY{p}{[}\PY{n}{best\PYZus{}iter}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+        
+                \PY{n}{colour} \PY{o}{=} \PY{n}{test\PYZus{}line}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{get\PYZus{}color}\PY{p}{(}\PY{p}{)}
+                \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{train\PYZus{}score}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colour}\PY{p}{)}
+                
+                \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of boosting iterations}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1 \PYZhy{} area under ROC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+                \PY{n}{plt}\PY{o}{.}\PY{n}{axvline}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{best\PYZus{}iter}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colour}\PY{p}{)}
+                
+            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
