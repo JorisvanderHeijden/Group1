@@ -1,0 +1,88 @@
+from sklearn.model_selection import cross_val_score
+
+def Question2():
+    
+#    length_data=len(y); #92000
+    
+    number_of_test=100; # To have more control of the computation time
+
+    Fraction=np.array([0.01])
+    
+    n_neighborsA=np.linspace(1,50,20)
+    n_estimatorsA=np.linspace(1,100,20)
+    
+    A1 = np.zeros((len(n_neighborsA), 3)) # Accuracy Matrix
+    T1 = np.zeros((len(n_neighborsA),3))  # Computation time Matrix
+    
+    A2 = np.zeros((len(n_estimatorsA), 3)) # Accuracy Matrix
+    T2 = np.zeros((len(n_estimatorsA),3))  # Computation time Matrix
+
+    # Split the data in test data and train data (stratified 10% subsample)
+    from sklearn.model_selection import train_test_split  
+
+    X_del, X_train, y_del, y_train = train_test_split(X, y, test_size = Fraction[0])
+    X_del, X_test, y_del, y_test = train_test_split(X, y, test_size = number_of_test/(len(y))) 
+
+    X_train.shape
+    y_train.shape
+
+    for i in range(len(n_neighborsA)):
+
+        # Reduce the test data as well to 10 samples
+        print("knn iteration: %d " % i)
+        # Solve the learning problems if the solutions do not exist yet
+        #if not 'classifier' in locals(): 
+        tic = time.clock()
+        knn = KNeighborsClassifier(n_neighbors=i+1)  
+        toc = time.clock()
+        
+        scores = cross_val_score(knn, X_train, y_train, cv=10)
+        Accuracy_knn=np.mean(scores)
+        
+#         Accuracy_KNearest=accuracy_score(y_test,y_predKNearest)
+        A1[i][0]=Accuracy_knn
+        T1[i][0]=toc-tic
+        
+#       if not 'logistic' in locals(): # There is no n_neighbors or # of trees option in this function
+        '''
+        tic = time.clock()
+        logistic = LogisticRegression()
+        logistic.fit(X_train,y_train)
+        toc = time.clock()
+        y_predLogistic = logistic.predict(X_test) 
+        Accuracy_Logistic=accuracy_score(y_test,y_predLogistic)
+        A[i][1]=Accuracy_Logistic
+        T[i][1]=toc-tic
+        '''
+
+        #if not 'Forest' in locals():
+        
+    plt.subplot(1,2,1);
+    plt.plot(n_neighborsA,A1[:,0],linewidth=2);
+    plt.title('Scatter',fontweight='bold',fontsize=15);
+    plt.xlabel('n_neigbors');
+    plt.ylabel('mean score cross val');
+    plt.show()
+        
+    for i in range(len(n_estimatorsA)):   
+        print("Random Forest iteration: %d " % i)
+        tic = time.clock()
+        Forest = RandomForestClassifier(n_estimators=i+1) # Number of trees 
+        toc = time.clock()
+        
+        scores = cross_val_score(Forest, X_train, y_train, cv=10)
+        Accuracy_Forest=np.mean(scores)
+
+        A2[i][0]=Accuracy_Forest
+        T2[i][0]=toc-tic
+        
+    plt.subplot(1,2,2);
+    plt.plot(n_estimatorsA,A2[:,0],linewidth=2);
+    plt.title('Scatter',fontweight='bold',fontsize=15);
+    plt.xlabel('n_estimators');
+    plt.ylabel('Mean score cross val');
+    plt.show()
+       
+    return
+
+Question2()

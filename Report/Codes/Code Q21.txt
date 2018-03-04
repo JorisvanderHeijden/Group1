@@ -1,0 +1,96 @@
+# Import the functions (standard variables are used)
+from sklearn.neighbors import KNeighborsClassifier  
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report, confusion_matrix  
+import time
+from sklearn.neighbors import KNeighborsClassifier 
+from sklearn.model_selection import KFold
+import matplotlib.pyplot as plt
+
+def Question1():
+    
+    length_data=len(y); #92000
+    
+    number_of_test=10; # To have more control of the computation time
+    number_of_training=1000; # Not used
+
+    Fraction=np.array([0.02,0.04,0.06,0.08,0.1])
+    A = np.zeros((len(Fraction), 3)) # Accuracy Matrix
+    T = np.zeros((len(Fraction),3))  # Computation time Matrix
+
+    # Split the data in test data and train data (stratified 10% subsample)
+    from sklearn.model_selection import train_test_split  
+
+    #n1 = randint(0,len(y_test1))
+    #n2 = randint(0,len(y_test1))
+
+    for i in range(len(Fraction)):
+        X_del, X_train, y_del, y_train = train_test_split(X, y, test_size=Fraction[i])
+        X_del, X_test, y_del, y_test = train_test_split(X, y, test_size=number_of_test/(len(y))) # Reduce the test data as well to 10 samples
+       
+        print(i)
+        
+        # Solve the learning problems if the solutions do not exist yet
+        #if not 'classifier' in locals(): 
+        tic = time.clock()
+        knn = KNeighborsClassifier(n_neighbors=5)  
+        knn.fit(X_train, y_train) 
+        toc = time.clock()
+        #y_predKNearest = knn.predict(X_test)  
+        Accuracy_KNearest=knn.score(X_test,y_test)
+        A[i][0]=Accuracy_KNearest
+        T[i][0]=toc-tic
+        
+        mglearn
+
+        #if not 'logistic' in locals(): 
+        tic = time.clock()
+        logistic = LogisticRegression()
+        logistic.fit(X_train,y_train)
+        toc = time.clock()
+#         y_predLogistic = logistic.predict(X_test) 
+        Accuracy_Logistic=logistic.score(X_test,y_test) #accuracy_score(y_test,y_predLogistic)
+        A[i][1]=Accuracy_Logistic
+        T[i][1]=toc-tic
+
+        #if not 'Forest' in locals():   
+        tic = time.clock()
+        Forest = RandomForestClassifier()
+        Forest.fit(X_train,y_train)
+        toc = time.clock()
+        #y_predForest = Forest.predict(X_test)  
+        Accuracy_Forest=Forest.score(X_test,y_test) #accuracy_score(y_test,y_predForest)
+        A[i][2]=Accuracy_Forest
+        T[i][2]=toc-tic
+        
+        
+    xas=Fraction
+    plot1=plt.subplot(1,2,1);
+    plt.plot(xas,A[:,0],linewidth=2);
+    plt.plot(xas,A[:,1],linewidth=2);
+    plt.plot(xas,A[:,2],linewidth=2);
+    plt.title('Accuracy',fontweight='bold',fontsize=15);
+    plt.xlabel('Fraction');
+    plt.ylabel('Accuracy [%]');
+    plot1.set_ylim([0, 1])
+    
+#     red_patch = mpatches.Patch(color='red', label='The red data')
+    plt.legend(['k-Nearest','Logistic Regression','RandomForest'])
+    #plt.grid()
+    plt.subplot(1,2,2);
+    plt.plot(xas,T[:,0],linewidth=2);
+    plt.plot(xas,T[:,1],linewidth=2);
+    plt.plot(xas,T[:,2],linewidth=2);
+    plt.title('Time',fontweight='bold',fontsize=15);
+    plt.xlabel('Fraction');
+    plt.ylabel('Time (s)');
+    plt.grid()
+    plt.legend(['k-Nearest','Logistic Regression','RandomForest'])
+    plt.show()
+    print(A)
+    print(T)
+    return
+
+Question1()
