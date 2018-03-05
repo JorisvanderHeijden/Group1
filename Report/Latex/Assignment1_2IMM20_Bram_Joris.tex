@@ -69,7 +69,7 @@ As can been seen in figure \ref{Q22} is that the number of neigbors should be se
 \textnormal{The finest grid which does not take too much time is in our case a 10x10 grid. This grid gives a good insight in the performance of the randomforest algorithm. We used only 1\% of the data because, unfortunately, the computing time was very large for 10\% of the data. This has a big influences on the results, however the characteristics of the algorithm can be examined. Figure \ref{Q23} shows that the number of trees in the forest. The optimal performance can be achieved by setting the number of estimators between 17 and 23 and the maximum features to 100. The more features that are available the better the data can be fitted, however overfitting the data can become a problem when the maximum number of features increases. The best number of trees does show a good accuracy for 50 number of trees. However the best accuracy can be increased by tuning the number of trees for a specific number of features.} 
 
 \section*{4}
-\subsection*{1}
+\subsection{1}
 {\it Do a bias-variance analysis of both algorithms. For each, vary the number of trees on a log scale from 1 to 1024, and plot the bias error (squared), variance, and total error (in one plot per algorithm). Interpret the results. Which error is highest for small ensembles, and which reduced most by each algorithm as you use a larger ensemble? When are both algorithms under- or over-fitting? Provide a detailed explanation of why random forests and gradient boosting behave this way. - See lecture 3 for an example on how to do the bias-variance decomposition - To save time, you can use a 10\% stratified subsample in your initial experiments, but show the plots for the full dataset in your report. In [ ]: from sklearn.model}
 
 \begin{figure}[H]
@@ -80,10 +80,10 @@ As can been seen in figure \ref{Q22} is that the number of neigbors should be se
 \label{Q41}
 \end{figure}
 
-The results shown in figure \ref{Q41} are not the results we expected. %We expected that the RandomForests and Gradient Boosting lines cross each other when the number of trees increases. This due to  
-In general when the number of features/ iterations increased the model tend to overfit the data. However in this case each features is a pixel and the data is not overfitted. This also means that when the number of trees/ iterations increases all bias, variance and total errors goes down for this example. At the start both models are clearly under fitting because the number of total features of the image (1024) cannot be captured well. 
+\textnormal{The results shown in figure \ref{Q41} are not the results we expected. %We expected that the RandomForests and Gradient Boosting lines cross each other when the number of trees increases. This due to  
+In general when the number of features/ iterations increased the model tend to overfit the data. However in this case each features is a pixel and the data is not overfitted. This also means that when the number of trees/ iterations increases all bias, variance and total errors goes down for this example. At the start both models are clearly under fitting because the number of total features of the image (1024) cannot be captured well. }
 
-\subsection*{2}
+\subsection{2}
 {\it A validation curve can help you understand when a model starts under- or overfitting. It plots both training and test set error as you change certain characteristics of your model, e.g. one or more hyperparameters. Build validation curves for gradient boosting, evaluated using AUROC, by varying the number of iterations between 1 and 500. In addition, use at least two values for the learning rate (e.g. 0.1 and 1), and tree depth (e.g. 1 and 4). This will yield at least 4 curves. Interpret the results and provide a clear explanation for the results. When is the model over- or underfitting? Discuss the effect of the different combinations learning rate and tree depth and provide a clear explanation.
 While scikit-learn has a validation curve function, we'll use a modified version (below) that provides a lot more detail and can be used to study more than one hyperparameter. You can use a default train-test split.}
 
@@ -104,8 +104,7 @@ Figure \ref{Q41a} clearly shows the underfitting when the number of boosting ite
 \caption{Compute Receiver operating characteristic score for different hyperparameters for the gradient boosting algorithm. The number of iterations is set to 5000 to show possible overfitting characteristics.}
 \label{Q41b}
 \end{figure}
-
-
+Overfitting of the data is not clearly visible even for 5000 iterations. 
 
 \section{Appendix}
 \subsection{Code question 2.1}
