@@ -1120,39 +1120,39 @@ script. Your goal is to learn to recognize the right letter given the
 image.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} Initial the setting so the code can be run from this point}
-        \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{HTML}
-        \PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+s1}{\PYZlt{}style\PYZgt{}html, body}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{overflow\PYZhy{}y: visible !important\PYZcb{} .CodeMirror}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{min\PYZhy{}width:105}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{ !important;\PYZcb{} .rise\PYZhy{}enabled .CodeMirror, .rise\PYZhy{}enabled .output\PYZus{}subarea}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{font\PYZhy{}size:140}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{; line\PYZhy{}height:1.2; overflow: visible;\PYZcb{} .output\PYZus{}subarea pre}\PY{l+s+si}{\PYZob{}width:110\PYZpc{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/style\PYZgt{}}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} For slides}
-        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
-        \PY{k+kn}{from} \PY{n+nn}{preamble} \PY{k}{import} \PY{o}{*}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{200} \PY{c+c1}{\PYZsh{} This controls the size of your figures}
-        \PY{c+c1}{\PYZsh{} Comment out and restart notebook if you only want the last output of each cell.}
-        \PY{n}{InteractiveShell}\PY{o}{.}\PY{n}{ast\PYZus{}node\PYZus{}interactivity} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{all}\PY{l+s+s2}{\PYZdq{}}
+{\color{incolor}In [{\color{incolor}56}]:} \PY{c+c1}{\PYZsh{} Initial the setting so the code can be run from this point}
+         \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{HTML}
+         \PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+s1}{\PYZlt{}style\PYZgt{}html, body}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{overflow\PYZhy{}y: visible !important\PYZcb{} .CodeMirror}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{min\PYZhy{}width:105}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{ !important;\PYZcb{} .rise\PYZhy{}enabled .CodeMirror, .rise\PYZhy{}enabled .output\PYZus{}subarea}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{font\PYZhy{}size:140}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{; line\PYZhy{}height:1.2; overflow: visible;\PYZcb{} .output\PYZus{}subarea pre}\PY{l+s+si}{\PYZob{}width:110\PYZpc{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/style\PYZgt{}}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} For slides}
+         \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+         \PY{k+kn}{from} \PY{n+nn}{preamble} \PY{k}{import} \PY{o}{*}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{200} \PY{c+c1}{\PYZsh{} This controls the size of your figures}
+         \PY{c+c1}{\PYZsh{} Comment out and restart notebook if you only want the last output of each cell.}
+         \PY{n}{InteractiveShell}\PY{o}{.}\PY{n}{ast\PYZus{}node\PYZus{}interactivity} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{all}\PY{l+s+s2}{\PYZdq{}}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}6}]:} <IPython.core.display.HTML object>
+{\color{outcolor}Out[{\color{outcolor}56}]:} <IPython.core.display.HTML object>
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{devnagari} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{40923}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download Devnagari data}
-        \PY{c+c1}{\PYZsh{} Get the predictors X and the labels y}
-        \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{devnagari}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;} 
-        \PY{k}{if} \PY{o+ow}{not} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classes}\PY{l+s+s1}{\PYZsq{}} \PY{o+ow}{in} \PY{n+nb}{locals}\PY{p}{(}\PY{p}{)}\PY{p}{:} 
-            \PY{n}{classes} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{retrieve\PYZus{}class\PYZus{}labels}\PY{p}{(}\PY{n}{target\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{character}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} This one takes a while, skip if not needed}
+{\color{incolor}In [{\color{incolor}57}]:} \PY{n}{devnagari} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{40923}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download Devnagari data}
+         \PY{c+c1}{\PYZsh{} Get the predictors X and the labels y}
+         \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{devnagari}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;} 
+         \PY{k}{if} \PY{o+ow}{not} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classes}\PY{l+s+s1}{\PYZsq{}} \PY{o+ow}{in} \PY{n+nb}{locals}\PY{p}{(}\PY{p}{)}\PY{p}{:} 
+             \PY{n}{classes} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{retrieve\PYZus{}class\PYZus{}labels}\PY{p}{(}\PY{n}{target\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{character}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} This one takes a while, skip if not needed}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{k+kn}{from} \PY{n+nn}{random} \PY{k}{import} \PY{n}{randint}
-        \PY{c+c1}{\PYZsh{} Take some random examples, reshape to a 32x32 image and plot}
-        \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,}  \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
-            \PY{n}{n} \PY{o}{=} \PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{90000}\PY{p}{)}
-            \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{,} \PY{l+m+mi}{32}\PY{p}{)}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{cm}\PY{o}{.}\PY{n}{gray\PYZus{}r}\PY{p}{)}
-            \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Class: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{classes}\PY{p}{[}\PY{n}{y}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}58}]:} \PY{k+kn}{from} \PY{n+nn}{random} \PY{k}{import} \PY{n}{randint}
+         \PY{c+c1}{\PYZsh{} Take some random examples, reshape to a 32x32 image and plot}
+         \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,}  \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
+             \PY{n}{n} \PY{o}{=} \PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{90000}\PY{p}{)}
+             \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{,} \PY{l+m+mi}{32}\PY{p}{)}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{cm}\PY{o}{.}\PY{n}{gray\PYZus{}r}\PY{p}{)}
+             \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Class: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{classes}\PY{p}{[}\PY{n}{y}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
@@ -1184,149 +1184,142 @@ image.
 \end{enumerate}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{} Import the functions (standard variables are used)}
-        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier}  
-        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
-        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}
-        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{accuracy\PYZus{}score}
-        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{classification\PYZus{}report}\PY{p}{,} \PY{n}{confusion\PYZus{}matrix}  
-        \PY{k+kn}{import} \PY{n+nn}{time}
-        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier} 
-        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{KFold}
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-        
-        \PY{k}{def} \PY{n+nf}{Question1a}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-            
-            \PY{n}{length\PYZus{}data}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{;} \PY{c+c1}{\PYZsh{}92000}
-            
-            \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{;} \PY{c+c1}{\PYZsh{} To have more control of the computation time}
-            \PY{n}{number\PYZus{}of\PYZus{}training}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{;} \PY{c+c1}{\PYZsh{} Not used}
-        
-            \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.05}\PY{p}{,}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{l+m+mf}{0.15}\PY{p}{,}\PY{l+m+mf}{0.2}\PY{p}{,}\PY{l+m+mf}{0.25}\PY{p}{,}\PY{l+m+mf}{0.3}\PY{p}{]}\PY{p}{)}
-            \PY{n}{A} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-            \PY{n}{T} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
-        
-            \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
-            \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-        
-            \PY{c+c1}{\PYZsh{}n1 = randint(0,len(y\PYZus{}test1))}
-            \PY{c+c1}{\PYZsh{}n2 = randint(0,len(y\PYZus{}test1))}
-        
-            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fraction}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
-                \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{/}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Reduce the test data as well to 10 samples}
+{\color{incolor}In [{\color{incolor}67}]:} \PY{c+c1}{\PYZsh{} Import the functions (standard variables are used)}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier}  
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{accuracy\PYZus{}score}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{classification\PYZus{}report}\PY{p}{,} \PY{n}{confusion\PYZus{}matrix}  
+         \PY{k+kn}{import} \PY{n+nn}{time}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier} 
+         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{KFold}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         
+         \PY{k}{def} \PY{n+nf}{Question1a}\PY{p}{(}\PY{p}{)}\PY{p}{:}
                
-                \PY{n+nb}{print}\PY{p}{(}\PY{n}{i}\PY{p}{)}
-                
-                \PY{c+c1}{\PYZsh{} Solve the learning problems if the solutions do not exist yet}
-                \PY{c+c1}{\PYZsh{}if not \PYZsq{}classifier\PYZsq{} in locals(): }
-                \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                \PY{n}{knn} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}  
-                \PY{n}{knn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)} 
-                \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                \PY{c+c1}{\PYZsh{}y\PYZus{}predKNearest = knn.predict(X\PYZus{}test)  }
-                \PY{n}{Accuracy\PYZus{}KNearest}\PY{o}{=}\PY{n}{knn}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)}
-                \PY{n}{A}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}KNearest}
-                \PY{n}{T}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-                
-                \PY{c+c1}{\PYZsh{}if not \PYZsq{}Forest\PYZsq{} in locals():   }
-                \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                \PY{n}{Forest} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)}
-                \PY{n}{Forest}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
-                \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                \PY{c+c1}{\PYZsh{}y\PYZus{}predForest = Forest.predict(X\PYZus{}test)  }
-                \PY{n}{Accuracy\PYZus{}Forest}\PY{o}{=}\PY{n}{Forest}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)} \PY{c+c1}{\PYZsh{}accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predForest)}
-                \PY{n}{A}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Forest}
-                \PY{n}{T}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-                
-            \PY{n}{xas}\PY{o}{=}\PY{n}{Fraction}
-            \PY{n}{plot1}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy [}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{]}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plot1}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-            
-        \PY{c+c1}{\PYZsh{}     red\PYZus{}patch = mpatches.Patch(color=\PYZsq{}red\PYZsq{}, label=\PYZsq{}The red data\PYZsq{})}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k\PYZhy{}Nearest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RandomForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-            \PY{c+c1}{\PYZsh{}plt.grid()}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time (s)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k\PYZhy{}Nearest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RandomForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-            \PY{n+nb}{print}\PY{p}{(}\PY{n}{A}\PY{p}{)}
-            \PY{n+nb}{print}\PY{p}{(}\PY{n}{T}\PY{p}{)}
-            \PY{k}{return}
-        
-        \PY{k}{def} \PY{n+nf}{Question1b}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-            
-            \PY{n}{length\PYZus{}data}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{;} \PY{c+c1}{\PYZsh{}92000}
-            
-            \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{;} \PY{c+c1}{\PYZsh{} To have more control of the computation time}
-            \PY{n}{number\PYZus{}of\PYZus{}training}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{;} \PY{c+c1}{\PYZsh{} Not used}
-        
-            \PY{n}{Fractionb}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.02}\PY{p}{,}\PY{l+m+mf}{0.04}\PY{p}{,}\PY{l+m+mf}{0.06}\PY{p}{,}\PY{l+m+mf}{0.08}\PY{p}{,}\PY{l+m+mf}{0.1}\PY{p}{]}\PY{p}{)}
-            \PY{n}{A} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-            \PY{n}{T} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
-        
-            \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
-            \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-        
-            \PY{c+c1}{\PYZsh{}n1 = randint(0,len(y\PYZus{}test1))}
-            \PY{c+c1}{\PYZsh{}n2 = randint(0,len(y\PYZus{}test1))}
-        
-            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fractionb}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
-                \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{/}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Reduce the test data as well to 10 samples}
-               
-                \PY{n+nb}{print}\PY{p}{(}\PY{n}{i}\PY{p}{)}
-                
-                \PY{c+c1}{\PYZsh{} Solve the learning problems if the solutions do not exist yet}
-        
-                \PY{c+c1}{\PYZsh{}if not \PYZsq{}logistic\PYZsq{} in locals(): }
-                \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                \PY{n}{logistic} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}
-                \PY{n}{logistic}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
-                \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-        \PY{c+c1}{\PYZsh{}         y\PYZus{}predLogistic = logistic.predict(X\PYZus{}test) }
-                \PY{n}{Accuracy\PYZus{}Logistic}\PY{o}{=}\PY{n}{logistic}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)} \PY{c+c1}{\PYZsh{}accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predLogistic)}
-                \PY{n}{A}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Logistic}
-                \PY{n}{T}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-        
-               
-                
-            \PY{n}{xas}\PY{o}{=}\PY{n}{Fractionb}
-            \PY{n}{plot1}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy [}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{]}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plot1}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-            
-        \PY{c+c1}{\PYZsh{}     red\PYZus{}patch = mpatches.Patch(color=\PYZsq{}red\PYZsq{}, label=\PYZsq{}The red data\PYZsq{})}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k\PYZhy{}Nearest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RandomForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-            \PY{c+c1}{\PYZsh{}plt.grid()}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time (s)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)} 
-            \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-            \PY{n+nb}{print}\PY{p}{(}\PY{n}{A}\PY{p}{)}
-            \PY{n+nb}{print}\PY{p}{(}\PY{n}{T}\PY{p}{)}
-            \PY{k}{return}
-        
-        \PY{n}{Question1a}\PY{p}{(}\PY{p}{)}
+             \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.05}\PY{p}{,}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{l+m+mf}{0.15}\PY{p}{,}\PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{)}
+                                \PY{c+c1}{\PYZsh{},0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.80,0.85,0.9,0.95,0.99]}
+             \PY{n}{A} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
+             \PY{n}{T} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
+         
+             \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
+             \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
+         
+             \PY{c+c1}{\PYZsh{}n1 = randint(0,len(y\PYZus{}test1))}
+             \PY{c+c1}{\PYZsh{}n2 = randint(0,len(y\PYZus{}test1))}
+         
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 
+                 \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fraction}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
+                 
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{i}\PY{p}{)}
+                 
+                 \PY{c+c1}{\PYZsh{} Solve the learning problems if the solutions do not exist yet}
+                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}classifier\PYZsq{} in locals(): }
+                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{knn} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}  
+                 \PY{n}{knn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)} 
+                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+                 \PY{c+c1}{\PYZsh{}y\PYZus{}predKNearest = knn.predict(X\PYZus{}test)  }
+                 \PY{n}{Accuracy\PYZus{}KNearest}\PY{o}{=}\PY{n}{knn}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)}
+                 \PY{n}{A}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}KNearest}
+                 \PY{n}{T}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
+                 
+                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}Forest\PYZsq{} in locals():   }
+                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{Forest} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{Forest}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
+                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+                 \PY{c+c1}{\PYZsh{}y\PYZus{}predForest = Forest.predict(X\PYZus{}test)  }
+                 \PY{n}{Accuracy\PYZus{}Forest}\PY{o}{=}\PY{n}{Forest}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)} \PY{c+c1}{\PYZsh{}accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predForest)}
+                 \PY{n}{A}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Forest}
+                 \PY{n}{T}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
+                 
+             \PY{n}{xas}\PY{o}{=}\PY{n}{Fraction}
+             \PY{n}{plot1}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy [}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{]}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+         \PY{c+c1}{\PYZsh{}     plot1.set\PYZus{}ylim([0, 1])}
+             
+         \PY{c+c1}{\PYZsh{}     red\PYZus{}patch = mpatches.Patch(color=\PYZsq{}red\PYZsq{}, label=\PYZsq{}The red data\PYZsq{})}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k\PYZhy{}Nearest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RandomForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{c+c1}{\PYZsh{}plt.grid()}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time (s)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k\PYZhy{}Nearest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RandomForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+             \PY{k}{return}
+         
+         \PY{k}{def} \PY{n+nf}{Question1b}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+             
+             \PY{n}{length\PYZus{}data}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{;} \PY{c+c1}{\PYZsh{}92000}
+             
+             \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{;} \PY{c+c1}{\PYZsh{} To have more control of the computation time}
+             \PY{n}{number\PYZus{}of\PYZus{}training}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{;} \PY{c+c1}{\PYZsh{} Not used}
+         
+             \PY{n}{Fractionb}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.02}\PY{p}{,}\PY{l+m+mf}{0.04}\PY{p}{,}\PY{l+m+mf}{0.06}\PY{p}{]}\PY{p}{)}
+             
+             \PY{n}{A1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
+             \PY{n}{T1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
+         
+             \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
+             \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
+         
+             \PY{c+c1}{\PYZsh{}n1 = randint(0,len(y\PYZus{}test1))}
+             \PY{c+c1}{\PYZsh{}n2 = randint(0,len(y\PYZus{}test1))}
+         
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fractionb}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
+         
+                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{i}\PY{p}{)}
+                 
+                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}logistic\PYZsq{} in locals(): }
+                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{logistic} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}
+                 \PY{n}{logistic}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
+                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}         y\PYZus{}predLogistic = logistic.predict(X\PYZus{}test) }
+                 \PY{n}{Accuracy\PYZus{}Logistic}\PY{o}{=}\PY{n}{logistic}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)} \PY{c+c1}{\PYZsh{}accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predLogistic)}
+                 \PY{n}{A1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Logistic}
+                 \PY{n}{T1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}       
+                 
+             \PY{n}{xas}\PY{o}{=}\PY{n}{Fractionb}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plot1}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A1}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy [}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{]}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plot1}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+             
+         \PY{c+c1}{\PYZsh{}   red\PYZus{}patch = mpatches.Patch(color=\PYZsq{}red\PYZsq{}, label=\PYZsq{}The red data\PYZsq{})}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{c+c1}{\PYZsh{}plt.grid()}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T1}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time (s)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)} 
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         
+             \PY{k}{return}
+         
+         \PY{n}{Question1a}\PY{p}{(}\PY{p}{)}
+         \PY{n}{Question1b}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -1335,8 +1328,6 @@ image.
 1
 2
 3
-4
-5
 
     \end{Verbatim}
 
@@ -1346,21 +1337,17 @@ image.
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-[[0.6 0.6 0. ]
- [0.9 1.  0. ]
- [0.9 0.8 0. ]
- [1.  0.6 0. ]
- [0.9 0.9 0. ]
- [0.9 0.5 0. ]]
-[[0.469 0.517 0.   ]
- [1.249 1.058 0.   ]
- [2.367 1.634 0.   ]
- [3.756 2.261 0.   ]
- [5.368 2.834 0.   ]
- [7.24  3.433 0.   ]]
+0
+1
+2
 
     \end{Verbatim}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_3.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     2 . Optimize the value for the number of neighbors \(k\) (keep \(k\)
 \textless{} 50) and the number of trees (keep \(n\_estimators\)
 \textless{} 100) on the stratified 10\% subsample. Use 10-fold
@@ -1369,15 +1356,13 @@ predictive accuracy. Which value of \(k\), \(n\_estimators\) should you
 pick?
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}10}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
+{\color{incolor}In [{\color{incolor}68}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
          
          \PY{k}{def} \PY{n+nf}{Question2}\PY{p}{(}\PY{p}{)}\PY{p}{:}
              
          \PY{c+c1}{\PYZsh{}    length\PYZus{}data=len(y); \PYZsh{}92000}
-             
-             \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{;} \PY{c+c1}{\PYZsh{} To have more control of the computation time}
          
-             \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.01}\PY{p}{]}\PY{p}{)}
+             \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.1}\PY{p}{]}\PY{p}{)}
              
              \PY{n}{n\PYZus{}neighborsA}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
              \PY{n}{n\PYZus{}estimatorsA}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
@@ -1391,9 +1376,12 @@ pick?
              \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
              \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
          
-             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size} \PY{o}{=} \PY{n}{Fraction}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size} \PY{o}{=} \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{/}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}\PY{p}{)} 
-         
+         \PY{c+c1}{\PYZsh{}     X\PYZus{}del, X\PYZus{}train, y\PYZus{}del, y\PYZus{}train = train\PYZus{}test\PYZus{}split(X, y, test\PYZus{}size = Fraction[0])}
+         \PY{c+c1}{\PYZsh{}     X\PYZus{}del, X\PYZus{}test, y\PYZus{}del, y\PYZus{}test = train\PYZus{}test\PYZus{}split(X, y, test\PYZus{}size = number\PYZus{}of\PYZus{}test/(len(y))) }
+             
+             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fraction}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+             \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
+             
              \PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}
              \PY{n}{y\PYZus{}train}\PY{o}{.}\PY{n}{shape}
          
@@ -1464,443 +1452,59 @@ pick?
 
     \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 0 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 1 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 2 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 3 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 4 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 5 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 6 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 7 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 8 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 9 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 10 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 11 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 12 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 13 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 14 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 15 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 16 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 17 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 18 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 knn iteration: 19 
 
     \end{Verbatim}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_40.pdf}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_1.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 0 
 Random Forest iteration: 1 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 2 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 3 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 4 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 5 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 6 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 7 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 8 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 9 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 10 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 11 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 12 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 13 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 14 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 15 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 16 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 17 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 18 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
 Random Forest iteration: 19 
 
     \end{Verbatim}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}s140737\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_split.py:605: Warning: The least populated class in y has only 7 members, which is too few. The minimum number of members in any class cannot be less than n\_splits=10.
-  \% (min\_groups, self.n\_splits)), Warning)
-
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_79.pdf}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_3.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -1918,7 +1522,7 @@ as possible. Interpret the results. Can you explain your observations?
 What did you learn about tuning RandomForests?
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}11}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
+{\color{incolor}In [{\color{incolor}72}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{GridSearchCV}
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{Pipeline}
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{make\PYZus{}pipeline}
@@ -1930,11 +1534,11 @@ What did you learn about tuning RandomForests?
              \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{;} \PY{c+c1}{\PYZsh{} To have more control of the computation time}
              \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.01}\PY{p}{]}\PY{p}{)}
              
-             \PY{n}{n\PYZus{}estimatorsAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+             \PY{n}{n\PYZus{}estimatorsAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
              \PY{n}{n\PYZus{}estimatorsAFR}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsAF}\PY{p}{)}
              \PY{n}{n\PYZus{}estimatorsA}\PY{o}{=}\PY{n}{n\PYZus{}estimatorsAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
              \PY{n+nb}{print}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}
-             \PY{n}{max\PYZus{}featuresAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+             \PY{n}{max\PYZus{}featuresAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}
              \PY{n}{max\PYZus{}featuresAFR}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{max\PYZus{}featuresAF}\PY{p}{)}
              \PY{n}{max\PYZus{}featuresA}\PY{o}{=}\PY{n}{max\PYZus{}featuresAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
              \PY{n+nb}{print}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}
@@ -1944,9 +1548,9 @@ What did you learn about tuning RandomForests?
          
              \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
              \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-         
-             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size} \PY{o}{=} \PY{n}{Fraction}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size} \PY{o}{=} \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{/}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}\PY{p}{)} 
+            
+             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fraction}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+             \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
             
              \PY{n}{p\PYZus{}grid} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{n\PYZus{}estimators}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{n\PYZus{}estimatorsA}\PY{p}{,}
                    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{max\PYZus{}features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{max\PYZus{}featuresA}\PY{p}{\PYZcb{}}
@@ -2019,25 +1623,278 @@ What did you learn about tuning RandomForests?
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-[ 1 10]
-[ 1 10]
+[  1   6  11  17  22  27  32  37  43  48  53  58  64  69  74  79  84  90
+  95 100]
+[  1  12  23  34  45  56  67  78  89 100]
 Random Forest iteration: 0 
-Random Forest iteration: 1 
-0.11223029912781782
-0.28423612125558273
 
     \end{Verbatim}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_1.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+        ---------------------------------------------------------------------------
+
+        KeyboardInterrupt                         Traceback (most recent call last)
+
+        <ipython-input-72-62019a690a66> in <module>()
+         95 
+         96 
+    ---> 97 Question3()
+         98 
     
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_2.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
+
+        <ipython-input-72-62019a690a66> in Question3()
+         44 
+         45             \# Nested CV with parameter optimization
+    ---> 46             nested\_score = cross\_val\_score(clf, X=X\_train, y=y\_train, cv=outer\_cv)
+         47             A2[i][n][0] = nested\_score.mean()
+         48 
     
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in cross\_val\_score(estimator, X, y, groups, scoring, cv, n\_jobs, verbose, fit\_params, pre\_dispatch)
+        340                                 n\_jobs=n\_jobs, verbose=verbose,
+        341                                 fit\_params=fit\_params,
+    --> 342                                 pre\_dispatch=pre\_dispatch)
+        343     return cv\_results['test\_score']
+        344 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in cross\_validate(estimator, X, y, groups, scoring, cv, n\_jobs, verbose, fit\_params, pre\_dispatch, return\_train\_score)
+        204             fit\_params, return\_train\_score=return\_train\_score,
+        205             return\_times=True)
+    --> 206         for train, test in cv.split(X, y, groups))
+        207 
+        208     if return\_train\_score:
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
+        777             \# was dispatched. In particular this covers the edge
+        778             \# case of Parallel used with an exhausted iterator.
+    --> 779             while self.dispatch\_one\_batch(iterator):
+        780                 self.\_iterating = True
+        781             else:
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
+        623                 return False
+        624             else:
+    --> 625                 self.\_dispatch(tasks)
+        626                 return True
+        627 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
+        586         dispatch\_timestamp = time.time()
+        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
+    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
+        589         self.\_jobs.append(job)
+        590 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
+        109     def apply\_async(self, func, callback=None):
+        110         """Schedule a func to be run"""
+    --> 111         result = ImmediateResult(func)
+        112         if callback:
+        113             callback(result)
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
+        330         \# Don't delay the application, to avoid keeping the input
+        331         \# arguments in memory
+    --> 332         self.results = batch()
+        333 
+        334     def get(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
+        129 
+        130     def \_\_call\_\_(self):
+    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        132 
+        133     def \_\_len\_\_(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
+        129 
+        130     def \_\_call\_\_(self):
+    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        132 
+        133     def \_\_len\_\_(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in \_fit\_and\_score(estimator, X, y, scorer, train, test, verbose, parameters, fit\_params, return\_train\_score, return\_parameters, return\_n\_test\_samples, return\_times, error\_score)
+        456             estimator.fit(X\_train, **fit\_params)
+        457         else:
+    --> 458             estimator.fit(X\_train, y\_train, **fit\_params)
+        459 
+        460     except Exception as e:
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_search.py in fit(self, X, y, groups, **fit\_params)
+        637                                   error\_score=self.error\_score)
+        638           for parameters, (train, test) in product(candidate\_params,
+    --> 639                                                    cv.split(X, y, groups)))
+        640 
+        641         \# if one choose to see train score, "out" will contain train score info
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
+        777             \# was dispatched. In particular this covers the edge
+        778             \# case of Parallel used with an exhausted iterator.
+    --> 779             while self.dispatch\_one\_batch(iterator):
+        780                 self.\_iterating = True
+        781             else:
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
+        623                 return False
+        624             else:
+    --> 625                 self.\_dispatch(tasks)
+        626                 return True
+        627 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
+        586         dispatch\_timestamp = time.time()
+        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
+    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
+        589         self.\_jobs.append(job)
+        590 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
+        109     def apply\_async(self, func, callback=None):
+        110         """Schedule a func to be run"""
+    --> 111         result = ImmediateResult(func)
+        112         if callback:
+        113             callback(result)
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
+        330         \# Don't delay the application, to avoid keeping the input
+        331         \# arguments in memory
+    --> 332         self.results = batch()
+        333 
+        334     def get(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
+        129 
+        130     def \_\_call\_\_(self):
+    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        132 
+        133     def \_\_len\_\_(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
+        129 
+        130     def \_\_call\_\_(self):
+    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        132 
+        133     def \_\_len\_\_(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in \_fit\_and\_score(estimator, X, y, scorer, train, test, verbose, parameters, fit\_params, return\_train\_score, return\_parameters, return\_n\_test\_samples, return\_times, error\_score)
+        456             estimator.fit(X\_train, **fit\_params)
+        457         else:
+    --> 458             estimator.fit(X\_train, y\_train, **fit\_params)
+        459 
+        460     except Exception as e:
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}ensemble\textbackslash{}forest.py in fit(self, X, y, sample\_weight)
+        326                     t, self, X, y, sample\_weight, i, len(trees),
+        327                     verbose=self.verbose, class\_weight=self.class\_weight)
+    --> 328                 for i, t in enumerate(trees))
+        329 
+        330             \# Collect newly grown trees
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
+        777             \# was dispatched. In particular this covers the edge
+        778             \# case of Parallel used with an exhausted iterator.
+    --> 779             while self.dispatch\_one\_batch(iterator):
+        780                 self.\_iterating = True
+        781             else:
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
+        623                 return False
+        624             else:
+    --> 625                 self.\_dispatch(tasks)
+        626                 return True
+        627 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
+        586         dispatch\_timestamp = time.time()
+        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
+    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
+        589         self.\_jobs.append(job)
+        590 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
+        109     def apply\_async(self, func, callback=None):
+        110         """Schedule a func to be run"""
+    --> 111         result = ImmediateResult(func)
+        112         if callback:
+        113             callback(result)
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
+        330         \# Don't delay the application, to avoid keeping the input
+        331         \# arguments in memory
+    --> 332         self.results = batch()
+        333 
+        334     def get(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
+        129 
+        130     def \_\_call\_\_(self):
+    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        132 
+        133     def \_\_len\_\_(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
+        129 
+        130     def \_\_call\_\_(self):
+    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
+        132 
+        133     def \_\_len\_\_(self):
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}ensemble\textbackslash{}forest.py in \_parallel\_build\_trees(tree, forest, X, y, sample\_weight, tree\_idx, n\_trees, verbose, class\_weight)
+        119             curr\_sample\_weight *= compute\_sample\_weight('balanced', y, indices)
+        120 
+    --> 121         tree.fit(X, y, sample\_weight=curr\_sample\_weight, check\_input=False)
+        122     else:
+        123         tree.fit(X, y, sample\_weight=sample\_weight, check\_input=False)
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}tree\textbackslash{}tree.py in fit(self, X, y, sample\_weight, check\_input, X\_idx\_sorted)
+        788             sample\_weight=sample\_weight,
+        789             check\_input=check\_input,
+    --> 790             X\_idx\_sorted=X\_idx\_sorted)
+        791         return self
+        792 
+    
+
+        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}tree\textbackslash{}tree.py in fit(self, X, y, sample\_weight, check\_input, X\_idx\_sorted)
+        360                                            min\_impurity\_split)
+        361 
+    --> 362         builder.build(self.tree\_, X, y, sample\_weight, X\_idx\_sorted)
+        363 
+        364         if self.n\_outputs\_ == 1:
+    
+
+        KeyboardInterrupt: 
+
+    \end{Verbatim}
+
     \subsection{3. Understanding Ensembles (5 points
 (3+2))}\label{understanding-ensembles-5-points-32}
 
@@ -2049,14 +1906,14 @@ atmosphere, they produce chain reactions of other particles called
 or cosmic rays.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{} Get the data}
-        \PY{n}{magic\PYZus{}data} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{1120}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download MAGIC Telescope data}
-        \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}73}]:} \PY{c+c1}{\PYZsh{} Get the data}
+         \PY{n}{magic\PYZus{}data} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{1120}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download MAGIC Telescope data}
+         \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{} Quick visualization}
+{\color{incolor}In [{\color{incolor}74}]:} \PY{c+c1}{\PYZsh{} Quick visualization}
          \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{attribute\PYZus{}names} \PY{o}{=} \PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{,} \PY{n}{return\PYZus{}attribute\PYZus{}names}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
          \PY{n}{magic} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{n}{attribute\PYZus{}names}\PY{p}{)}
          \PY{n}{magic}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
@@ -2088,7 +1945,7 @@ your initial experiments, but show the plots for the full dataset in
 your report.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}11}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{ShuffleSplit}
+{\color{incolor}In [{\color{incolor}75}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{ShuffleSplit}
          \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{ensemble}
          
          
@@ -2099,7 +1956,7 @@ your report.
              \PY{n}{n\PYZus{}treesA}\PY{o}{=}\PY{n}{n\PYZus{}treesAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
              \PY{n+nb}{print}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}
              \PY{n}{n\PYZus{}repeat} \PY{o}{=} \PY{l+m+mi}{5}
-             \PY{n}{shuffle\PYZus{}split} \PY{o}{=} \PY{n}{ShuffleSplit}\PY{p}{(}\PY{n}{train\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.01}\PY{p}{,} \PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{n\PYZus{}repeat}\PY{p}{)}
+             \PY{n}{shuffle\PYZus{}split} \PY{o}{=} \PY{n}{ShuffleSplit}\PY{p}{(}\PY{n}{train\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{n\PYZus{}repeat}\PY{p}{)}
              
              \PY{n}{bias\PYZus{}sq}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
              \PY{n}{var}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
@@ -2133,10 +1990,9 @@ your report.
                              \PY{n}{bias\PYZus{}sumi}\PY{o}{=}\PY{n}{bias\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat}
                              \PY{n}{var\PYZus{}sumi}\PY{o}{=}\PY{n}{var\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat} 
                              \PY{n}{error\PYZus{}sumi}\PY{o}{=}\PY{n}{error\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat}
-         
                  \PY{n}{bias\PYZus{}sq}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{bias\PYZus{}sumi}
                  \PY{n}{var}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{var\PYZus{}sumi}
-                 \PY{n}{error}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{var\PYZus{}sumi}
+                 \PY{n}{error}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{error\PYZus{}sumi}
                  \PY{c+c1}{\PYZsh{}print(\PYZdq{}Forest tree Bias squared: \PYZpc{}.2f, Variance: \PYZpc{}.2f, Total error: \PYZpc{}.2f\PYZdq{} \PYZpc{} (bias\PYZus{}sq[n], var[n], error[n]))}
                  \PY{c+c1}{\PYZsh{} Train classifier on each bootstrap and score predictions}
                  \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{p}{(}\PY{n}{train\PYZus{}index}\PY{p}{,} \PY{n}{test\PYZus{}index}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{shuffle\PYZus{}split}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)}\PY{p}{:}
@@ -2162,7 +2018,7 @@ your report.
          
                      \PY{n}{bias\PYZus{}sqG}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{bias\PYZus{}sumi}
                      \PY{n}{varG}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{var\PYZus{}sumi}
-                     \PY{n}{errorG}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{var\PYZus{}sumi}
+                     \PY{n}{errorG}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{error\PYZus{}sumi}
                  \PY{c+c1}{\PYZsh{}print(\PYZdq{}Gradient Boosting Bias squared: \PYZpc{}.2f, Variance: \PYZpc{}.2f, Total error: \PYZpc{}.2f\PYZdq{} \PYZpc{} (bias\PYZus{}sq[n], var[n], error[n]))}
                  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Iteration }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}}\PY{k}{n})
              \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
@@ -2197,35 +2053,34 @@ your report.
     \begin{Verbatim}[commandchars=\\\{\}]
 [   1    1    2    3    4    6    9   13   19   27   38   55   80  115
   165  238  343  494  711 1024]
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+Iteration 7
+Iteration 8
+Iteration 9
+Iteration 10
+Iteration 11
+Iteration 12
+Iteration 13
+Iteration 14
+Iteration 15
+Iteration 16
+Iteration 17
+Iteration 18
+Iteration 19
 
     \end{Verbatim}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-        ---------------------------------------------------------------------------
-
-        NameError                                 Traceback (most recent call last)
-
-        <ipython-input-11-427640831f2b> in <module>()
-         98     return
-         99 
-    --> 100 Question4()
-        101 
-        102 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_1.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
     
-
-        <ipython-input-11-427640831f2b> in Question4()
-         26         for i, (train\_index, test\_index) in enumerate(shuffle\_split.split(X)):
-         27             \# Train and predict
-    ---> 28             clf =  RandomForestClassifier(n\_estimators=n\_treesA[n]) \#ensemble.GradientBoostingClassifier
-         29             clf.fit(X[train\_index], y[train\_index])
-         30             y\_pred = clf.predict(X[test\_index])
-    
-
-        NameError: name 'RandomForestClassifier' is not defined
-
-    \end{Verbatim}
-
     2 . A \emph{validation curve} can help you understand when a model
 starts under- or overfitting. It plots both training and test set error
 as you change certain characteristics of your model, e.g. one or more
@@ -2303,56 +2158,15 @@ use a default train-test split.
          \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size} \PY{o}{=} \PY{l+m+mf}{0.5}\PY{p}{)}  
          
          \PY{n}{classifiers} \PY{o}{=} \PY{p}{[}
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{5000}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{}n\PYZus{}estimators=3, }
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{5000}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{5000}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{}n\PYZus{}estimators=3, }
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{5000}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{}n\PYZus{}estimators=3, }
+             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
+             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{}n\PYZus{}estimators=3, }
+             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
          \PY{c+c1}{\PYZsh{}     GradientBoostingClassifier(n\PYZus{}estimators=10,random\PYZus{}state=0, learning\PYZus{}rate=0.5)}
              \PY{p}{]}
          
          \PY{n}{validation\PYZus{}curve}\PY{p}{(}\PY{n}{classifiers}\PY{p}{,}\PY{n}{X\PYZus{}test}\PY{o}{=}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{o}{=}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{X\PYZus{}train}\PY{o}{=}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{o}{=}\PY{n}{y\PYZus{}train}\PY{p}{)}
          \PY{c+c1}{\PYZsh{}validation\PYZus{}curve(classifiers,X\PYZus{}train=,y\PYZus{}train,X\PYZus{}test,y\PYZus{}test)}
-         
-         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         \PY{l+s+sd}{train\PYZus{}scores, test\PYZus{}scores = validation\PYZus{}curve(}
-         \PY{l+s+sd}{    SVC(), X\PYZus{}train, y\PYZus{}train, param\PYZus{}name=\PYZdq{}gamma\PYZdq{}, param\PYZus{}range=param\PYZus{}range,}
-         \PY{l+s+sd}{    cv=10, scoring=\PYZdq{}accuracy\PYZdq{}, n\PYZus{}jobs=1)}
-         \PY{l+s+sd}{train\PYZus{}scores\PYZus{}mean = np.mean(train\PYZus{}scores, axis=1)}
-         \PY{l+s+sd}{train\PYZus{}scores\PYZus{}std = np.std(train\PYZus{}scores, axis=1)}
-         \PY{l+s+sd}{test\PYZus{}scores\PYZus{}mean = np.mean(test\PYZus{}scores, axis=1)}
-         \PY{l+s+sd}{test\PYZus{}scores\PYZus{}std = np.std(test\PYZus{}scores, axis=1)}
-         
-         \PY{l+s+sd}{plt.title(\PYZdq{}Validation Curve with SVM\PYZdq{})}
-         \PY{l+s+sd}{plt.xlabel(\PYZdq{}\PYZdl{}\PYZbs{}gamma\PYZdl{}\PYZdq{})}
-         \PY{l+s+sd}{plt.ylabel(\PYZdq{}Score\PYZdq{})}
-         \PY{l+s+sd}{plt.ylim(0.0, 1.1)}
-         \PY{l+s+sd}{lw = 2}
-         \PY{l+s+sd}{plt.semilogx(param\PYZus{}range, train\PYZus{}scores\PYZus{}mean, label=\PYZdq{}Training score\PYZdq{},}
-         \PY{l+s+sd}{             color=\PYZdq{}darkorange\PYZdq{}, lw=lw)}
-         \PY{l+s+sd}{plt.fill\PYZus{}between(param\PYZus{}range, train\PYZus{}scores\PYZus{}mean \PYZhy{} train\PYZus{}scores\PYZus{}std,}
-         \PY{l+s+sd}{                 train\PYZus{}scores\PYZus{}mean + train\PYZus{}scores\PYZus{}std, alpha=0.2,}
-         \PY{l+s+sd}{                 color=\PYZdq{}darkorange\PYZdq{}, lw=lw)}
-         \PY{l+s+sd}{plt.semilogx(param\PYZus{}range, test\PYZus{}scores\PYZus{}mean, label=\PYZdq{}Cross\PYZhy{}validation score\PYZdq{},}
-         \PY{l+s+sd}{             color=\PYZdq{}navy\PYZdq{}, lw=lw)}
-         \PY{l+s+sd}{plt.fill\PYZus{}between(param\PYZus{}range, test\PYZus{}scores\PYZus{}mean \PYZhy{} test\PYZus{}scores\PYZus{}std,}
-         \PY{l+s+sd}{                 test\PYZus{}scores\PYZus{}mean + test\PYZus{}scores\PYZus{}std, alpha=0.2,}
-         \PY{l+s+sd}{                 color=\PYZdq{}navy\PYZdq{}, lw=lw)}
-         \PY{l+s+sd}{plt.legend(loc=\PYZdq{}best\PYZdq{})}
-         \PY{l+s+sd}{plt.show()}
-         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         \PY{l+s+sd}{import plot\PYZus{}classifiers as pc}
-         \PY{l+s+sd}{from sklearn.ensemble import GradientBoostingClassifier}
-         \PY{l+s+sd}{names = [\PYZdq{}Gradient Boosting 1 tree\PYZdq{}, \PYZdq{}Gradient Boosting 3 trees\PYZdq{}, \PYZdq{}Gradient Boosting 100 trees\PYZdq{}]}
-         
-         \PY{l+s+sd}{classifiers = [}
-         \PY{l+s+sd}{    GradientBoostingClassifier(n\PYZus{}estimators=1, random\PYZus{}state=0, learning\PYZus{}rate=0.5),}
-         \PY{l+s+sd}{    GradientBoostingClassifier(n\PYZus{}estimators=3, random\PYZus{}state=0, learning\PYZus{}rate=0.5),}
-         \PY{l+s+sd}{    GradientBoostingClassifier(n\PYZus{}estimators=100, random\PYZus{}state=0, learning\PYZus{}rate=0.5)}
-         \PY{l+s+sd}{    ]}
-         
-         \PY{l+s+sd}{pc.plot\PYZus{}classifiers(names, classifiers, figuresize=(20,8))  }
-         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
 \end{Verbatim}
 
 

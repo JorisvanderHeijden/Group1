@@ -21,22 +21,31 @@ settings.
 20\%,...). Plot the training time and the predictive performance for each. Stop when the
 training time becomes prohibitively large (this will be different for different models).}
 \end{itemize}
-The pyhton code is shown in appendix \ref{AQ21}.
+\textnormal{Because the logistic regression algorithm took more time than the k-Nearest and the Random Forest algorithm we made two figures; one based on maximum 20\% of the data and one based on maximum 6\% of the data. For this problem we used 75\% of the data to train the model and 25\% to validate the model.}
 
 \begin{figure}[H]
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_15_1}}}
 \hfill
-\caption{Predictive accuracy as a function of the subsample data.}
-\label{Q21image}
+\caption{Performance of the k-Nearest and Logistic regression algorithms. }
+\label{Q21a}
 \end{figure}
 
-Figure \ref{Q21image} shows that the accuracy of the k-Nearest and Logistic regression algorithm does not show a clear trend. This can be due to used randomness of the train and test samples. The predictive accuracy is due to this not a good measure for this problem. 
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_15_3}}}
+\hfill
+\caption{Performance of the Logistic regression algorithm.}
+\label{Q21b}
+\end{figure}
+
+\textnormal{Because the data size is sufficiently large the predictive accuracy is a good scoring measure. The characteristics of the k-Nearest and randomForest algorithm is shown in figure \ref{Q21a}. This figures shows that the accuracy of the models goes up when more data is used, which is expected. However figure \ref{Q21b} does not show this trend. We do not recommend this algorithm for this problem because of the time needed to train this algorithm and the accuracy of the model.}
+
 
 \subsection*{2}
 {\it Optimize the value for the number of neighbors $k$ (keep $k < 50$) and the number of trees
-(keep $n_{estimators} < 100$) on the stratified 10\% subsample. Use 10-fold crossvalidation and plot $k$ and $n_{estimators}$ against the predictive accuracy. Which value of $k, n_{estimators}$ should you pick?}
-Because the simulation took too long for the 10\% subsample only 1\% is taken as the subsample. 
+(keep $n_{estimators} < 100$) on the stratified 10\% subsample. Use 10-fold crossvalidation and plot $k$ and $n_{estimators}$ against the predictive accuracy. Which value of $k, n_{estimators}$ should you pick?}\\
+
 \begin{figure}[H]
 \hfill
 \makebox[\textwidth][c]{
@@ -55,9 +64,9 @@ As can been seen in figure \ref{Q22} is that the number of neigbors should be se
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_19_1}}}
 \hfill
 \caption{Accuracy for the random forest for different maximum features and number of estimators numbers. This is done for 1\% of the total data set (due to the lack of computer power and time).}
-\label{•}
+\label{Q23}
 \end{figure}
-The percentage has a big influence for the accuracy prediction. The 
+\textnormal{The finest grid which does not take too much time is a 10x10 grid. This grid gives a good insight in the performance of the randomforest algorithm. We used only 1\% of the data to save computing power. This has a big influences on the results, however the characteristics of the algorithm can be examined. Figure \ref{Q23} shows that the number of trees in the forest  } 
 
 \section*{4}
 \subsection*{1}
@@ -68,8 +77,33 @@ The percentage has a big influence for the accuracy prediction. The
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_24_1}}}
 \hfill
 \caption{•}
-\label{•}
+\label{Q41}
 \end{figure}
+
+The results shown in figure \ref{Q41} are not the results we expected. However 
+
+\subsection*{2}
+{\it A validation curve can help you understand when a model starts under- or overfitting. It plots both training and test set error as you change certain characteristics of your model, e.g. one or more hyperparameters. Build validation curves for gradient boosting, evaluated using AUROC, by varying the number of iterations between 1 and 500. In addition, use at least two values for the learning rate (e.g. 0.1 and 1), and tree depth (e.g. 1 and 4). This will yield at least 4 curves. Interpret the results and provide a clear explanation for the results. When is the model over- or underfitting? Discuss the effect of the different combinations learning rate and tree depth and provide a clear explanation.
+While scikit-learn has a validation curve function, we'll use a modified version (below) that provides a lot more detail and can be used to study more than one hyperparameter. You can use a default train-test split.}
+
+\textnormal{We added the $clf.fit(X\; train,y\; train)$ function before the Gradient boosting algorithm in order to make sere estimator was defined. The result is shown in figure \ref{Q41a}.}
+ 
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_26_3}}}
+\hfill
+\caption{Compute Receiver operating characteristic score for different hyperparameters for the gradient boosting algorithm.}
+\label{Q41a}
+\end{figure}
+
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_26_2}}}
+\hfill
+\caption{Compute Receiver operating characteristic score for different hyperparameters for the gradient boosting algorithm. The number of iterations is set to 5000 to show possible overfitting characteristics.}
+\label{Q41b}
+\end{figure}
+
 \section{Appendix}
 \subsection{Code question 2.1}
 \label{AQ21}
