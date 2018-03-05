@@ -66,7 +66,7 @@ As can been seen in figure \ref{Q22} is that the number of neigbors should be se
 \caption{Accuracy for the random forest for different maximum features and number of estimators numbers. This is done for 1\% of the total data set (due to the lack of computer power and time).}
 \label{Q23}
 \end{figure}
-\textnormal{The finest grid which does not take too much time is a 10x10 grid. This grid gives a good insight in the performance of the randomforest algorithm. We used only 1\% of the data to save computing power. This has a big influences on the results, however the characteristics of the algorithm can be examined. Figure \ref{Q23} shows that the number of trees in the forest  } 
+\textnormal{The finest grid which does not take too much time is in our case a 10x10 grid. This grid gives a good insight in the performance of the randomforest algorithm. We used only 1\% of the data because, unfortunately, the computing time was very large for 10\% of the data. This has a big influences on the results, however the characteristics of the algorithm can be examined. Figure \ref{Q23} shows that the number of trees in the forest. The optimal performance can be achieved by setting the number of estimators between 17 and 23 and the maximum features to 100. The more features that are available the better the data can be fitted, however overfitting the data can become a problem when the maximum number of features increases. The best number of trees does show a good accuracy for 50 number of trees. However the best accuracy can be increased by tuning the number of trees for a specific number of features.} 
 
 \section*{4}
 \subsection*{1}
@@ -76,17 +76,18 @@ As can been seen in figure \ref{Q22} is that the number of neigbors should be se
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_24_1}}}
 \hfill
-\caption{•}
+\caption{RandomForests (blue lines )and Gradient Boosting (red dashed lines) as a function of the number of trees/ iterations.}
 \label{Q41}
 \end{figure}
 
-The results shown in figure \ref{Q41} are not the results we expected. However 
+The results shown in figure \ref{Q41} are not the results we expected. %We expected that the RandomForests and Gradient Boosting lines cross each other when the number of trees increases. This due to  
+In general when the number of features/ iterations increased the model tend to overfit the data. However in this case each features is a pixel and the data is not overfitted. This also means that when the number of trees/ iterations increases all bias, variance and total errors goes down for this example. At the start both models are clearly under fitting because the number of total features of the image (1024) cannot be captured well. 
 
 \subsection*{2}
 {\it A validation curve can help you understand when a model starts under- or overfitting. It plots both training and test set error as you change certain characteristics of your model, e.g. one or more hyperparameters. Build validation curves for gradient boosting, evaluated using AUROC, by varying the number of iterations between 1 and 500. In addition, use at least two values for the learning rate (e.g. 0.1 and 1), and tree depth (e.g. 1 and 4). This will yield at least 4 curves. Interpret the results and provide a clear explanation for the results. When is the model over- or underfitting? Discuss the effect of the different combinations learning rate and tree depth and provide a clear explanation.
 While scikit-learn has a validation curve function, we'll use a modified version (below) that provides a lot more detail and can be used to study more than one hyperparameter. You can use a default train-test split.}
 
-\textnormal{We added the $clf.fit(X\; train,y\; train)$ function before the Gradient boosting algorithm in order to make sere estimator was defined. The result is shown in figure \ref{Q41a}.}
+\textnormal{We added the $clf.fit(X\; train,y\; train)$ function before the Gradient boosting algorithm in order to make sere estimator was defined. The result is shown in figure \ref{Q41a} and figure \ref{Q41b}.}
  
 \begin{figure}[H]
 \hfill
@@ -95,7 +96,7 @@ While scikit-learn has a validation curve function, we'll use a modified version
 \caption{Compute Receiver operating characteristic score for different hyperparameters for the gradient boosting algorithm.}
 \label{Q41a}
 \end{figure}
-
+Figure \ref{Q41a} clearly shows the underfitting when the number of boosting iterations are small. The convergence rate for the learning rate of 1 is clearly faster than for 0.1. The tree depth also has a big influence on the convergence rate, see the light blue and red lines. More features can be captured in the model so the model can captures the model more accurately. The expected overfitting of the data (the increase of the 1-ROC value) does not happen for 500 iterations so therefore we made an example for 5000 iterations, figure \ref{Q41b}. 
 \begin{figure}[H]
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_26_2}}}
@@ -103,6 +104,8 @@ While scikit-learn has a validation curve function, we'll use a modified version
 \caption{Compute Receiver operating characteristic score for different hyperparameters for the gradient boosting algorithm. The number of iterations is set to 5000 to show possible overfitting characteristics.}
 \label{Q41b}
 \end{figure}
+
+
 
 \section{Appendix}
 \subsection{Code question 2.1}

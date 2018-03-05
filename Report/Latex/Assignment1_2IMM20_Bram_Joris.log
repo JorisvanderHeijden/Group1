@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.27)  5 MAR 2018 13:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.2.27)  5 MAR 2018 16:37
 entering extended mode
 **./Assignment1_2IMM20_Bram_Joris.tex
 (Assignment1_2IMM20_Bram_Joris.tex
@@ -1313,7 +1313,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--66
 
 [3 <./Figures/output_17_1.png> <./Figures/output_17_3.png>] [4 <./Figures/outpu
 t_19_1.png>]
-<./Figures/output_24_1.png, id=82, 425.59pt x 281.05pt>
+<./Figures/output_24_1.png, id=80, 425.59pt x 281.05pt>
 File: ./Figures/output_24_1.png Graphic file (type png)
 <use ./Figures/output_24_1.png>
 Package pdftex.def Info: ./Figures/output_24_1.png  used on input line 77.
@@ -1323,52 +1323,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--79
 
  []
 
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no ¢ in font cmti10!
-Missing character: There is no â in font cmti10!
-Missing character: There is no € in font cmti10!
-Missing character: There is no ¢ in font cmti10!
 [5 <./Figures/output_24_1.png>]
-<./Figures/output_26_3.png, id=91, 396.48125pt x 266.9975pt>
+<./Figures/output_26_3.png, id=92, 396.48125pt x 266.9975pt>
 File: ./Figures/output_26_3.png Graphic file (type png)
 <use ./Figures/output_26_3.png>
-Package pdftex.def Info: ./Figures/output_26_3.png  used on input line 91.
+Package pdftex.def Info: ./Figures/output_26_3.png  used on input line 94.
 (pdftex.def)             Requested size: 341.43306pt x 229.93112pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--93
+Underfull \hbox (badness 10000) in paragraph at lines 93--96
 
  []
 
-<./Figures/output_26_2.png, id=92, 396.48125pt x 266.9975pt>
+[6]
+<./Figures/output_26_2.png, id=103, 396.48125pt x 266.9975pt>
 File: ./Figures/output_26_2.png Graphic file (type png)
 <use ./Figures/output_26_2.png>
-Package pdftex.def Info: ./Figures/output_26_2.png  used on input line 99.
+Package pdftex.def Info: ./Figures/output_26_2.png  used on input line 102.
 (pdftex.def)             Requested size: 341.43306pt x 229.93112pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--101
+Underfull \hbox (badness 10000) in paragraph at lines 101--104
 
  []
 
-[6 <./Figures/output_26_3.png>] [7 <./Figures/output_26_2.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
+[7 <./Figures/output_26_3.png>] [8 <./Figures/output_26_2.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 119.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 119.
 
 (Assignment1_2IMM20_Bram_Joris.aux (Titlepage.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 119.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 119.
 Package rerunfilecheck Info: File `Assignment1_2IMM20_Bram_Joris.out' has not c
 hanged.
 (rerunfilecheck)             Checksum: CB8C5D746D280E884101F992DD36C3D5;178.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 119.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 15 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 29064 strings out of 493303
- 576343 string characters out of 3128914
+ 29065 strings out of 493303
+ 576349 string characters out of 3128914
  624898 words of memory out of 3000000
  32139 multiletter control sequences out of 15000+200000
  541675 words of font info for 63 fonts, out of 3000000 for 9000
@@ -1387,9 +1386,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/s140737/AppData/Lo
 cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/s14
 0737/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pf
 b>
-Output written on Assignment1_2IMM20_Bram_Joris.pdf (8 pages, 321699 bytes).
+Output written on Assignment1_2IMM20_Bram_Joris.pdf (9 pages, 326064 bytes).
 PDF statistics:
- 147 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
+ 155 PDF objects out of 1000 (max. 8388607)
+ 30 named destinations out of 1000 (max. 500000)
  82 words of extra memory for PDF output out of 10000 (max. 10000000)
 
