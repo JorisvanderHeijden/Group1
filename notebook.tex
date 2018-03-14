@@ -636,18 +636,18 @@ with added noise.
 \end{enumerate}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}18}]:} \PY{c+c1}{\PYZsh{} Generate sample data}
-         \PY{n}{rng} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{RandomState}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)} \PY{c+c1}{\PYZsh{} Random seed, for reproducibility }
-         \PY{n}{X} \PY{o}{=} \PY{l+m+mi}{30} \PY{o}{*} \PY{n}{rng}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
-         \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)} 
-         \PY{n}{y}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{rng}\PY{o}{.}\PY{n}{normal}\PY{p}{(}\PY{n}{scale} \PY{o}{=} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{size} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{} adds noise}
-         
-         \PY{n}{X\PYZus{}plot} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{40}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{k+kc}{None}\PY{p}{]} \PY{c+c1}{\PYZsh{} A larger range to evaluate on}
-         \PY{n}{true\PYZus{}y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{)} \PY{c+c1}{\PYZsh{} and the \PYZsq{}true\PYZsq{} target function}
-         
-         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{,} \PY{n}{true\PYZus{}y}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{c+c1}{\PYZsh{} Generate sample data}
+        \PY{n}{rng} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{RandomState}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)} \PY{c+c1}{\PYZsh{} Random seed, for reproducibility }
+        \PY{n}{X} \PY{o}{=} \PY{l+m+mi}{30} \PY{o}{*} \PY{n}{rng}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)} 
+        \PY{n}{y}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{rng}\PY{o}{.}\PY{n}{normal}\PY{p}{(}\PY{n}{scale} \PY{o}{=} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{size} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2}\PY{p}{)} \PY{c+c1}{\PYZsh{} adds noise}
+        
+        \PY{n}{X\PYZus{}plot} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{40}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{k+kc}{None}\PY{p}{]} \PY{c+c1}{\PYZsh{} A larger range to evaluate on}
+        \PY{n}{true\PYZus{}y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{)} \PY{c+c1}{\PYZsh{} and the \PYZsq{}true\PYZsq{} target function}
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{,} \PY{n}{true\PYZus{}y}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
@@ -699,18 +699,18 @@ trend:
 \end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}19}]:} \PY{c+c1}{\PYZsh{} Generate sample data with added trend}
-         \PY{n}{rng} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{RandomState}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
-         \PY{n}{X} \PY{o}{=} \PY{l+m+mi}{30} \PY{o}{*} \PY{n}{rng}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
-         \PY{n}{y} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}
-         \PY{n}{y}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{rng}\PY{o}{.}\PY{n}{normal}\PY{p}{(}\PY{n}{scale} \PY{o}{=} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{size} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2}\PY{p}{)}  \PY{c+c1}{\PYZsh{} add noise}
-         
-         \PY{n}{X\PYZus{}plot} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{40}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{k+kc}{None}\PY{p}{]}
-         \PY{n}{true\PYZus{}y} \PY{o}{=} \PY{n}{X\PYZus{}plot}\PY{o}{/}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{)}
-         
-         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{,} \PY{n}{true\PYZus{}y}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} Generate sample data with added trend}
+        \PY{n}{rng} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{RandomState}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}
+        \PY{n}{X} \PY{o}{=} \PY{l+m+mi}{30} \PY{o}{*} \PY{n}{rng}\PY{o}{.}\PY{n}{rand}\PY{p}{(}\PY{l+m+mi}{200}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{y} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}
+        \PY{n}{y}\PY{p}{[}\PY{p}{:}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{rng}\PY{o}{.}\PY{n}{normal}\PY{p}{(}\PY{n}{scale} \PY{o}{=} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{size} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{/}\PY{o}{/} \PY{l+m+mi}{2}\PY{p}{)}  \PY{c+c1}{\PYZsh{} add noise}
+        
+        \PY{n}{X\PYZus{}plot} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{40}\PY{p}{,} \PY{l+m+mi}{10000}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{k+kc}{None}\PY{p}{]}
+        \PY{n}{true\PYZus{}y} \PY{o}{=} \PY{n}{X\PYZus{}plot}\PY{o}{/}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{)}
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Data}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X\PYZus{}plot}\PY{p}{,} \PY{n}{true\PYZus{}y}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
 
@@ -720,14 +720,14 @@ trend:
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}20}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process}\PY{n+nn}{.}\PY{n+nn}{kernels} \PY{k}{import} \PY{n}{WhiteKernel}\PY{p}{,} \PY{n}{ExpSineSquared}\PY{p}{,} \PY{n}{RBF}
-         
-         \PY{c+c1}{\PYZsh{} Replace `length\PYZus{}scale` and `periodicity` with the values found in the previous part.}
-         \PY{n}{kernel\PYZus{}simple} \PY{o}{=} \PY{n}{ExpSineSquared}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{periodicity}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)} \PY{c+c1}{\PYZsh{} periodic component}
-         
-         \PY{n}{k1} \PY{o}{=} \PY{l+m+mi}{4300} \PY{o}{*} \PY{n}{RBF}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{70.0}\PY{p}{)}  \PY{c+c1}{\PYZsh{} long term smooth rising trend}
-         \PY{n}{k2} \PY{o}{=} \PY{l+m+mi}{6} \PY{o}{*} \PY{n}{RBF}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{90.0}\PY{p}{)} \PY{o}{*} \PY{n}{ExpSineSquared}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{1.3}\PY{p}{,} \PY{n}{periodicity}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}  \PY{c+c1}{\PYZsh{} periodic component}
-         \PY{n}{k3} \PY{o}{=} \PY{l+m+mf}{0.03} \PY{o}{*} \PY{n}{RBF}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{0.134}\PY{p}{)} \PY{o}{+} \PY{n}{WhiteKernel}\PY{p}{(}\PY{n}{noise\PYZus{}level}\PY{o}{=}\PY{l+m+mf}{0.035}\PY{p}{)}  \PY{c+c1}{\PYZsh{} noise terms}
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process}\PY{n+nn}{.}\PY{n+nn}{kernels} \PY{k}{import} \PY{n}{WhiteKernel}\PY{p}{,} \PY{n}{ExpSineSquared}\PY{p}{,} \PY{n}{RBF}
+        
+        \PY{c+c1}{\PYZsh{} Replace `length\PYZus{}scale` and `periodicity` with the values found in the previous part.}
+        \PY{n}{kernel\PYZus{}simple} \PY{o}{=} \PY{n}{ExpSineSquared}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{periodicity}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)} \PY{c+c1}{\PYZsh{} periodic component}
+        
+        \PY{n}{k1} \PY{o}{=} \PY{l+m+mi}{4300} \PY{o}{*} \PY{n}{RBF}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{70.0}\PY{p}{)}  \PY{c+c1}{\PYZsh{} long term smooth rising trend}
+        \PY{n}{k2} \PY{o}{=} \PY{l+m+mi}{6} \PY{o}{*} \PY{n}{RBF}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{90.0}\PY{p}{)} \PY{o}{*} \PY{n}{ExpSineSquared}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{1.3}\PY{p}{,} \PY{n}{periodicity}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}  \PY{c+c1}{\PYZsh{} periodic component}
+        \PY{n}{k3} \PY{o}{=} \PY{l+m+mf}{0.03} \PY{o}{*} \PY{n}{RBF}\PY{p}{(}\PY{n}{length\PYZus{}scale}\PY{o}{=}\PY{l+m+mf}{0.134}\PY{p}{)} \PY{o}{+} \PY{n}{WhiteKernel}\PY{p}{(}\PY{n}{noise\PYZus{}level}\PY{o}{=}\PY{l+m+mf}{0.035}\PY{p}{)}  \PY{c+c1}{\PYZsh{} noise terms}
 \end{Verbatim}
 
 
@@ -780,7 +780,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
 \end{itemize}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}26}]:} \PY{c+c1}{\PYZsh{} Get the data}
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{} Get the data}
          \PY{n}{balloon\PYZus{}data} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download Balloon data}
          \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{balloon\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{balloon\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;}
          
@@ -809,7 +809,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}26}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x21995472b38>
+{\color{outcolor}Out[{\color{outcolor}10}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x1a6929cf4e0>
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -820,7 +820,6 @@ least the first 1000 points) and try to learn the (very noisy) trend.
 (500, 1)
 (500, 1)
 (1500, 1)
-(1499,)
 
     \end{Verbatim}
 
@@ -830,14 +829,13 @@ least the first 1000 points) and try to learn the (very noisy) trend.
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}51}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process} \PY{k}{import} \PY{n}{GaussianProcessRegressor}
+{\color{incolor}In [{\color{incolor}11}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process} \PY{k}{import} \PY{n}{GaussianProcessRegressor}
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process}\PY{n+nn}{.}\PY{n+nn}{kernels} \PY{k}{import} \PY{n}{RBF}\PY{p}{,} \PY{n}{ConstantKernel} \PY{k}{as} \PY{n}{C}
          \PY{c+c1}{\PYZsh{}from sklearn.metri}
          
          \PY{k}{def} \PY{n+nf}{Q3\PYZus{}bram}\PY{p}{(}\PY{n}{testSize}\PY{p}{)}\PY{p}{:}
              \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}train2}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}train2} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{testSize}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{1337}\PY{p}{)}
              \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,} \PY{l+m+mi}{20}\PY{p}{)}\PY{p}{)}
-         
              
              \PY{c+c1}{\PYZsh{}def f(x): \PYZsh{}\PYZdq{}\PYZdq{}\PYZdq{}The function to predict.\PYZdq{}\PYZdq{}\PYZdq{}}
              \PY{c+c1}{\PYZsh{}    return x}
@@ -901,7 +899,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
 
     
     \begin{verbatim}
-<matplotlib.figure.Figure at 0x2199b4942e8>
+<matplotlib.figure.Figure at 0x1a692a63208>
     \end{verbatim}
 
     
@@ -912,7 +910,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
     
     
     \begin{verbatim}
-<matplotlib.figure.Figure at 0x2199600fc88>
+<matplotlib.figure.Figure at 0x1a692a630b8>
     \end{verbatim}
 
     
@@ -923,7 +921,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
     
     
     \begin{verbatim}
-<matplotlib.figure.Figure at 0x2199c9fee80>
+<matplotlib.figure.Figure at 0x1a692a748d0>
     \end{verbatim}
 
     
@@ -934,7 +932,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
     
     
     \begin{verbatim}
-<matplotlib.figure.Figure at 0x2199b3f9860>
+<matplotlib.figure.Figure at 0x1a697477dd8>
     \end{verbatim}
 
     
@@ -944,7 +942,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}32}]:} \PY{c+c1}{\PYZsh{}GaussianProcessRegressor(kernel=RBF(10, (1e\PYZhy{}2, 1e2)))}
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{}GaussianProcessRegressor(kernel=RBF(10, (1e\PYZhy{}2, 1e2)))}
          
          
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{gaussian\PYZus{}process} \PY{k}{import} \PY{n}{GaussianProcessRegressor}
@@ -1030,7 +1028,7 @@ least the first 1000 points) and try to learn the (very noisy) trend.
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}32}]:} "\textbackslash{}n\# Plot the function, the prediction and the 95\% confidence interval based on\textbackslash{}n\# the MSE\textbackslash{}nfig = plt.figure()\textbackslash{}n\#plt.plot(X\_test, f(x), 'r:', label=u'\$f(x) = x\textbackslash{}\textbackslash{},\textbackslash{}\textbackslash{}sin(x)\$')\textbackslash{}nplt.errorbar(X\_train.ravel(), y\_test, dy, fmt='r.', markersize=10, label=u'Observations')\textbackslash{}nplt.plot(x, y\_pred, 'b-', label=u'Prediction')\textbackslash{}n\textbackslash{}nplt.xlabel('\$x\$')\textbackslash{}nplt.ylabel('\$f(x)\$')\textbackslash{}nplt.ylim(-10, 20)\textbackslash{}nplt.legend(loc='upper left')\textbackslash{}n\textbackslash{}nplt.show()\textbackslash{}n"
+{\color{outcolor}Out[{\color{outcolor}12}]:} "\textbackslash{}n\# Plot the function, the prediction and the 95\% confidence interval based on\textbackslash{}n\# the MSE\textbackslash{}nfig = plt.figure()\textbackslash{}n\#plt.plot(X\_test, f(x), 'r:', label=u'\$f(x) = x\textbackslash{}\textbackslash{},\textbackslash{}\textbackslash{}sin(x)\$')\textbackslash{}nplt.errorbar(X\_train.ravel(), y\_test, dy, fmt='r.', markersize=10, label=u'Observations')\textbackslash{}nplt.plot(x, y\_pred, 'b-', label=u'Prediction')\textbackslash{}n\textbackslash{}nplt.xlabel('\$x\$')\textbackslash{}nplt.ylabel('\$f(x)\$')\textbackslash{}nplt.ylim(-10, 20)\textbackslash{}nplt.legend(loc='upper left')\textbackslash{}n\textbackslash{}nplt.show()\textbackslash{}n"
 \end{Verbatim}
             
     \subsection{A data mining challenge (4
@@ -1122,7 +1120,7 @@ In case of issues with OpenML we will use the experiments and scores
 mentioned your report.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}28}]:} \PY{c+c1}{\PYZsh{}bananas = oml.datasets.get\PYZus{}dataset(1460) \PYZsh{} Download banana data}
+{\color{incolor}In [{\color{incolor}13}]:} \PY{c+c1}{\PYZsh{}bananas = oml.datasets.get\PYZus{}dataset(1460) \PYZsh{} Download banana data}
          \PY{n}{Speech\PYZus{}data} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{40926}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download Speech\PYZus{}data}
          \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{Speech\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{Speech\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;}
          
@@ -1151,7 +1149,7 @@ mentioned your report.
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}29}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier}  
+{\color{incolor}In [{\color{incolor}50}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier}  
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}
          \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{accuracy\PYZus{}score}
@@ -1372,225 +1370,99 @@ mentioned your report.
          
          \PY{l+s+sd}{    plt.colorbar();}
          \PY{l+s+sd}{    \PYZsq{}\PYZsq{}\PYZsq{}}
-             \PY{n}{param\PYZus{}grid} \PY{o}{=} \PY{p}{[}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classifier}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)}\PY{p}{]}\PY{p}{,}
-                         \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{preprocessing}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n}{StandardScaler}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{k+kc}{None}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classifier\PYZus{}\PYZus{}n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{170}\PY{p}{,}\PY{l+m+mi}{240}\PY{p}{]}\PY{p}{,}
-                                                                     \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classifier\PYZus{}\PYZus{}max\PYZus{}features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{p}{[}\PY{l+m+mi}{40}\PY{p}{,}\PY{l+m+mi}{60}\PY{p}{,}\PY{l+m+mi}{80}\PY{p}{]}\PY{p}{\PYZcb{}}\PY{p}{]}
+             \PY{c+c1}{\PYZsh{}param\PYZus{}grid = [\PYZob{}\PYZsq{}classifier\PYZsq{}: [RandomForestClassifier()],}
+             \PY{c+c1}{\PYZsh{}           \PYZsq{}preprocessing\PYZsq{}: [StandardScaler(), None], \PYZsq{}classifier\PYZus{}\PYZus{}n\PYZus{}estimators\PYZsq{}: [1,2],}
+             \PY{c+c1}{\PYZsh{}                                                       \PYZsq{}classifier\PYZus{}\PYZus{}max\PYZus{}features\PYZsq{}:[1,2]\PYZcb{}]}
+             \PY{c+c1}{\PYZsh{}pipe = pipeline.Pipeline([(\PYZsq{}preprocessing\PYZsq{}, StandardScaler()), (\PYZsq{}classifier\PYZsq{}, SVC())])}
              
-             \PY{n}{pipe} \PY{o}{=} \PY{n}{pipeline}\PY{o}{.}\PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{preprocessing}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{StandardScaler}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classifier}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{SVC}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
-             \PY{n}{grid} \PY{o}{=} \PY{n}{GridSearchCV}\PY{p}{(}\PY{n}{pipe}\PY{p}{,} \PY{n}{param\PYZus{}grid}\PY{o}{=}\PY{n}{param\PYZus{}grid}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+         
+             \PY{n}{param\PYZus{}grid} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forest\PYZus{}\PYZus{}n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{l+m+mi}{110}\PY{p}{,}\PY{l+m+mi}{115}\PY{p}{,}\PY{l+m+mi}{120}\PY{p}{,}\PY{l+m+mi}{125}\PY{p}{,}\PY{l+m+mi}{130}\PY{p}{]}\PY{p}{,}
+                           \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forest\PYZus{}\PYZus{}max\PYZus{}features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:}\PY{p}{[}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{25}\PY{p}{,}\PY{l+m+mi}{30}\PY{p}{,}\PY{l+m+mi}{35}\PY{p}{,}\PY{l+m+mi}{40}\PY{p}{]}\PY{p}{\PYZcb{}}
+             \PY{n}{pipe} \PY{o}{=} \PY{n}{pipeline}\PY{o}{.}\PY{n}{Pipeline}\PY{p}{(}\PY{p}{[}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{scaler}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{MinMaxScaler}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Forest}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+             
+             
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{15}\PY{p}{,} \PY{l+m+mi}{15}\PY{p}{)}\PY{p}{)}
+             \PY{n}{grid} \PY{o}{=} \PY{n}{GridSearchCV}\PY{p}{(}\PY{n}{pipe}\PY{p}{,} \PY{n}{param\PYZus{}grid}\PY{o}{=}\PY{n}{param\PYZus{}grid}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{n\PYZus{}jobs}\PY{o}{=}\PY{l+m+mi}{8}\PY{p}{)}
+             
              \PY{n}{grid}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
              
-             \PY{n}{plt}\PY{o}{.}\PY{n}{matshow}\PY{p}{(}\PY{n}{grid}\PY{o}{.}\PY{n}{cv\PYZus{}results\PYZus{}}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mean\PYZus{}test\PYZus{}score}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,}
-                     \PY{n}{vmin}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{viridis}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-             \PY{c+c1}{\PYZsh{}plt.xlabel(\PYZdq{}ridge\PYZus{}\PYZus{}alpha\PYZdq{})}
-             \PY{c+c1}{\PYZsh{}plt.ylabel(\PYZdq{}polynomialfeatures\PYZus{}\PYZus{}degree\PYZdq{})}
-             \PY{c+c1}{\PYZsh{}plt.xticks(range(len(param\PYZus{}grid[\PYZsq{}classifier\PYZus{}\PYZus{}gamma\PYZsq{}])), param\PYZus{}grid[\PYZsq{}classifier\PYZus{}\PYZus{}C\PYZsq{}])}
-             \PY{c+c1}{\PYZsh{}plt.yticks(range(len(param\PYZus{}grid[\PYZsq{}polynomialfeatures\PYZus{}\PYZus{}degree\PYZsq{}])),}
-              \PY{c+c1}{\PYZsh{}      param\PYZus{}grid[\PYZsq{}polynomialfeatures\PYZus{}\PYZus{}degree\PYZsq{}])}
-         
-             \PY{n}{plt}\PY{o}{.}\PY{n}{colorbar}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{matshow}\PY{p}{(}\PY{n}{grid}\PY{o}{.}\PY{n}{cv\PYZus{}results\PYZus{}}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mean\PYZus{}test\PYZus{}score}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{param\PYZus{}grid}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forest\PYZus{}\PYZus{}max\PYZus{}features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{vmin}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{viridis}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}    
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{n\PYZus{}estimators}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{max\PYZus{}features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{param\PYZus{}grid}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forest\PYZus{}\PYZus{}n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{param\PYZus{}grid}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forest\PYZus{}\PYZus{}n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{param\PYZus{}grid}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forest\PYZus{}\PYZus{}max\PYZus{}features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{param\PYZus{}grid}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Forest\PYZus{}\PYZus{}max\PYZus{}features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{colorbar}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+             
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{**Results for RandomForest**}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Best cross\PYZhy{}validation accuracy: }\PY{l+s+si}{\PYZob{}:.2f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{grid}\PY{o}{.}\PY{n}{best\PYZus{}score\PYZus{}}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Test set score: }\PY{l+s+si}{\PYZob{}:.2f\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{grid}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Best parameters: }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{grid}\PY{o}{.}\PY{n}{best\PYZus{}params\PYZus{}}\PY{p}{)}\PY{p}{)}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Best estimator:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{grid}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}Show the best pipeline }
+             \PY{c+c1}{\PYZsh{} Get the SVM}
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{clf step:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}
+                   \PY{n}{grid}\PY{o}{.}\PY{n}{best\PYZus{}estimator\PYZus{}}\PY{o}{.}\PY{n}{named\PYZus{}steps}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Forest}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}\PY{p}{)}
              
          \PY{c+c1}{\PYZsh{} WhichAlgorithm()}
          \PY{c+c1}{\PYZsh{} ForestPipeLine()}
          \PY{c+c1}{\PYZsh{} Pipeline2()}
-         \PY{n}{starttime}\PY{o}{=}\PY{n}{time}\PY{o}{.}\PY{n}{gmtime}\PY{p}{(}\PY{p}{)}
+         \PY{n}{start\PYZus{}time} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)}
          \PY{n}{TotalPipeline}\PY{p}{(}\PY{p}{)}
-         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Elapsed time= }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{starttime}\PY{o}{\PYZhy{}}\PY{n}{time}\PY{o}{.}\PY{n}{gmtime}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Elapsed time= }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n+nb}{round}\PY{p}{(}\PY{n}{time}\PY{o}{.}\PY{n}{time}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{start\PYZus{}time}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 
+    
+    \begin{verbatim}
+<matplotlib.figure.Figure at 0x1a695afbeb8>
+    \end{verbatim}
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_1.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{Verbatim}[commandchars=\\\{\}]
-
-        ---------------------------------------------------------------------------
-
-        KeyboardInterrupt                         Traceback (most recent call last)
-
-        <ipython-input-29-c006c4c5f2ad> in <module>()
-        242 \# Pipeline2()
-        243 starttime=time.gmtime()
-    --> 244 TotalPipeline()
-        245 print('Elapsed time= ',starttime-time.gmtime())
-    
-
-        <ipython-input-29-c006c4c5f2ad> in TotalPipeline()
-        226     pipe = pipeline.Pipeline([('preprocessing', StandardScaler()), ('classifier', SVC())])
-        227     grid = GridSearchCV(pipe, param\_grid=param\_grid, cv=10)
-    --> 228     grid.fit(X\_train, y\_train)
-        229 
-        230     plt.matshow(grid.cv\_results\_['mean\_test\_score'].reshape(3, -1),
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_search.py in fit(self, X, y, groups, **fit\_params)
-        637                                   error\_score=self.error\_score)
-        638           for parameters, (train, test) in product(candidate\_params,
-    --> 639                                                    cv.split(X, y, groups)))
-        640 
-        641         \# if one choose to see train score, "out" will contain train score info
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
-        777             \# was dispatched. In particular this covers the edge
-        778             \# case of Parallel used with an exhausted iterator.
-    --> 779             while self.dispatch\_one\_batch(iterator):
-        780                 self.\_iterating = True
-        781             else:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
-        623                 return False
-        624             else:
-    --> 625                 self.\_dispatch(tasks)
-        626                 return True
-        627 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
-        586         dispatch\_timestamp = time.time()
-        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
-    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
-        589         self.\_jobs.append(job)
-        590 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
-        109     def apply\_async(self, func, callback=None):
-        110         """Schedule a func to be run"""
-    --> 111         result = ImmediateResult(func)
-        112         if callback:
-        113             callback(result)
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
-        330         \# Don't delay the application, to avoid keeping the input
-        331         \# arguments in memory
-    --> 332         self.results = batch()
-        333 
-        334     def get(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in \_fit\_and\_score(estimator, X, y, scorer, train, test, verbose, parameters, fit\_params, return\_train\_score, return\_parameters, return\_n\_test\_samples, return\_times, error\_score)
-        456             estimator.fit(X\_train, **fit\_params)
-        457         else:
-    --> 458             estimator.fit(X\_train, y\_train, **fit\_params)
-        459 
-        460     except Exception as e:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}pipeline.py in fit(self, X, y, **fit\_params)
-        248         Xt, fit\_params = self.\_fit(X, y, **fit\_params)
-        249         if self.\_final\_estimator is not None:
-    --> 250             self.\_final\_estimator.fit(Xt, y, **fit\_params)
-        251         return self
-        252 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}ensemble\textbackslash{}forest.py in fit(self, X, y, sample\_weight)
-        326                     t, self, X, y, sample\_weight, i, len(trees),
-        327                     verbose=self.verbose, class\_weight=self.class\_weight)
-    --> 328                 for i, t in enumerate(trees))
-        329 
-        330             \# Collect newly grown trees
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
-        777             \# was dispatched. In particular this covers the edge
-        778             \# case of Parallel used with an exhausted iterator.
-    --> 779             while self.dispatch\_one\_batch(iterator):
-        780                 self.\_iterating = True
-        781             else:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
-        623                 return False
-        624             else:
-    --> 625                 self.\_dispatch(tasks)
-        626                 return True
-        627 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
-        586         dispatch\_timestamp = time.time()
-        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
-    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
-        589         self.\_jobs.append(job)
-        590 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
-        109     def apply\_async(self, func, callback=None):
-        110         """Schedule a func to be run"""
-    --> 111         result = ImmediateResult(func)
-        112         if callback:
-        113             callback(result)
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
-        330         \# Don't delay the application, to avoid keeping the input
-        331         \# arguments in memory
-    --> 332         self.results = batch()
-        333 
-        334     def get(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}ensemble\textbackslash{}forest.py in \_parallel\_build\_trees(tree, forest, X, y, sample\_weight, tree\_idx, n\_trees, verbose, class\_weight)
-        119             curr\_sample\_weight *= compute\_sample\_weight('balanced', y, indices)
-        120 
-    --> 121         tree.fit(X, y, sample\_weight=curr\_sample\_weight, check\_input=False)
-        122     else:
-        123         tree.fit(X, y, sample\_weight=sample\_weight, check\_input=False)
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}tree\textbackslash{}tree.py in fit(self, X, y, sample\_weight, check\_input, X\_idx\_sorted)
-        788             sample\_weight=sample\_weight,
-        789             check\_input=check\_input,
-    --> 790             X\_idx\_sorted=X\_idx\_sorted)
-        791         return self
-        792 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}tree\textbackslash{}tree.py in fit(self, X, y, sample\_weight, check\_input, X\_idx\_sorted)
-        360                                            min\_impurity\_split)
-        361 
-    --> 362         builder.build(self.tree\_, X, y, sample\_weight, X\_idx\_sorted)
-        363 
-        364         if self.n\_outputs\_ == 1:
-    
-
-        KeyboardInterrupt: 
+**Results for RandomForest**
+Best cross-validation accuracy: 0.34
+Test set score: 0.27
+Best parameters: \{'Forest\_\_max\_features': 20, 'Forest\_\_n\_estimators': 115\}
+Best estimator:
+Pipeline(memory=None,
+     steps=[('scaler', MinMaxScaler(copy=True, feature\_range=(0, 1))), ('Forest', RandomForestClassifier(bootstrap=True, class\_weight=None, criterion='gini',
+            max\_depth=None, max\_features=20, max\_leaf\_nodes=None,
+            min\_impurity\_decrease=0.0, min\_impurity\_split=None,
+            min\_samples\_leaf=1, min\_samples\_split=2,
+            min\_weight\_fraction\_leaf=0.0, n\_estimators=115, n\_jobs=1,
+            oob\_score=False, random\_state=None, verbose=0,
+            warm\_start=False))])
+clf step:
+RandomForestClassifier(bootstrap=True, class\_weight=None, criterion='gini',
+            max\_depth=None, max\_features=20, max\_leaf\_nodes=None,
+            min\_impurity\_decrease=0.0, min\_impurity\_split=None,
+            min\_samples\_leaf=1, min\_samples\_split=2,
+            min\_weight\_fraction\_leaf=0.0, n\_estimators=115, n\_jobs=1,
+            oob\_score=False, random\_state=None, verbose=0,
+            warm\_start=False)
+Elapsed time=  75.032
 
     \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} \PY{n}{In} \PY{n}{order} \PY{n}{to} \PY{n}{get} \PY{n}{performance} \PY{o+ow}{and} \PY{n}{a} \PY{n}{direction} \PY{n}{where} \PY{n}{to} \PY{n}{look} \PY{o+ow}{in}\PY{p}{,} \PY{n}{we} \PY{n}{only} \PY{n}{used} \PY{l+m+mi}{10}\PY{o}{\PYZpc{}} \PY{n}{of} \PY{n}{the} \PY{n}{total} \PY{n}{data} \PY{n+nb}{set} \PY{o+ow}{in} \PY{n}{order} \PY{n}{to} \PY{n}{get} \PY{n}{the} \PY{n}{best} \PY{n}{model}\PY{o}{.}
+        \PY{n}{This} \PY{n}{model} \PY{n}{will} \PY{n}{be} \PY{n}{used} \PY{o+ow}{in} \PY{n}{the} \PY{n}{final} \PY{n}{step} \PY{n}{to} \PY{n}{analyse} \PY{n}{the} \PY{n}{full} \PY{n}{data} \PY{n+nb}{set}\PY{o}{.} 
+        \PY{n}{First} \PY{n}{we} \PY{n}{started} \PY{k}{with} \PY{n}{the} \PY{n}{previous} \PY{n}{used} \PY{n}{models} \PY{o+ow}{and} \PY{n}{figured} \PY{n}{out} \PY{n}{that} \PY{n}{the} \PY{n}{random} \PY{n}{Forest} \PY{n}{worked} \PY{n}{best}\PY{o}{.}
+        \PY{n}{Thereafter} \PY{n}{we} \PY{n}{applied} \PY{n}{a} \PY{n}{coarse} \PY{n}{grid} \PY{n}{search} \PY{n}{to} \PY{n}{get} \PY{n}{a} \PY{n}{direction}
+        \PY{n}{As} \PY{n}{a} \PY{n}{third} \PY{n}{step} \PY{n}{we} \PY{n}{made} \PY{n}{a} \PY{n}{finer} \PY{n}{grid} \PY{n}{mesh} \PY{k}{for} \PY{n}{the} \PY{n}{best} \PY{n}{domain}\PY{p}{,} \PY{n}{found} \PY{o+ow}{in} \PY{n}{the} \PY{n}{coarse} \PY{n}{mesh}\PY{o}{.} 
+        \PY{n}{We} \PY{n}{looked} \PY{n}{on} \PY{n}{the} \PY{n}{internet} \PY{o+ow}{and} \PY{n}{saw} \PY{n}{that} \PY{n}{the} \PY{n}{model} \PY{n}{got} \PY{n}{high} \PY{n}{results}\PY{o}{.}
+        \PY{n}{We} \PY{n}{implemented} \PY{n}{this} \PY{n}{model} \PY{o+ow}{and} \PY{n}{used} \PY{n}{the} \PY{n}{approach} \PY{n}{described} \PY{n}{above}  \PY{p}{(}\PY{n}{coarse} \PY{n}{to} \PY{n}{fine} \PY{n}{grid} \PY{n}{mesh}\PY{p}{)}
+        \PY{n}{As} \PY{n}{a} \PY{n}{final} \PY{n}{step} \PY{n}{we} \PY{n}{applied} \PY{n}{this} \PY{n}{model} \PY{n}{to} \PY{n}{the} \PY{n}{total} \PY{n}{dataset}\PY{o}{.} 
+\end{Verbatim}
+
 
 
     % Add a bibliography block to the postdoc
