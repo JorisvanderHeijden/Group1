@@ -141,7 +141,7 @@
     \def\gt{>}
     \def\lt{<}
     % Document parameters
-    \title{Assignment 1}
+    \title{Assignment3}
     
     
     
@@ -280,1909 +280,310 @@
     
 
     
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}4}]:} \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{HTML}
-        \PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+s1}{\PYZlt{}style\PYZgt{}html, body}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{overflow\PYZhy{}y: visible !important\PYZcb{} .CodeMirror}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{min\PYZhy{}width:105}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{ !important;\PYZcb{} .rise\PYZhy{}enabled .CodeMirror, .rise\PYZhy{}enabled .output\PYZus{}subarea}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{font\PYZhy{}size:140}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{; line\PYZhy{}height:1.2; overflow: visible;\PYZcb{} .output\PYZus{}subarea pre}\PY{l+s+si}{\PYZob{}width:110\PYZpc{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/style\PYZgt{}}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} For slides}
-\end{Verbatim}
-
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}4}]:} <IPython.core.display.HTML object>
-\end{Verbatim}
-            
-    \section{Foundations of Data Mining: Assignment
-1}\label{foundations-of-data-mining-assignment-1}
+    \hypertarget{foundations-of-data-mining-assignment-3}{%
+\section{Foundations of Data Mining: Assignment
+3}\label{foundations-of-data-mining-assignment-3}}
 
 Please complete all assignments in this notebook. You should submit this
 notebook, as well as a PDF version (See File \textgreater{} Download
 as).
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{} Please fill in your names here}
-        \PY{n}{NAME\PYZus{}STUDENT\PYZus{}1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Bram van der Pol}\PY{l+s+s2}{\PYZdq{}}
-        \PY{n}{NAME\PYZus{}STUDENT\PYZus{}2} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Joris van der Heijden}\PY{l+s+s2}{\PYZdq{}}
-\end{Verbatim}
-
+\textbf{Deadline:} Thursday, March 29, 2018
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}6}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+{\color{incolor}In [{\color{incolor}5}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
         \PY{k+kn}{from} \PY{n+nn}{preamble} \PY{k}{import} \PY{o}{*}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{200} \PY{c+c1}{\PYZsh{} This controls the size of your figures}
+        
+        \PY{k+kn}{import} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{decomposition} \PY{k}{as} \PY{n+nn}{deco}
+        \PY{k+kn}{import} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{manifold} \PY{k}{as} \PY{n+nn}{manifold}
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{100} \PY{c+c1}{\PYZsh{} This controls the size of your figures}
         \PY{c+c1}{\PYZsh{} Comment out and restart notebook if you only want the last output of each cell.}
-        \PY{n}{InteractiveShell}\PY{o}{.}\PY{n}{ast\PYZus{}node\PYZus{}interactivity} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{all}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{InteractiveShell}\PY{o}{.}\PY{n}{ast\PYZus{}node\PYZus{}interactivity} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{none}\PY{l+s+s2}{\PYZdq{}}\PY{c+c1}{\PYZsh{}\PYZdq{}all\PYZdq{} }
 \end{Verbatim}
 
 
-    \subsection{MoneyBall (5 points,
-1+2+1+1)}\label{moneyball-5-points-1211}
+    \hypertarget{pca-and-isomap-5-points-122}{%
+\subsection{PCA and Isomap (5 Points,
+1+2+2)}\label{pca-and-isomap-5-points-122}}
 
-In the early 2000s, 2 baseball scouts completely changed the game of
-baseball by analysing the available data about baseball players and
-hiring the best ones. The
-\href{https://www.openml.org/d/41021}{MoneyBall dataset} contains this
-data (click the link for more details). The goal is to accurately
-predict the number of 'runs' each player can score.
+Apply PCA and Isomap to images of handwritten digits (see below). You
+may use sklearn.decomposition and sklearn.manifold.
+
+\hypertarget{a}{%
+\subsubsection{a)}\label{a}}
+
+Compute the first two components of the data using PCA. Make a scatter
+plot of the data in the first two components of PCA indicating class
+with color.
+
+\hypertarget{b}{%
+\subsubsection{b)}\label{b}}
+
+Compute an Isomap embedding with two components with nr\_neighbors=\{5,
+50, N-1\} (three separate embeddings). For each of the Isomap
+embeddings, apply the function ``align'' (see below) with ``ref\_data''
+as your computed pca embedding and ``data'' as the isomap embedding.
+Show a scatter plot of each of the aligned isomap embeddings.
+
+\hypertarget{c}{%
+\subsubsection{c)}\label{c}}
+
+Visually compare how well the classes are separated in the different
+scatter plots. What is the effect of changing the number of neighbors on
+the score computed in the alignment function? What does it mean if the
+score is zero? When do you expect the score to become zero and why?
+
+More neighbours seems to decrease the computed score. If the score is
+zero, it means that the matrix norm of the transformed dataset minus the
+reference data (y) is zero for one of the 8 transformations. We expect
+this to happen if the transformed dataset is equal to the reference data
+for some transformation.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{moneyball} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{41021}\PY{p}{)}\PY{p}{;} \PY{c+c1}{\PYZsh{} Download MoneyBall data}
-        \PY{c+c1}{\PYZsh{} Get the predictors X and the target y}
-        \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{attribute\PYZus{}names} \PY{o}{=} \PY{n}{moneyball}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{moneyball}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{,} \PY{n}{return\PYZus{}attribute\PYZus{}names}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{;}
-        \PY{c+c1}{\PYZsh{} Describe the data with pandas, just to get an overview}
-        \PY{n}{ballframe} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{n}{attribute\PYZus{}names}\PY{p}{)}\PY{p}{;}
-        \PY{n}{ballframe}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}\PY{p}{;}
-        
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{p}{;}
-        \PY{c+c1}{\PYZsh{}n, bins, patches = ax.hist(X, num\PYZus{}bins, normed=1)}
-        
-        \PY{k}{for} \PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{T}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-            \PY{c+c1}{\PYZsh{}if (index \PYZlt{} 8):}
-            \PY{n+nb}{print}\PY{p}{(}\PY{n}{index}\PY{p}{)}\PY{p}{;}
-            \PY{n}{column}\PY{o}{=}\PY{n}{X}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{n}{index}\PY{p}{]}\PY{p}{;}
-            \PY{n}{Filtered\PYZus{}column1}\PY{o}{=}\PY{n}{column}\PY{p}{[}\PY{o}{\PYZti{}}\PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{column}\PY{p}{)}\PY{p}{]}\PY{p}{;}
-        
-            \PY{n}{Filtered\PYZus{}column2} \PY{o}{=} \PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{nan} \PY{k}{if} \PY{n}{np}\PY{o}{.}\PY{n}{isnan}\PY{p}{(}\PY{n}{x}\PY{p}{)} \PY{k}{else} \PY{n}{x} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n}{column}\PY{p}{]}\PY{p}{;}
-        
-            \PY{n}{fig1} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}\PY{p}{;} \PY{c+c1}{\PYZsh{}Generate new figure}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{n}{Filtered\PYZus{}column1}\PY{p}{)}\PY{p}{;}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Histogram}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-        
-        
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{Filtered\PYZus{}column2}\PY{p}{,}\PY{n}{y}\PY{p}{)}\PY{p}{;}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Scatter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{X}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-        
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{suptitle}\PY{p}{(}\PY{n}{attribute\PYZus{}names}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{o}{+}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ Index }\PY{l+s+s2}{\PYZdq{}}\PY{o}{+}\PY{n+nb}{str}\PY{p}{(}\PY{n}{index}\PY{p}{)} \PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-            \PY{n}{matplotlib}\PY{o}{.}\PY{n}{pyplot}\PY{o}{.}\PY{n}{subplots\PYZus{}adjust}\PY{p}{(}\PY{n}{left}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,}\PY{n}{wspace}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{,}\PY{n}{top}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{)}\PY{p}{;}
+{\color{incolor}In [{\color{incolor}13}]:} \PY{c+c1}{\PYZsh{} Load the data set}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{datasets}
+         \PY{n}{digits} \PY{o}{=} \PY{n}{datasets}\PY{o}{.}\PY{n}{load\PYZus{}digits}\PY{p}{(}\PY{n}{n\PYZus{}class}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+         \PY{n}{X} \PY{o}{=} \PY{n}{digits}\PY{o}{.}\PY{n}{data}
+         \PY{n}{y} \PY{o}{=} \PY{n}{digits}\PY{o}{.}\PY{n}{target}
+         \PY{n}{N}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Align a data set with a reference data set minimizing l\PYZus{}1 error}
+         \PY{c+c1}{\PYZsh{} Returns aligned data set and alignment error}
+         \PY{k}{def} \PY{n+nf}{align}\PY{p}{(}\PY{n}{ref\PYZus{}data}\PY{p}{,} \PY{n}{data}\PY{p}{)}\PY{p}{:}
+             
+             \PY{n}{transformations} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{asarray}\PY{p}{(}\PY{p}{[}
+                 \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,} 
+                 \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,} 
+                 \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,} 
+                 \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{]}\PY{p}{,} 
+                 \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} 
+                 \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} 
+                 \PY{p}{[}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} 
+                 \PY{p}{[}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]} 
+             \PY{p}{]}\PY{p}{)}
+             
+             \PY{n}{score} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{transf\PYZus{}data} \PY{o}{=}   \PY{n}{np}\PY{o}{.}\PY{n}{matmul}\PY{p}{(}\PY{n}{data}\PY{p}{,} \PY{n}{transformations}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{score}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{norm}\PY{p}{(} \PY{n}{transf\PYZus{}data} \PY{o}{\PYZhy{}} \PY{n}{ref\PYZus{}data}\PY{p}{,} \PY{n+nb}{ord}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)} \PY{p}{)}
+                 \PY{c+c1}{\PYZsh{}https://docs.scipy.org/doc/numpy\PYZhy{}1.13.0/reference/generated/numpy.linalg.norm.html}
+                 
+             \PY{n}{idx} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argmin}\PY{p}{(}\PY{n}{score}\PY{p}{)}
+             \PY{n}{transf\PYZus{}data} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{matmul}\PY{p}{(}\PY{n}{data}\PY{p}{,}\PY{n}{transformations}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}
+             
+             \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Aligned the data sets. Score is }\PY{l+s+si}{\PYZob{}0:10.1f\PYZcb{}}\PY{l+s+s2}{  }\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{score}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+             
+             \PY{k}{return} \PY{n}{transf\PYZus{}data}\PY{p}{,} \PY{n}{score}\PY{p}{[}\PY{n}{idx}\PY{p}{]}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:}           Team  League     Year       RA   {\ldots}    RankPlayoffs        G  \textbackslash{}
-        count  1232.00  1232.0  1232.00  1232.00   {\ldots}          244.00  1232.00   
-        mean     15.67     0.5  1988.96   715.08   {\ldots}            1.72     3.92   
-        std       9.72     0.5    14.82    93.08   {\ldots}            1.10     0.62   
-        min       0.00     0.0  1962.00   472.00   {\ldots}            0.00     0.00   
-        25\%       7.00     0.0  1976.75   649.75   {\ldots}            1.00     4.00   
-        50\%      16.00     0.5  1989.00   709.00   {\ldots}            2.00     4.00   
-        75\%      23.00     1.0  2002.00   774.25   {\ldots}            3.00     4.00   
-        max      38.00     1.0  2012.00  1103.00   {\ldots}            4.00     7.00   
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{decomposition} \PY{k}{import} \PY{n}{PCA}
+        \PY{n}{pca} \PY{o}{=} \PY{n}{PCA}\PY{p}{(}\PY{n}{n\PYZus{}components}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{X\PYZus{}r} \PY{o}{=} \PY{n}{pca}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{o}{.}\PY{n}{transform}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{}print(pca.explained\PYZus{}variance\PYZus{}ratio\PYZus{})  }
+        \PY{c+c1}{\PYZsh{}print(pca.singular\PYZus{}values\PYZus{}) }
         
-                 OOBP    OSLG  
-        count  420.00  420.00  
-        mean     0.33    0.42  
-        std      0.02    0.03  
-        min      0.29    0.35  
-        25\%      0.32    0.40  
-        50\%      0.33    0.42  
-        75\%      0.34    0.44  
-        max      0.38    0.50  
+        \PY{c+c1}{\PYZsh{}print(X\PYZus{}r)}
         
-        [8 rows x 14 columns]
-\end{Verbatim}
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1 a}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{k}{def} \PY{n+nf}{printScatter1a}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
+            \PY{n}{colors} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{navy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{turquoise}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{darkorange}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+            \PY{n}{lw} \PY{o}{=} \PY{l+m+mi}{2}
+        
+            \PY{c+c1}{\PYZsh{}target\PYZus{}names = [\PYZsq{}comp1\PYZsq{}, \PYZsq{}comp2\PYZsq{}, \PYZsq{}comp3\PYZsq{}]}
+            \PY{n}{target\PYZus{}names} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{comp1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{comp2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
+            \PY{k}{for} \PY{n}{color}\PY{p}{,} \PY{n}{i}\PY{p}{,} \PY{n}{target\PYZus{}name} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{colors}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{target\PYZus{}names}\PY{p}{)}\PY{p}{:}
+                \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X\PYZus{}r}\PY{p}{[}\PY{n}{y} \PY{o}{==} \PY{n}{i}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{X\PYZus{}r}\PY{p}{[}\PY{n}{y} \PY{o}{==} \PY{n}{i}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{color}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{8}\PY{p}{,} \PY{n}{lw}\PY{o}{=}\PY{n}{lw}\PY{p}{,}
+                            \PY{n}{label}\PY{o}{=}\PY{n}{target\PYZus{}name}\PY{p}{)}
+            \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{shadow}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,} \PY{n}{scatterpoints}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+        
+            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PCA of dataset}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
             
+        \PY{n}{printScatter1a}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
     \begin{Verbatim}[commandchars=\\\{\}]
-0
+1 a
 
     \end{Verbatim}
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef0bb0e48>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([152., 188., 152.,  98., 141., 175., 132.,  95.,  78.,  21.]),
-         array([ 0. ,  3.8,  7.6, 11.4, 15.2, 19. , 22.8, 26.6, 30.4, 34.2, 38. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef0edfdd8>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef0f47ac8>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'Team Index 0')
-\end{Verbatim}
-            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_4_1.pdf}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{Verbatim}[commandchars=\\\{\}]
-1
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c+c1}{\PYZsh{} isomap embedding}
+         
+         \PY{k+kn}{from} \PY{n+nn}{matplotlib} \PY{k}{import} \PY{n}{offsetbox}
+         \PY{k+kn}{from} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{colors} \PY{k}{import} \PY{n}{Colormap}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{p}{(}\PY{n}{manifold}\PY{p}{,} \PY{n}{datasets}\PY{p}{,} \PY{n}{decomposition}\PY{p}{,} \PY{n}{ensemble}\PY{p}{,}
+                              \PY{n}{discriminant\PYZus{}analysis}\PY{p}{,} \PY{n}{random\PYZus{}projection}\PY{p}{)}
+         
+         \PY{n}{title} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}neighbours = 5}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}neighbours = 50}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}neighbours = N\PYZhy{}1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{;}    
+         \PY{n}{values} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{,}\PY{n}{N}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{;}
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1 b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             
+         \PY{k}{for} \PY{n}{n}\PY{p}{,} \PY{n}{title}  \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{values}\PY{p}{,}\PY{n}{title}\PY{p}{)} \PY{p}{:}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{title}\PY{p}{)}\PY{p}{;}
+             \PY{n+nb}{print}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{;}
+             \PY{n}{X\PYZus{}iso} \PY{o}{=} \PY{n}{manifold}\PY{o}{.}\PY{n}{Isomap}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{n}{n}\PY{p}{,} \PY{n}{n\PYZus{}components}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+         
+             \PY{n}{X\PYZus{}aligned}\PY{p}{,}\PY{n}{score} \PY{o}{=} \PY{n}{align}\PY{p}{(}\PY{n}{X\PYZus{}r}\PY{p}{,}\PY{n}{X\PYZus{}iso}\PY{p}{)}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{n}{title}\PY{p}{)}\PY{p}{;}
+             \PY{c+c1}{\PYZsh{}plt.scatter(X\PYZus{}iso[:,0],X\PYZus{}iso[:,1])}
+             \PY{c+c1}{\PYZsh{}plt.scatter(X\PYZus{}aligned[:,0],X\PYZus{}aligned[:,1])}
+             
+             \PY{n}{colors} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{navy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{turquoise}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{darkorange}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{blue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{yellow}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{xkcd:baby poop}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                       \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{xkcd:ugly blue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{xkcd:nasty green}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{xkcd:battleship grey}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{;}
+             
+             \PY{k}{for} \PY{n}{color}\PY{p}{,} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{colors}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{,}\PY{l+m+mi}{9}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X\PYZus{}aligned}\PY{p}{[}\PY{n}{y} \PY{o}{==} \PY{n}{i}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{X\PYZus{}aligned}\PY{p}{[}\PY{n}{y} \PY{o}{==} \PY{n}{i}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{color}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{8}\PY{p}{,} \PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}
+                             \PY{n}{label}\PY{o}{=}\PY{n}{i}\PY{p}{)}\PY{p}{;}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{shadow}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,} \PY{n}{scatterpoints}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
+         
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{n}{title}\PY{p}{)}\PY{p}{;}
+             
+         
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Done.}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
 
-    \end{Verbatim}
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef0c95a90>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([616.,   0.,   0.,   0.,   0.,   0.,   0.,   0.,   0., 616.]),
-         array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef0f8b550>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef0fde1d0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'League Index 1')
-\end{Verbatim}
-            
     \begin{Verbatim}[commandchars=\\\{\}]
-2
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef0fdec88>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([100., 112.,  96., 104., 130., 130.,  82., 148., 150., 180.]),
-         array([1962., 1967., 1972., 1977., 1982., 1987., 1992., 1997., 2002.,
-                2007., 2012.]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef102fef0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef10662b0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'Year Index 2')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-3
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1066d68>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([ 20., 110., 239., 327., 270., 163.,  77.,  24.,   1.,   1.]),
-         array([ 472. ,  535.1,  598.2,  661.3,  724.4,  787.5,  850.6,  913.7,
-                 976.8, 1039.9, 1103. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef10a2da0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef10f2a58>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'RA Index 3')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-4
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef10f2f28>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([  2.,  17.,  50., 167., 243., 291., 286., 134.,  39.,   3.]),
-         array([ 40. ,  47.6,  55.2,  62.8,  70.4,  78. ,  85.6,  93.2, 100.8,
-                108.4, 116. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1122048>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef1177e48>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'W Index 4')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
+1 b
+n\_neighbours = 5
 5
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1180a90>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([  7.,  22.,  64., 193., 322., 266., 225.,  81.,  45.,   7.]),
-         array([0.277, 0.287, 0.296, 0.306, 0.315, 0.325, 0.335, 0.344, 0.354,
-                0.363, 0.373]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef11b8e10>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef1208fd0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'OBP Index 5')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-6
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef122abe0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([ 13.,  31., 100., 186., 276., 258., 202.,  93.,  57.,  16.]),
-         array([0.301, 0.32 , 0.339, 0.358, 0.377, 0.396, 0.415, 0.434, 0.453,
-                0.472, 0.491]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1244940>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef1292cc0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'SLG Index 6')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-7
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef12988d0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([  4.,  14.,  41., 102., 242., 329., 229., 186.,  58.,  27.]),
-         array([0.214, 0.222, 0.23 , 0.238, 0.246, 0.254, 0.262, 0.27 , 0.278,
-                0.286, 0.294]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef12d2b70>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef1262c18>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'BA Index 7')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-8
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef133c908>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([988.,   0.,   0.,   0.,   0.,   0.,   0.,   0.,   0., 244.]),
-         array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef135cc88>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef13aae80>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'Playoffs Index 8')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-9
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef13b4be0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([52., 53., 44.,  0., 44., 21.,  0., 20.,  9.,  1.]),
-         array([0. , 0.7, 1.4, 2.1, 2.8, 3.5, 4.2, 4.9, 5.6, 6.3, 7. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef13e7fd0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef142fcc0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'RankSeason Index 9')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-10
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1437898>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([47.,  0., 47.,  0.,  0., 80.,  0., 68.,  0.,  2.]),
-         array([0. , 0.4, 0.8, 1.2, 1.6, 2. , 2.4, 2.8, 3.2, 3.6, 4. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1471c88>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef14bff98>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'RankPlayoffs Index 10')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-11
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef14c9be0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([  1.,  10.,  23.,   0., 139., 954.,   0.,  93.,  10.,   2.]),
-         array([0. , 0.7, 1.4, 2.1, 2.8, 3.5, 4.2, 4.9, 5.6, 6.3, 7. ]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef14faa90>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef154ecc0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'G Index 11')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-12
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1558978>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([ 4., 33., 64., 89., 94., 74., 41., 15.,  5.,  1.]),
-         array([0.294, 0.303, 0.312, 0.321, 0.33 , 0.339, 0.348, 0.357, 0.366,
-                0.375, 0.384]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef158cbe0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef15d9eb8>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'OOBP Index 12')
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-13
-
-    \end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef1563b70>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} (array([ 6., 14., 36., 92., 82., 82., 61., 31., 14.,  2.]),
-         array([0.346, 0.361, 0.377, 0.392, 0.407, 0.422, 0.438, 0.453, 0.468,
-                0.484, 0.499]),
-         <a list of 10 Patch objects>)
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Histogram')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2cef16158d0>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.PathCollection at 0x2cef1664ac8>
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,1,'Scatter')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0,'X')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0,0.5,'y')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} Text(0.5,0.98,'OSLG Index 13')
-\end{Verbatim}
-            
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_141.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_142.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_143.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_144.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_145.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_146.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_147.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_148.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_149.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_150.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_151.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_152.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_153.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_154.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-        \PY{l+s+sd}{1 . Visually explore the data. Plot the distribution of each feature (e.g. histograms), as well as the target. Visualize the dependency of the target on each feature (use a 2d scatter plot). Is there anything that stands out? Is there something that you think might require special treatment?}
-        \PY{l+s+sd}{\PYZhy{} Feel free to create additional plots that help you understand the data}
-        \PY{l+s+sd}{\PYZhy{} Only visualize the data, you don\PYZsq{}t need to change it (yet)}
-        
-        \PY{l+s+sd}{**Answers:**}
-        \PY{l+s+sd}{The first column of figures shows the histograms of each column of the data in X. }
-        \PY{l+s+sd}{The second column shows the relationship between y and x. }
-        \PY{l+s+sd}{*Is there anything that stands out?*}
-        \PY{l+s+sd}{The dataset containts non real numbers, so the data set must first be cleaned to visualize it.}
-        \PY{l+s+sd}{Beside the NaN the data the figures that do not show a clear distrubution are: 1, 8, 10 and 11. }
-        
-        
-        \PY{l+s+sd}{Is there something that you think might require special treatment?}
-        \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-\end{Verbatim}
-
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}5}]:} "\textbackslash{}n1 . Visually explore the data. Plot the distribution of each feature (e.g. histograms), as well as the target. Visualize the dependency of the target on each feature (use a 2d scatter plot). Is there anything that stands out? Is there something that you think might require special treatment?\textbackslash{}n- Feel free to create additional plots that help you understand the data\textbackslash{}n- Only visualize the data, you don't need to change it (yet)\textbackslash{}n\textbackslash{}n**Answers:**\textbackslash{}nThe first column of figures shows the histograms of each column of the data in X. \textbackslash{}nThe second column shows the relationship between y and x. \textbackslash{}n*Is there anything that stands out?*\textbackslash{}nThe dataset containts non real numbers, so the data set must first be cleaned to visualize it.\textbackslash{}nBeside the NaN the data the figures that do not show a clear distrubution are: 1, 8, 10 and 11. \textbackslash{}n\textbackslash{}n\textbackslash{}nIs there something that you think might require special treatment?\textbackslash{}n"
-\end{Verbatim}
-            
-    2 . Compare all linear regression algorithms that we covered in class
-(Linear Regression, Ridge, Lasso and ElasticNet), as well as kNN.
-Evaluate using cross-validation and the \(R^2\) score, with the default
-parameters. Does scaling the data with StandardScaler help? Provide a
-concise but meaningful interpretation of the results. - Preprocess the
-data as needed (e.g. are there nominal features that are not ordinal?).
-If you don't know how to proceed, remove the feature and continue.
-
-    3 . Do a default, shuffled train-test split and optimize the linear
-models for the degree of regularization (\(alpha\)) and choice of
-penalty (L1/L2). For Ridge and Lasso, plot a curve showing the effect of
-the training and test set performance (\(R^2\)) while increasing the
-degree of regularization for different penalties. For ElasticNet, plot a
-heatmap \(alpha \times l1\_ratio \rightarrow R^2\) using test set
-performance. Report the optimal performance. Again, provide a concise
-but meaningful interpretation. What does the regularization do? Can you
-get better results? - Think about how you get the L1/L2 loss. This is
-not a hyperparameter in regression. - We've seen how to generate such
-heatmaps in Lecture 3.
-
-    4 . Visualize the coefficients of the optimized models. Do they agree on
-which features are important? Compare the results with the feature
-importances returned by a RandomForest. Does it agree with the linear
-models? What would look for when scouting for a baseball player?
-
-    \subsection{Nepalese character recognition (5 points,
-1+2+2)}\label{nepalese-character-recognition-5-points-122}
-
-The \href{https://www.openml.org/d/40923}{Devnagari-Script dataset}
-contains 92,000 images (32x32 pixels) of 46 characters from Devanagari
-script. Your goal is to learn to recognize the right letter given the
-image.
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}56}]:} \PY{c+c1}{\PYZsh{} Initial the setting so the code can be run from this point}
-         \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{HTML}
-         \PY{n}{HTML}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{l+s+s1}{\PYZlt{}style\PYZgt{}html, body}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{overflow\PYZhy{}y: visible !important\PYZcb{} .CodeMirror}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{min\PYZhy{}width:105}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{ !important;\PYZcb{} .rise\PYZhy{}enabled .CodeMirror, .rise\PYZhy{}enabled .output\PYZus{}subarea}\PY{l+s+s1}{\PYZob{}}\PY{l+s+s1}{font\PYZhy{}size:140}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{; line\PYZhy{}height:1.2; overflow: visible;\PYZcb{} .output\PYZus{}subarea pre}\PY{l+s+si}{\PYZob{}width:110\PYZpc{}\PYZcb{}}\PY{l+s+s1}{\PYZlt{}/style\PYZgt{}}\PY{l+s+s1}{\PYZsq{}\PYZsq{}\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} For slides}
-         \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
-         \PY{k+kn}{from} \PY{n+nn}{preamble} \PY{k}{import} \PY{o}{*}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{200} \PY{c+c1}{\PYZsh{} This controls the size of your figures}
-         \PY{c+c1}{\PYZsh{} Comment out and restart notebook if you only want the last output of each cell.}
-         \PY{n}{InteractiveShell}\PY{o}{.}\PY{n}{ast\PYZus{}node\PYZus{}interactivity} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{all}\PY{l+s+s2}{\PYZdq{}}
-\end{Verbatim}
-
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}56}]:} <IPython.core.display.HTML object>
-\end{Verbatim}
-            
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}57}]:} \PY{n}{devnagari} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{40923}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download Devnagari data}
-         \PY{c+c1}{\PYZsh{} Get the predictors X and the labels y}
-         \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{devnagari}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;} 
-         \PY{k}{if} \PY{o+ow}{not} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{classes}\PY{l+s+s1}{\PYZsq{}} \PY{o+ow}{in} \PY{n+nb}{locals}\PY{p}{(}\PY{p}{)}\PY{p}{:} 
-             \PY{n}{classes} \PY{o}{=} \PY{n}{devnagari}\PY{o}{.}\PY{n}{retrieve\PYZus{}class\PYZus{}labels}\PY{p}{(}\PY{n}{target\PYZus{}name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{character}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} This one takes a while, skip if not needed}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}58}]:} \PY{k+kn}{from} \PY{n+nn}{random} \PY{k}{import} \PY{n}{randint}
-         \PY{c+c1}{\PYZsh{} Take some random examples, reshape to a 32x32 image and plot}
-         \PY{n}{fig}\PY{p}{,} \PY{n}{axes} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplots}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,}  \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{:}
-             \PY{n}{n} \PY{o}{=} \PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{90000}\PY{p}{)}
-             \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{,} \PY{l+m+mi}{32}\PY{p}{)}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{cm}\PY{o}{.}\PY{n}{gray\PYZus{}r}\PY{p}{)}
-             \PY{n}{axes}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Class: }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{classes}\PY{p}{[}\PY{n}{y}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{]}\PY{p}{)}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
-
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_13_0.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Evaluate k-Nearest Neighbors, Logistic Regression and RandomForests
-  with their default settings.
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Take a stratified 10\% subsample of the data.
-  \item
-    Use the default train-test split and predictive accuracy. Is
-    predictive accuracy a good scoring measure for this problem?
-  \item
-    Try to build the same models on increasingly large samples of the
-    dataset (e.g. 10\%, 20\%,...). Plot the training time and the
-    predictive performance for each. Stop when the training time becomes
-    prohibitively large (this will be different for different models).
-  \end{itemize}
-\end{enumerate}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}67}]:} \PY{c+c1}{\PYZsh{} Import the functions (standard variables are used)}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier}  
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{linear\PYZus{}model} \PY{k}{import} \PY{n}{LogisticRegression}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{RandomForestClassifier}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{accuracy\PYZus{}score}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{classification\PYZus{}report}\PY{p}{,} \PY{n}{confusion\PYZus{}matrix}  
-         \PY{k+kn}{import} \PY{n+nn}{time}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{neighbors} \PY{k}{import} \PY{n}{KNeighborsClassifier} 
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{KFold}
-         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-         
-         \PY{k}{def} \PY{n+nf}{Question1a}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-               
-             \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.05}\PY{p}{,}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{l+m+mf}{0.15}\PY{p}{,}\PY{l+m+mf}{0.2}\PY{p}{]}\PY{p}{)}
-                                \PY{c+c1}{\PYZsh{},0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.80,0.85,0.9,0.95,0.99]}
-             \PY{n}{A} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-             \PY{n}{T} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
-         
-             \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
-             \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-         
-             \PY{c+c1}{\PYZsh{}n1 = randint(0,len(y\PYZus{}test1))}
-             \PY{c+c1}{\PYZsh{}n2 = randint(0,len(y\PYZus{}test1))}
-         
-             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fraction}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                 
-                 \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fraction}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
-                 \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
-                 
-                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{i}\PY{p}{)}
-                 
-                 \PY{c+c1}{\PYZsh{} Solve the learning problems if the solutions do not exist yet}
-                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}classifier\PYZsq{} in locals(): }
-                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{knn} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{)}  
-                 \PY{n}{knn}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)} 
-                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 \PY{c+c1}{\PYZsh{}y\PYZus{}predKNearest = knn.predict(X\PYZus{}test)  }
-                 \PY{n}{Accuracy\PYZus{}KNearest}\PY{o}{=}\PY{n}{knn}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)}
-                 \PY{n}{A}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}KNearest}
-                 \PY{n}{T}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-                 
-                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}Forest\PYZsq{} in locals():   }
-                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{Forest} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{Forest}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
-                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 \PY{c+c1}{\PYZsh{}y\PYZus{}predForest = Forest.predict(X\PYZus{}test)  }
-                 \PY{n}{Accuracy\PYZus{}Forest}\PY{o}{=}\PY{n}{Forest}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)} \PY{c+c1}{\PYZsh{}accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predForest)}
-                 \PY{n}{A}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Forest}
-                 \PY{n}{T}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-                 
-             \PY{n}{xas}\PY{o}{=}\PY{n}{Fraction}
-             \PY{n}{plot1}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy [}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{]}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-         \PY{c+c1}{\PYZsh{}     plot1.set\PYZus{}ylim([0, 1])}
-             
-         \PY{c+c1}{\PYZsh{}     red\PYZus{}patch = mpatches.Patch(color=\PYZsq{}red\PYZsq{}, label=\PYZsq{}The red data\PYZsq{})}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k\PYZhy{}Nearest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RandomForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-             \PY{c+c1}{\PYZsh{}plt.grid()}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time (s)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k\PYZhy{}Nearest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RandomForest}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-             \PY{k}{return}
-         
-         \PY{k}{def} \PY{n+nf}{Question1b}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-             
-             \PY{n}{length\PYZus{}data}\PY{o}{=}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{;} \PY{c+c1}{\PYZsh{}92000}
-             
-             \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{;} \PY{c+c1}{\PYZsh{} To have more control of the computation time}
-             \PY{n}{number\PYZus{}of\PYZus{}training}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{;} \PY{c+c1}{\PYZsh{} Not used}
-         
-             \PY{n}{Fractionb}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.02}\PY{p}{,}\PY{l+m+mf}{0.04}\PY{p}{,}\PY{l+m+mf}{0.06}\PY{p}{]}\PY{p}{)}
-             
-             \PY{n}{A1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-             \PY{n}{T1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
-         
-             \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
-             \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-         
-             \PY{c+c1}{\PYZsh{}n1 = randint(0,len(y\PYZus{}test1))}
-             \PY{c+c1}{\PYZsh{}n2 = randint(0,len(y\PYZus{}test1))}
-         
-             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Fractionb}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                 \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fractionb}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
-                 \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
-         
-                 \PY{n+nb}{print}\PY{p}{(}\PY{n}{i}\PY{p}{)}
-                 
-                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}logistic\PYZsq{} in locals(): }
-                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{logistic} \PY{o}{=} \PY{n}{LogisticRegression}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{logistic}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
-                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-         \PY{c+c1}{\PYZsh{}         y\PYZus{}predLogistic = logistic.predict(X\PYZus{}test) }
-                 \PY{n}{Accuracy\PYZus{}Logistic}\PY{o}{=}\PY{n}{logistic}\PY{o}{.}\PY{n}{score}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{p}{)} \PY{c+c1}{\PYZsh{}accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predLogistic)}
-                 \PY{n}{A1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Logistic}
-                 \PY{n}{T1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}       
-                 
-             \PY{n}{xas}\PY{o}{=}\PY{n}{Fractionb}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
-             \PY{n}{plot1}\PY{o}{=}\PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{A1}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy [}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{]}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plot1}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-             
-         \PY{c+c1}{\PYZsh{}   red\PYZus{}patch = mpatches.Patch(color=\PYZsq{}red\PYZsq{}, label=\PYZsq{}The red data\PYZsq{})}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-             \PY{c+c1}{\PYZsh{}plt.grid()}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xas}\PY{p}{,}\PY{n}{T1}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Fraction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time (s)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Logistic Regression}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)} 
-             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-         
-             \PY{k}{return}
-         
-         \PY{n}{Question1a}\PY{p}{(}\PY{p}{)}
-         \PY{n}{Question1b}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-0
-1
-2
-3
+Aligned the data sets. Score is   102234.2  
+n\_neighbours = 50
+50
+Aligned the data sets. Score is    31067.5  
+n\_neighbours = N-1
+1796
+Aligned the data sets. Score is        0.0  
+Done.
 
     \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_1.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-0
-1
-2
-
-    \end{Verbatim}
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_3.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    2 . Optimize the value for the number of neighbors \(k\) (keep \(k\)
-\textless{} 50) and the number of trees (keep \(n\_estimators\)
-\textless{} 100) on the stratified 10\% subsample. Use 10-fold
-crossvalidation and plot \(k\) and \(n\_estimators\) against the
-predictive accuracy. Which value of \(k\), \(n\_estimators\) should you
-pick?
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}68}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
-         
-         \PY{k}{def} \PY{n+nf}{Question2}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-             
-         \PY{c+c1}{\PYZsh{}    length\PYZus{}data=len(y); \PYZsh{}92000}
-         
-             \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.1}\PY{p}{]}\PY{p}{)}
-             
-             \PY{n}{n\PYZus{}neighborsA}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{50}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
-             \PY{n}{n\PYZus{}estimatorsA}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
-             
-             \PY{n}{A1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}neighborsA}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-             \PY{n}{T1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}neighborsA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
-             
-             \PY{n}{A2} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-             \PY{n}{T2} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
-         
-             \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
-             \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-         
-         \PY{c+c1}{\PYZsh{}     X\PYZus{}del, X\PYZus{}train, y\PYZus{}del, y\PYZus{}train = train\PYZus{}test\PYZus{}split(X, y, test\PYZus{}size = Fraction[0])}
-         \PY{c+c1}{\PYZsh{}     X\PYZus{}del, X\PYZus{}test, y\PYZus{}del, y\PYZus{}test = train\PYZus{}test\PYZus{}split(X, y, test\PYZus{}size = number\PYZus{}of\PYZus{}test/(len(y))) }
-             
-             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fraction}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-             \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
-             
-             \PY{n}{X\PYZus{}train}\PY{o}{.}\PY{n}{shape}
-             \PY{n}{y\PYZus{}train}\PY{o}{.}\PY{n}{shape}
-         
-             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}neighborsA}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-         
-                 \PY{c+c1}{\PYZsh{} Reduce the test data as well to 10 samples}
-                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{knn iteration: }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{i}\PY{p}{)}
-                 \PY{c+c1}{\PYZsh{} Solve the learning problems if the solutions do not exist yet}
-                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}classifier\PYZsq{} in locals(): }
-                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{knn} \PY{o}{=} \PY{n}{KNeighborsClassifier}\PY{p}{(}\PY{n}{n\PYZus{}neighbors}\PY{o}{=}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}  
-                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 
-                 \PY{n}{scores} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{knn}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
-                 \PY{n}{Accuracy\PYZus{}knn}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{scores}\PY{p}{)}
-                 
-         \PY{c+c1}{\PYZsh{}         Accuracy\PYZus{}KNearest=accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predKNearest)}
-                 \PY{n}{A1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}knn}
-                 \PY{n}{T1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-                 
-         \PY{c+c1}{\PYZsh{}       if not \PYZsq{}logistic\PYZsq{} in locals(): \PYZsh{} There is no n\PYZus{}neighbors or \PYZsh{} of trees option in this function}
-                 \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         \PY{l+s+sd}{        tic = time.clock()}
-         \PY{l+s+sd}{        logistic = LogisticRegression()}
-         \PY{l+s+sd}{        logistic.fit(X\PYZus{}train,y\PYZus{}train)}
-         \PY{l+s+sd}{        toc = time.clock()}
-         \PY{l+s+sd}{        y\PYZus{}predLogistic = logistic.predict(X\PYZus{}test) }
-         \PY{l+s+sd}{        Accuracy\PYZus{}Logistic=accuracy\PYZus{}score(y\PYZus{}test,y\PYZus{}predLogistic)}
-         \PY{l+s+sd}{        A[i][1]=Accuracy\PYZus{}Logistic}
-         \PY{l+s+sd}{        T[i][1]=toc\PYZhy{}tic}
-         \PY{l+s+sd}{        \PYZsq{}\PYZsq{}\PYZsq{}}
-         
-                 \PY{c+c1}{\PYZsh{}if not \PYZsq{}Forest\PYZsq{} in locals():}
-                 
-             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{n\PYZus{}neighborsA}\PY{p}{,}\PY{n}{A1}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Crossvalidation score vs \PYZsh{} neighbors }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}neigbors}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mean score cross val}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-                 
-             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{)}\PY{p}{:}   
-                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Random Forest iteration: }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{i}\PY{p}{)}
-                 \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{Forest} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)} \PY{c+c1}{\PYZsh{} Number of trees }
-                 \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                 
-                 \PY{n}{scores} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{Forest}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
-                 \PY{n}{Accuracy\PYZus{}Forest}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{scores}\PY{p}{)}
-         
-                 \PY{n}{A2}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Forest}
-                 \PY{n}{T2}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-                 
-             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{,}\PY{n}{A2}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Crossvalidation score vs \PYZsh{} estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Mean score cross val}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-                
-             \PY{k}{return}
-         
-         \PY{n}{Question2}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-knn iteration: 0 
-knn iteration: 1 
-knn iteration: 2 
-knn iteration: 3 
-knn iteration: 4 
-knn iteration: 5 
-knn iteration: 6 
-knn iteration: 7 
-knn iteration: 8 
-knn iteration: 9 
-knn iteration: 10 
-knn iteration: 11 
-knn iteration: 12 
-knn iteration: 13 
-knn iteration: 14 
-knn iteration: 15 
-knn iteration: 16 
-knn iteration: 17 
-knn iteration: 18 
-knn iteration: 19 
-
-    \end{Verbatim}
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_1.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-Random Forest iteration: 0 
-Random Forest iteration: 1 
-Random Forest iteration: 2 
-Random Forest iteration: 3 
-Random Forest iteration: 4 
-Random Forest iteration: 5 
-Random Forest iteration: 6 
-Random Forest iteration: 7 
-Random Forest iteration: 8 
-Random Forest iteration: 9 
-Random Forest iteration: 10 
-Random Forest iteration: 11 
-Random Forest iteration: 12 
-Random Forest iteration: 13 
-Random Forest iteration: 14 
-Random Forest iteration: 15 
-Random Forest iteration: 16 
-Random Forest iteration: 17 
-Random Forest iteration: 18 
-Random Forest iteration: 19 
-
-    \end{Verbatim}
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_3.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    3 . For the RandomForest, optimize both \(n\_estimators\) and
-\(max\_features\) at the same time on the entire dataset. - Use a nested
-cross-validation and a random search over the possible values, and
-measure the accuracy. Explore how fine-grained this grid/random search
-can be, given your computational resources. What is the optimal
-performance you find? - Hint: choose a nested cross-validation that is
-feasible. Don't use too many folds in the outer loop. - Repeat the grid
-search and visualize the results as a plot (heatmap)
-\(n\_estimators \times max\_features \rightarrow ACC\) with ACC
-visualized as the color of the data point. Try to make the grid as fine
-as possible. Interpret the results. Can you explain your observations?
-What did you learn about tuning RandomForests?
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}72}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{cross\PYZus{}val\PYZus{}score}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{GridSearchCV}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{Pipeline}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{pipeline} \PY{k}{import} \PY{n}{make\PYZus{}pipeline}
-         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{patches} \PY{k}{as} \PY{n+nn}{mpatches}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{savefig.dpi}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1000} \PY{c+c1}{\PYZsh{} This controls the size of your figures}
-         \PY{k}{def} \PY{n+nf}{Question3}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-         \PY{c+c1}{\PYZsh{}    length\PYZus{}data=len(y); \PYZsh{}92000}
-             
-             \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{;} \PY{c+c1}{\PYZsh{} To have more control of the computation time}
-             \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.01}\PY{p}{]}\PY{p}{)}
-             
-             \PY{n}{n\PYZus{}estimatorsAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
-             \PY{n}{n\PYZus{}estimatorsAFR}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsAF}\PY{p}{)}
-             \PY{n}{n\PYZus{}estimatorsA}\PY{o}{=}\PY{n}{n\PYZus{}estimatorsAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
-             \PY{n+nb}{print}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}
-             \PY{n}{max\PYZus{}featuresAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}
-             \PY{n}{max\PYZus{}featuresAFR}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{max\PYZus{}featuresAF}\PY{p}{)}
-             \PY{n}{max\PYZus{}featuresA}\PY{o}{=}\PY{n}{max\PYZus{}featuresAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
-             \PY{n+nb}{print}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}
-             \PY{n}{A1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-             \PY{n}{A2} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{} Accuracy Matrix}
-             \PY{n}{T1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} Computation time Matrix}
-         
-             \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
-             \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-            
-             \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{n}{Fraction}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-             \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.25}\PY{p}{)}
-            
-             \PY{n}{p\PYZus{}grid} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{n\PYZus{}estimators}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{n\PYZus{}estimatorsA}\PY{p}{,}
-                   \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{max\PYZus{}features}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{max\PYZus{}featuresA}\PY{p}{\PYZcb{}}
-         
-             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{)}\PY{p}{:}   
-                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Random Forest iteration: }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{n}{i}\PY{p}{)}
-                 \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{)}\PY{p}{:}  
-                     
-                     \PY{n}{inner\PYZus{}cv} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{shuffle}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{n}{i}\PY{p}{)}
-                     \PY{n}{outer\PYZus{}cv} \PY{o}{=} \PY{n}{KFold}\PY{p}{(}\PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{shuffle}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{n}{i}\PY{p}{)}
-                     \PY{n}{svc}\PY{o}{=}            \PY{n}{Forest} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} Number of trees }
-                     \PY{n}{clf} \PY{o}{=} \PY{n}{GridSearchCV}\PY{p}{(}\PY{n}{svc}\PY{p}{,} \PY{n}{param\PYZus{}grid}\PY{o}{=}\PY{n}{p\PYZus{}grid}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{inner\PYZus{}cv}\PY{p}{)}
-                     \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
-                     \PY{n}{non\PYZus{}nested\PYZus{}scores} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{best\PYZus{}score\PYZus{}}
-         
-                     \PY{c+c1}{\PYZsh{} Nested CV with parameter optimization}
-                     \PY{n}{nested\PYZus{}score} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{clf}\PY{p}{,} \PY{n}{X}\PY{o}{=}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{n}{outer\PYZus{}cv}\PY{p}{)}
-                     \PY{n}{A2}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{n}{nested\PYZus{}score}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
-                     
-                     
-                     \PY{n}{tic} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                     \PY{n}{Forest} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{max\PYZus{}features}\PY{o}{=}\PY{n}{max\PYZus{}featuresA}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{} Number of trees }
-                     \PY{n}{Forest\PYZus{}outer} \PY{o}{=} \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{max\PYZus{}features}\PY{o}{=}\PY{n}{max\PYZus{}featuresA}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{)} 
-                     \PY{n}{toc} \PY{o}{=} \PY{n}{time}\PY{o}{.}\PY{n}{clock}\PY{p}{(}\PY{p}{)}
-                     
-                     \PY{n}{Forest}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
-                     \PY{n}{scores} \PY{o}{=} \PY{n}{cross\PYZus{}val\PYZus{}score}\PY{p}{(}\PY{n}{Forest}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{cv}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
-                     \PY{n}{Accuracy\PYZus{}Forest}\PY{o}{=}\PY{n}{scores}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
-         
-                     \PY{n}{A1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{Accuracy\PYZus{}Forest}
-                     \PY{n}{T1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{=}\PY{n}{toc}\PY{o}{\PYZhy{}}\PY{n}{tic}
-                     
-             \PY{n}{A1}\PY{o}{.}\PY{n}{shape}\PY{o}{=}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{)}
-             \PY{n}{param\PYZus{}grid} \PY{o}{=} \PY{p}{[}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}estimatorsA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{n\PYZus{}estimatorsA}\PY{p}{,}
-                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}featuresA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{max\PYZus{}featuresA}\PY{p}{\PYZcb{}}\PY{p}{]}
-             \PY{n}{im1}\PY{o}{=}\PY{n}{mglearn}\PY{o}{.}\PY{n}{tools}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{A1}\PY{p}{,} \PY{n}{xlabel}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{xticklabels}\PY{o}{=}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{,}
-                               \PY{n}{ylabel}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{yticklabels}\PY{o}{=}\PY{n}{max\PYZus{}featuresA}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{viridis}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
-             
-             
-         \PY{c+c1}{\PYZsh{}     plt.xlabel(\PYZdq{}\PYZsh{} estimators\PYZdq{})}
-         \PY{c+c1}{\PYZsh{}     plt.ylabel(\PYZdq{}\PYZsh{} features\PYZdq{})}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy for \PYZsh{} estimators and \PYZsh{} features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{)}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{)}\PY{p}{)}
-             \PY{n}{values} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{n}{A1}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-             \PY{n}{colors} \PY{o}{=} \PY{p}{[} \PY{n}{im1}\PY{o}{.}\PY{n}{cmap}\PY{p}{(}\PY{n}{im1}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{value}\PY{p}{)}\PY{p}{)} \PY{k}{for} \PY{n}{value} \PY{o+ow}{in} \PY{n}{values}\PY{p}{]}
-             
-             \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{p}{)}
-             \PY{n}{A2}\PY{o}{.}\PY{n}{shape}\PY{o}{=}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{)}
-             \PY{n}{param\PYZus{}grid} \PY{o}{=} \PY{p}{[}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}estimatorsA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{n\PYZus{}estimatorsA}\PY{p}{,}
-                        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}featuresA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{max\PYZus{}featuresA}\PY{p}{\PYZcb{}}\PY{p}{]}
-             \PY{n}{im1}\PY{o}{=}\PY{n}{mglearn}\PY{o}{.}\PY{n}{tools}\PY{o}{.}\PY{n}{heatmap}\PY{p}{(}\PY{n}{A1}\PY{p}{,} \PY{n}{xlabel}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n\PYZus{}estimators}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{xticklabels}\PY{o}{=}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{,}
-                               \PY{n}{ylabel}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{yticklabels}\PY{o}{=}\PY{n}{max\PYZus{}featuresA}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{viridis}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Accuracy for \PYZsh{} estimators and \PYZsh{} features}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontweight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsA}\PY{p}{)}\PY{p}{)}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{yticks}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{max\PYZus{}featuresA}\PY{p}{)}\PY{p}{)}\PY{p}{)}
-             \PY{n}{values} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{unique}\PY{p}{(}\PY{n}{A2}\PY{o}{.}\PY{n}{ravel}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-             \PY{n}{colors} \PY{o}{=} \PY{p}{[} \PY{n}{im1}\PY{o}{.}\PY{n}{cmap}\PY{p}{(}\PY{n}{im1}\PY{o}{.}\PY{n}{norm}\PY{p}{(}\PY{n}{value}\PY{p}{)}\PY{p}{)} \PY{k}{for} \PY{n}{value} \PY{o+ow}{in} \PY{n}{values}\PY{p}{]}
-             \PY{c+c1}{\PYZsh{} create a patch (proxy artist) for every color }
-         \PY{c+c1}{\PYZsh{}      =[ mpatches.Patch(color=colors[i], label=\PYZdq{}\PYZob{}l\PYZcb{}\PYZdq{}.format(l=np.round(values[i],3))) for i in range(1,len(values),5) ]}
-             \PY{c+c1}{\PYZsh{} put those patched as legend\PYZhy{}handles into the legend}
-         \PY{c+c1}{\PYZsh{}     plt.legend(handles=patches, bbox\PYZus{}to\PYZus{}anchor=(1.05, 1), loc=2, borderaxespad=0. )}
-             \PY{n+nb}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{n}{A1}\PY{p}{)}\PY{p}{)}
-             \PY{n+nb}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{A1}\PY{p}{)}\PY{p}{)}
-             \PY{k}{return}
-            
-         
-         \PY{n}{Question3}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-[  1   6  11  17  22  27  32  37  43  48  53  58  64  69  74  79  84  90
-  95 100]
-[  1  12  23  34  45  56  67  78  89 100]
-Random Forest iteration: 0 
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-        ---------------------------------------------------------------------------
-
-        KeyboardInterrupt                         Traceback (most recent call last)
-
-        <ipython-input-72-62019a690a66> in <module>()
-         95 
-         96 
-    ---> 97 Question3()
-         98 
-    
-
-        <ipython-input-72-62019a690a66> in Question3()
-         44 
-         45             \# Nested CV with parameter optimization
-    ---> 46             nested\_score = cross\_val\_score(clf, X=X\_train, y=y\_train, cv=outer\_cv)
-         47             A2[i][n][0] = nested\_score.mean()
-         48 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in cross\_val\_score(estimator, X, y, groups, scoring, cv, n\_jobs, verbose, fit\_params, pre\_dispatch)
-        340                                 n\_jobs=n\_jobs, verbose=verbose,
-        341                                 fit\_params=fit\_params,
-    --> 342                                 pre\_dispatch=pre\_dispatch)
-        343     return cv\_results['test\_score']
-        344 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in cross\_validate(estimator, X, y, groups, scoring, cv, n\_jobs, verbose, fit\_params, pre\_dispatch, return\_train\_score)
-        204             fit\_params, return\_train\_score=return\_train\_score,
-        205             return\_times=True)
-    --> 206         for train, test in cv.split(X, y, groups))
-        207 
-        208     if return\_train\_score:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
-        777             \# was dispatched. In particular this covers the edge
-        778             \# case of Parallel used with an exhausted iterator.
-    --> 779             while self.dispatch\_one\_batch(iterator):
-        780                 self.\_iterating = True
-        781             else:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
-        623                 return False
-        624             else:
-    --> 625                 self.\_dispatch(tasks)
-        626                 return True
-        627 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
-        586         dispatch\_timestamp = time.time()
-        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
-    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
-        589         self.\_jobs.append(job)
-        590 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
-        109     def apply\_async(self, func, callback=None):
-        110         """Schedule a func to be run"""
-    --> 111         result = ImmediateResult(func)
-        112         if callback:
-        113             callback(result)
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
-        330         \# Don't delay the application, to avoid keeping the input
-        331         \# arguments in memory
-    --> 332         self.results = batch()
-        333 
-        334     def get(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in \_fit\_and\_score(estimator, X, y, scorer, train, test, verbose, parameters, fit\_params, return\_train\_score, return\_parameters, return\_n\_test\_samples, return\_times, error\_score)
-        456             estimator.fit(X\_train, **fit\_params)
-        457         else:
-    --> 458             estimator.fit(X\_train, y\_train, **fit\_params)
-        459 
-        460     except Exception as e:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_search.py in fit(self, X, y, groups, **fit\_params)
-        637                                   error\_score=self.error\_score)
-        638           for parameters, (train, test) in product(candidate\_params,
-    --> 639                                                    cv.split(X, y, groups)))
-        640 
-        641         \# if one choose to see train score, "out" will contain train score info
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
-        777             \# was dispatched. In particular this covers the edge
-        778             \# case of Parallel used with an exhausted iterator.
-    --> 779             while self.dispatch\_one\_batch(iterator):
-        780                 self.\_iterating = True
-        781             else:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
-        623                 return False
-        624             else:
-    --> 625                 self.\_dispatch(tasks)
-        626                 return True
-        627 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
-        586         dispatch\_timestamp = time.time()
-        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
-    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
-        589         self.\_jobs.append(job)
-        590 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
-        109     def apply\_async(self, func, callback=None):
-        110         """Schedule a func to be run"""
-    --> 111         result = ImmediateResult(func)
-        112         if callback:
-        113             callback(result)
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
-        330         \# Don't delay the application, to avoid keeping the input
-        331         \# arguments in memory
-    --> 332         self.results = batch()
-        333 
-        334     def get(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}model\_selection\textbackslash{}\_validation.py in \_fit\_and\_score(estimator, X, y, scorer, train, test, verbose, parameters, fit\_params, return\_train\_score, return\_parameters, return\_n\_test\_samples, return\_times, error\_score)
-        456             estimator.fit(X\_train, **fit\_params)
-        457         else:
-    --> 458             estimator.fit(X\_train, y\_train, **fit\_params)
-        459 
-        460     except Exception as e:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}ensemble\textbackslash{}forest.py in fit(self, X, y, sample\_weight)
-        326                     t, self, X, y, sample\_weight, i, len(trees),
-        327                     verbose=self.verbose, class\_weight=self.class\_weight)
-    --> 328                 for i, t in enumerate(trees))
-        329 
-        330             \# Collect newly grown trees
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self, iterable)
-        777             \# was dispatched. In particular this covers the edge
-        778             \# case of Parallel used with an exhausted iterator.
-    --> 779             while self.dispatch\_one\_batch(iterator):
-        780                 self.\_iterating = True
-        781             else:
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in dispatch\_one\_batch(self, iterator)
-        623                 return False
-        624             else:
-    --> 625                 self.\_dispatch(tasks)
-        626                 return True
-        627 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_dispatch(self, batch)
-        586         dispatch\_timestamp = time.time()
-        587         cb = BatchCompletionCallBack(dispatch\_timestamp, len(batch), self)
-    --> 588         job = self.\_backend.apply\_async(batch, callback=cb)
-        589         self.\_jobs.append(job)
-        590 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in apply\_async(self, func, callback)
-        109     def apply\_async(self, func, callback=None):
-        110         """Schedule a func to be run"""
-    --> 111         result = ImmediateResult(func)
-        112         if callback:
-        113             callback(result)
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}\_parallel\_backends.py in \_\_init\_\_(self, batch)
-        330         \# Don't delay the application, to avoid keeping the input
-        331         \# arguments in memory
-    --> 332         self.results = batch()
-        333 
-        334     def get(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in \_\_call\_\_(self)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}externals\textbackslash{}joblib\textbackslash{}parallel.py in <listcomp>(.0)
-        129 
-        130     def \_\_call\_\_(self):
-    --> 131         return [func(*args, **kwargs) for func, args, kwargs in self.items]
-        132 
-        133     def \_\_len\_\_(self):
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}ensemble\textbackslash{}forest.py in \_parallel\_build\_trees(tree, forest, X, y, sample\_weight, tree\_idx, n\_trees, verbose, class\_weight)
-        119             curr\_sample\_weight *= compute\_sample\_weight('balanced', y, indices)
-        120 
-    --> 121         tree.fit(X, y, sample\_weight=curr\_sample\_weight, check\_input=False)
-        122     else:
-        123         tree.fit(X, y, sample\_weight=sample\_weight, check\_input=False)
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}tree\textbackslash{}tree.py in fit(self, X, y, sample\_weight, check\_input, X\_idx\_sorted)
-        788             sample\_weight=sample\_weight,
-        789             check\_input=check\_input,
-    --> 790             X\_idx\_sorted=X\_idx\_sorted)
-        791         return self
-        792 
-    
-
-        \textasciitilde{}\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}sklearn\textbackslash{}tree\textbackslash{}tree.py in fit(self, X, y, sample\_weight, check\_input, X\_idx\_sorted)
-        360                                            min\_impurity\_split)
-        361 
-    --> 362         builder.build(self.tree\_, X, y, sample\_weight, X\_idx\_sorted)
-        363 
-        364         if self.n\_outputs\_ == 1:
-    
-
-        KeyboardInterrupt: 
-
-    \end{Verbatim}
-
-    \subsection{3. Understanding Ensembles (5 points
-(3+2))}\label{understanding-ensembles-5-points-32}
-
-Do a deeper analysis of how RandomForests and Gradient Boosting reduce
-their prediction error. We'll use the MAGIC telescope dataset
-(http://www.openml.org/d/1120). When high-energy particles hit the
-atmosphere, they produce chain reactions of other particles called
-'showers', and you need to detect whether these are caused by gamma rays
-or cosmic rays.
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}73}]:} \PY{c+c1}{\PYZsh{} Get the data}
-         \PY{n}{magic\PYZus{}data} \PY{o}{=} \PY{n}{oml}\PY{o}{.}\PY{n}{datasets}\PY{o}{.}\PY{n}{get\PYZus{}dataset}\PY{p}{(}\PY{l+m+mi}{1120}\PY{p}{)} \PY{c+c1}{\PYZsh{} Download MAGIC Telescope data}
-         \PY{n}{X}\PY{p}{,} \PY{n}{y} \PY{o}{=} \PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}74}]:} \PY{c+c1}{\PYZsh{} Quick visualization}
-         \PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{attribute\PYZus{}names} \PY{o}{=} \PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{get\PYZus{}data}\PY{p}{(}\PY{n}{target}\PY{o}{=}\PY{n}{magic\PYZus{}data}\PY{o}{.}\PY{n}{default\PYZus{}target\PYZus{}attribute}\PY{p}{,} \PY{n}{return\PYZus{}attribute\PYZus{}names}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
-         \PY{n}{magic} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{n}{attribute\PYZus{}names}\PY{p}{)}
-         \PY{n}{magic}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
-         \PY{c+c1}{\PYZsh{} Also plot the target: 1 = gamma, 0 = background}
-         \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
-
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_0.pdf}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_1.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_22_1.pdf}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_2.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
-    1 . Do a bias-variance analysis of both algorithms. For each, vary the
-number of trees on a log scale from 1 to 1024, and plot the bias error
-(squared), variance, and total error (in one plot per algorithm).
-Interpret the results. Which error is highest for small ensembles, and
-which reduced most by each algorithm as you use a larger ensemble? When
-are both algorithms under- or overfitting? Provide a detailed
-explanation of why random forests and gradient boosting behave this way.
-- See lecture 3 for an example on how to do the bias-variance
-decomposition - To save time, you can use a 10\% stratified subsample in
-your initial experiments, but show the plots for the full dataset in
-your report.
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}75}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{ShuffleSplit}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{ensemble}
-         
-         
-         \PY{k}{def} \PY{n+nf}{Question4}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-             \PY{c+c1}{\PYZsh{} Bootstraps}
-             \PY{n}{n\PYZus{}treesAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{logspace}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{log10}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{log10}\PY{p}{(}\PY{l+m+mi}{1024}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
-             \PY{n}{n\PYZus{}treesAFR}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{n\PYZus{}treesAF}\PY{p}{)}
-             \PY{n}{n\PYZus{}treesA}\PY{o}{=}\PY{n}{n\PYZus{}treesAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
-             \PY{n+nb}{print}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}
-             \PY{n}{n\PYZus{}repeat} \PY{o}{=} \PY{l+m+mi}{5}
-             \PY{n}{shuffle\PYZus{}split} \PY{o}{=} \PY{n}{ShuffleSplit}\PY{p}{(}\PY{n}{train\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{n}{n\PYZus{}splits}\PY{o}{=}\PY{n}{n\PYZus{}repeat}\PY{p}{)}
-             
-             \PY{n}{bias\PYZus{}sq}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
-             \PY{n}{var}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
-             \PY{n}{error}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
-             \PY{n}{bias\PYZus{}sqG}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
-             \PY{n}{varG}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
-             \PY{n}{errorG}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
-         
-             \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                 \PY{c+c1}{\PYZsh{} Store sample predictions}
-                 \PY{n}{y\PYZus{}all\PYZus{}pred} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{p}{]} \PY{k}{for} \PY{n}{\PYZus{}} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y}\PY{p}{)}\PY{p}{)}\PY{p}{]}
-         
-                 \PY{c+c1}{\PYZsh{} Train classifier on each bootstrap and score predictions}
-                 \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{p}{(}\PY{n}{train\PYZus{}index}\PY{p}{,} \PY{n}{test\PYZus{}index}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{shuffle\PYZus{}split}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                     \PY{c+c1}{\PYZsh{} Train and predict}
-                     \PY{n}{clf} \PY{o}{=}  \PY{n}{RandomForestClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}treesA}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}ensemble.GradientBoostingClassifier}
-                     \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{)}
-                     \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{test\PYZus{}index}\PY{p}{]}\PY{p}{)}
-         
-                     \PY{c+c1}{\PYZsh{} Store predictions}
-                     \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{test\PYZus{}index}\PY{p}{)}\PY{p}{:}
-                         \PY{n}{y\PYZus{}all\PYZus{}pred}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{y\PYZus{}pred}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
-         
-                         \PY{c+c1}{\PYZsh{} Compute bias, variance, error  }
-                     \PY{n}{bias\PYZus{}sumi}\PY{o}{=}\PY{l+m+mi}{0}
-                     \PY{n}{var\PYZus{}sumi}\PY{o}{=}\PY{l+m+mi}{0}
-                     \PY{n}{error\PYZus{}sumi}\PY{o}{=}\PY{l+m+mi}{0}
-                     \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y\PYZus{}all\PYZus{}pred}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                         \PY{n}{x}\PY{o}{=}\PY{n}{y\PYZus{}all\PYZus{}pred}\PY{p}{[}\PY{n}{i}\PY{p}{]}
-                         \PY{k}{if} \PY{o+ow}{not} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{==}\PY{l+m+mi}{0}\PY{p}{:}
-                             \PY{n}{bias\PYZus{}sumi}\PY{o}{=}\PY{n}{bias\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat}
-                             \PY{n}{var\PYZus{}sumi}\PY{o}{=}\PY{n}{var\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat} 
-                             \PY{n}{error\PYZus{}sumi}\PY{o}{=}\PY{n}{error\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat}
-                 \PY{n}{bias\PYZus{}sq}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{bias\PYZus{}sumi}
-                 \PY{n}{var}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{var\PYZus{}sumi}
-                 \PY{n}{error}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{error\PYZus{}sumi}
-                 \PY{c+c1}{\PYZsh{}print(\PYZdq{}Forest tree Bias squared: \PYZpc{}.2f, Variance: \PYZpc{}.2f, Total error: \PYZpc{}.2f\PYZdq{} \PYZpc{} (bias\PYZus{}sq[n], var[n], error[n]))}
-                 \PY{c+c1}{\PYZsh{} Train classifier on each bootstrap and score predictions}
-                 \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{p}{(}\PY{n}{train\PYZus{}index}\PY{p}{,} \PY{n}{test\PYZus{}index}\PY{p}{)} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{shuffle\PYZus{}split}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{n}{X}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                     \PY{c+c1}{\PYZsh{} Train and predict}
-                     \PY{n}{clf} \PY{o}{=}  \PY{n}{ensemble}\PY{o}{.}\PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{n}{n\PYZus{}treesA}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{p}{)}
-                     \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{,} \PY{n}{y}\PY{p}{[}\PY{n}{train\PYZus{}index}\PY{p}{]}\PY{p}{)}
-                     \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{test\PYZus{}index}\PY{p}{]}\PY{p}{)}
-         
-                     \PY{c+c1}{\PYZsh{} Store predictions}
-                     \PY{k}{for} \PY{n}{i}\PY{p}{,}\PY{n}{index} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{test\PYZus{}index}\PY{p}{)}\PY{p}{:}
-                         \PY{n}{y\PYZus{}all\PYZus{}pred}\PY{p}{[}\PY{n}{index}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{y\PYZus{}pred}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
-         
-                         \PY{c+c1}{\PYZsh{} Compute bias, variance, error  }
-                     \PY{n}{bias\PYZus{}sumi}\PY{o}{=}\PY{l+m+mi}{0}
-                     \PY{n}{var\PYZus{}sumi}\PY{o}{=}\PY{l+m+mi}{0}
-                     \PY{n}{error\PYZus{}sumi}\PY{o}{=}\PY{l+m+mi}{0}
-                     \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{y\PYZus{}all\PYZus{}pred}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                         \PY{n}{x}\PY{o}{=}\PY{n}{y\PYZus{}all\PYZus{}pred}\PY{p}{[}\PY{n}{i}\PY{p}{]}
-                         \PY{k}{if} \PY{o+ow}{not} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{==}\PY{l+m+mi}{0}\PY{p}{:}
-                             \PY{n}{bias\PYZus{}sumi}\PY{o}{=}\PY{n}{bias\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat}
-                             \PY{n}{var\PYZus{}sumi}\PY{o}{=}\PY{n}{var\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{p}{(}\PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat} 
-                             \PY{n}{error\PYZus{}sumi}\PY{o}{=}\PY{n}{error\PYZus{}sumi}\PY{o}{+}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{y}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{o}{/}\PY{n}{n\PYZus{}repeat}
-         
-                     \PY{n}{bias\PYZus{}sqG}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{bias\PYZus{}sumi}
-                     \PY{n}{varG}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{var\PYZus{}sumi}
-                     \PY{n}{errorG}\PY{p}{[}\PY{n}{n}\PY{p}{]}\PY{o}{=}\PY{n}{error\PYZus{}sumi}
-                 \PY{c+c1}{\PYZsh{}print(\PYZdq{}Gradient Boosting Bias squared: \PYZpc{}.2f, Variance: \PYZpc{}.2f, Total error: \PYZpc{}.2f\PYZdq{} \PYZpc{} (bias\PYZus{}sq[n], var[n], error[n]))}
-                 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Iteration }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}}\PY{k}{n})
-             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{semilogx}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{,} \PY{n}{bias\PYZus{}sq}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{semilogx}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{,} \PY{n}{bias\PYZus{}sqG}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Bias error}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{semilogx}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{,} \PY{n}{var}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{semilogx}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{,} \PY{n}{varG}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Variance}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{semilogx}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{,} \PY{n}{error}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{semilogx}\PY{p}{(}\PY{n}{n\PYZus{}treesA}\PY{p}{,} \PY{n}{errorG}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Error}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Total error}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{} trees}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
-             \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)} 
-         
-             
-             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-             \PY{k}{return}
-         
-         \PY{n}{Question4}\PY{p}{(}\PY{p}{)}
-         
-         
-             
-\end{Verbatim}
-
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-[   1    1    2    3    4    6    9   13   19   27   38   55   80  115
-  165  238  343  494  711 1024]
-Iteration 0
-Iteration 1
-Iteration 2
-Iteration 3
-Iteration 4
-Iteration 5
-Iteration 6
-Iteration 7
-Iteration 8
-Iteration 9
-Iteration 10
-Iteration 11
-Iteration 12
-Iteration 13
-Iteration 14
-Iteration 15
-Iteration 16
-Iteration 17
-Iteration 18
-Iteration 19
-
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_24_1.pdf}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_5_3.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
-    2 . A \emph{validation curve} can help you understand when a model
-starts under- or overfitting. It plots both training and test set error
-as you change certain characteristics of your model, e.g. one or more
-hyperparameters. Build validation curves for gradient boosting,
-evaluated using AUROC, by varying the number of iterations between 1 and
-500. In addition, use at least two values for the learning rate (e.g.
-0.1 and 1), and tree depth (e.g. 1 and 4). This will yield at least 4
-curves. Interpret the results and provide a clear explanation for the
-results. When is the model over- or underfitting? Discuss the effect of
-the different combinations learning rate and tree depth and provide a
-clear explanation. - While scikit-learn has a \texttt{validation\_curve}
-function, we'll use a modified version (below) that provides a lot more
-detail and can be used to study more than one hyperparameter. You can
-use a default train-test split.
+    \hypertarget{classical-multidimensional-scaling-6-points-1221}{%
+\subsection{Classical Multidimensional Scaling (6 Points,
+1+2+2+1)}\label{classical-multidimensional-scaling-6-points-1221}}
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}35}]:} \PY{c+c1}{\PYZsh{} Plots validation curves for every classifier in clfs. }
-         \PY{c+c1}{\PYZsh{} Also indicates the optimal result by a vertical line}
-         \PY{c+c1}{\PYZsh{} Uses 1\PYZhy{}AUROC, so lower is better}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{GradientBoostingClassifier}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{roc\PYZus{}auc\PYZus{}score}
-         
-         \PY{k}{def} \PY{n+nf}{validation\PYZus{}curve}\PY{p}{(}\PY{n}{clfs}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}\PY{p}{:}
-             \PY{k}{for} \PY{n}{n}\PY{p}{,}\PY{n}{clf} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{clfs}\PY{p}{)}\PY{p}{:}
-                 \PY{c+c1}{\PYZsh{}print(vars(clf))}
-                 \PY{c+c1}{\PYZsh{}print(dir(clf))}
-                 \PY{n}{clf}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{p}{)}
-                 \PY{n}{test\PYZus{}score} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{empty}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{estimators\PYZus{}}\PY{p}{)}\PY{p}{)}
-                 \PY{n}{train\PYZus{}score} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{empty}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{estimators\PYZus{}}\PY{p}{)}\PY{p}{)}
-         
-                 \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{pred} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{staged\PYZus{}decision\PYZus{}function}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                     \PY{n}{test\PYZus{}score}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{pred}\PY{p}{)}
-         
-                 \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{pred} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{clf}\PY{o}{.}\PY{n}{staged\PYZus{}decision\PYZus{}function}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                     \PY{n}{train\PYZus{}score}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{pred}\PY{p}{)}
-         
-                 \PY{n}{best\PYZus{}iter} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{argmin}\PY{p}{(}\PY{n}{test\PYZus{}score}\PY{p}{)}
-                 \PY{n}{learn} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{get\PYZus{}params}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{learning\PYZus{}rate}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-                 \PY{n}{depth} \PY{o}{=} \PY{n}{clf}\PY{o}{.}\PY{n}{get\PYZus{}params}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{max\PYZus{}depth}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
-                 \PY{n}{test\PYZus{}line} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{test\PYZus{}score}\PY{p}{,}
-                                      \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{learn=}\PY{l+s+si}{\PYZpc{}.1f}\PY{l+s+s1}{ depth=}\PY{l+s+si}{\PYZpc{}i}\PY{l+s+s1}{ (}\PY{l+s+si}{\PYZpc{}.2f}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{o}{\PYZpc{}}\PY{p}{(}\PY{n}{learn}\PY{p}{,}\PY{n}{depth}\PY{p}{,}
-                                                                          \PY{n}{test\PYZus{}score}\PY{p}{[}\PY{n}{best\PYZus{}iter}\PY{p}{]}\PY{p}{)}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
-         
-                 \PY{n}{colour} \PY{o}{=} \PY{n}{test\PYZus{}line}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{get\PYZus{}color}\PY{p}{(}\PY{p}{)}
-                 \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{train\PYZus{}score}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colour}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
-                 
-                 \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of boosting iterations}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-                 \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1 \PYZhy{} area under ROC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-                 \PY{n}{plt}\PY{o}{.}\PY{n}{axvline}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{best\PYZus{}iter}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{colour}\PY{p}{)}
-                 
-             \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-             
-         
-         \PY{n}{number\PYZus{}of\PYZus{}test}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{;} 
-         \PY{c+c1}{\PYZsh{} To have more control of the computation time}
-         \PY{n}{Fraction}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-         
-         \PY{n}{n\PYZus{}estimatorsAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
-         \PY{n}{n\PYZus{}estimatorsAFR}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{n\PYZus{}estimatorsAF}\PY{p}{)}
-         \PY{n}{n\PYZus{}estimatorsA}\PY{o}{=}\PY{n}{n\PYZus{}estimatorsAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
-         
-         \PY{n}{max\PYZus{}featuresAF}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
-         \PY{n}{max\PYZus{}featuresAFR}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{n}{max\PYZus{}featuresAF}\PY{p}{)}
-         \PY{n}{max\PYZus{}featuresA}\PY{o}{=}\PY{n}{max\PYZus{}featuresAFR}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{n+nb}{int}\PY{p}{)}
-         \PY{c+c1}{\PYZsh{} print(max\PYZus{}featuresA)}
-         \PY{c+c1}{\PYZsh{} A1 = np.zeros((len(n\PYZus{}estimatorsA),len(max\PYZus{}featuresA),1)) \PYZsh{} Accuracy Matrix}
-         \PY{c+c1}{\PYZsh{} A2 = np.zeros((len(n\PYZus{}estimatorsA),len(max\PYZus{}featuresA),1)) \PYZsh{} Accuracy Matrix}
-         \PY{c+c1}{\PYZsh{} T1 = np.zeros((len(n\PYZus{}estimatorsA),len(max\PYZus{}featuresA),1))  \PYZsh{} Computation time Matrix}
-         
-         \PY{c+c1}{\PYZsh{} Split the data in test data and train data (stratified 10\PYZpc{} subsample)}
-         \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{model\PYZus{}selection} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}  
-         
-         
-         \PY{n}{X\PYZus{}del}\PY{p}{,} \PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}del}\PY{p}{,} \PY{n}{y\PYZus{}split} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size} \PY{o}{=} \PY{l+m+mf}{0.5}\PY{p}{)}
-         \PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X\PYZus{}split}\PY{p}{,} \PY{n}{y\PYZus{}split}\PY{p}{,} \PY{n}{test\PYZus{}size} \PY{o}{=} \PY{l+m+mf}{0.5}\PY{p}{)}  
-         
-         \PY{n}{classifiers} \PY{o}{=} \PY{p}{[}
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{}n\PYZus{}estimators=3, }
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{c+c1}{\PYZsh{}n\PYZus{}estimators=3, }
-             \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{n}{n\PYZus{}estimators}\PY{o}{=}\PY{l+m+mi}{500}\PY{p}{,}\PY{n}{learning\PYZus{}rate}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{max\PYZus{}depth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
-         \PY{c+c1}{\PYZsh{}     GradientBoostingClassifier(n\PYZus{}estimators=10,random\PYZus{}state=0, learning\PYZus{}rate=0.5)}
-             \PY{p}{]}
-         
-         \PY{n}{validation\PYZus{}curve}\PY{p}{(}\PY{n}{classifiers}\PY{p}{,}\PY{n}{X\PYZus{}test}\PY{o}{=}\PY{n}{X\PYZus{}test}\PY{p}{,}\PY{n}{y\PYZus{}test}\PY{o}{=}\PY{n}{y\PYZus{}test}\PY{p}{,}\PY{n}{X\PYZus{}train}\PY{o}{=}\PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{y\PYZus{}train}\PY{o}{=}\PY{n}{y\PYZus{}train}\PY{p}{)}
-         \PY{c+c1}{\PYZsh{}validation\PYZus{}curve(classifiers,X\PYZus{}train=,y\PYZus{}train,X\PYZus{}test,y\PYZus{}test)}
-\end{Verbatim}
+Show that for mean-centered data sets we can recover inner products
+using pairwise distance information only. This is used by the isomap
+embedding algorithm.
 
+We are given all squared pairwise distances of an otherwise unknown
+point set \({\bf p}_1,\dots, {\bf p}_n \in \mathbb{R}^d\), i.e., we are
+given for all \(1 \leq i,j \leq n\) the values
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}35}]:} '\textbackslash{}ntrain\_scores, test\_scores = validation\_curve(\textbackslash{}n    SVC(), X\_train, y\_train, param\_name="gamma", param\_range=param\_range,\textbackslash{}n    cv=10, scoring="accuracy", n\_jobs=1)\textbackslash{}ntrain\_scores\_mean = np.mean(train\_scores, axis=1)\textbackslash{}ntrain\_scores\_std = np.std(train\_scores, axis=1)\textbackslash{}ntest\_scores\_mean = np.mean(test\_scores, axis=1)\textbackslash{}ntest\_scores\_std = np.std(test\_scores, axis=1)\textbackslash{}n\textbackslash{}nplt.title("Validation Curve with SVM")\textbackslash{}nplt.xlabel("\$\textbackslash{}\textbackslash{}gamma\$")\textbackslash{}nplt.ylabel("Score")\textbackslash{}nplt.ylim(0.0, 1.1)\textbackslash{}nlw = 2\textbackslash{}nplt.semilogx(param\_range, train\_scores\_mean, label="Training score",\textbackslash{}n             color="darkorange", lw=lw)\textbackslash{}nplt.fill\_between(param\_range, train\_scores\_mean - train\_scores\_std,\textbackslash{}n                 train\_scores\_mean + train\_scores\_std, alpha=0.2,\textbackslash{}n                 color="darkorange", lw=lw)\textbackslash{}nplt.semilogx(param\_range, test\_scores\_mean, label="Cross-validation score",\textbackslash{}n             color="navy", lw=lw)\textbackslash{}nplt.fill\_between(param\_range, test\_scores\_mean - test\_scores\_std,\textbackslash{}n                 test\_scores\_mean + test\_scores\_std, alpha=0.2,\textbackslash{}n                 color="navy", lw=lw)\textbackslash{}nplt.legend(loc="best")\textbackslash{}nplt.show()\textbackslash{}n'
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}35}]:} '\textbackslash{}nimport plot\_classifiers as pc\textbackslash{}nfrom sklearn.ensemble import GradientBoostingClassifier\textbackslash{}nnames = ["Gradient Boosting 1 tree", "Gradient Boosting 3 trees", "Gradient Boosting 100 trees"]\textbackslash{}n\textbackslash{}nclassifiers = [\textbackslash{}n    GradientBoostingClassifier(n\_estimators=1, random\_state=0, learning\_rate=0.5),\textbackslash{}n    GradientBoostingClassifier(n\_estimators=3, random\_state=0, learning\_rate=0.5),\textbackslash{}n    GradientBoostingClassifier(n\_estimators=100, random\_state=0, learning\_rate=0.5)\textbackslash{}n    ]\textbackslash{}n\textbackslash{}npc.plot\_classifiers(names, classifiers, figuresize=(20,8))  \textbackslash{}n'
-\end{Verbatim}
-            
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_2.pdf}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
+\[  d_{ij} = \|{\bf p}_i - {\bf p}_j\|^2. \]
+
+We assume that the point set is mean-centered, that is
+
+\[ \sum_{i=1}^{n} {\bf p}_i = \vec{{\bf 0}}.\]
+
+(where \(\vec{{\bf 0}}\) is the vector of zeros)
+
+In the following, \(\langle {\bf p}_i , {\bf p}_j \rangle\) denotes the
+inner product of \({\bf p}_i\) and \({\bf p}_j\). Prove that the
+following holds true for mean-centered point sets:
+
+\[-2 \langle {\bf p}_i , {\bf p}_j \rangle = 
+d_{ij}
+- \sum_{\ell=1}^{n} \frac{d_{i\ell}}{n}   
+-  \sum_{\ell=1}^{n} \frac{d_{j\ell}}{n} 
++ \sum_{k=1}^{n}~ \sum_{\ell=1}^{n} \frac{d_{k\ell}}{n^2} 
+\]
+
+You may use the following steps in your derivation.
+
+\hypertarget{a}{%
+\subsubsection{a)}\label{a}}
+
+Expand \(d_{ij}\) to yield an expression of
+\(\langle {\bf p}_i, {\bf p}_j \rangle\), \(\|{\bf p}_i\|^2\) and
+\(\|{\bf p}_j\|^2\).
+
+\hypertarget{b}{%
+\subsubsection{b)}\label{b}}
+
+Show that the following holds for any \$ \{\bf q\}
+\in \mathbb{R}\^{}d\$:
+\[ \sum_{1 \leq i \leq n} \langle {\bf p}_i , {\bf q} \rangle =   0\]
+
+\hypertarget{c}{%
+\subsubsection{c)}\label{c}}
+
+Prove that
+\[ \|{\bf p}_i\|^2 = \sum_{\ell=1}^{n} \frac{d_{i\ell}}{n} - \sum_{k=1}^{n}~ \sum_{\ell=1}^{n} \frac{d_{k\ell}}{2n^2}\]
+
+\hypertarget{d}{%
+\subsubsection{d)}\label{d}}
+
+Combine the steps in your proof.
+
+    \hypertarget{locality-sensitive-hashing-4-points-211}{%
+\subsection{Locality-sensitive hashing (4 Points,
+2+1+1)}\label{locality-sensitive-hashing-4-points-211}}
+
+\hypertarget{a}{%
+\subsubsection{a)}\label{a}}
+
+Prove that if the Jaccard Similarity of two sets is \(0\), then
+minhashing always gives a correct estimate of the Jaccard similarity
+
+\hypertarget{b}{%
+\subsubsection{b)}\label{b}}
+
+Let \(H\) be a family of \((d_1,d_2,p_1,p_2)\)-locality-sensitive hash
+functions. Assume that \(p_2=0\) and assume we have a total numer of
+\(m\) hash functions from this family available. Which combination of
+AND-constructions and OR-constructions should we use to maximally
+amplify the hash family?
+
+\hypertarget{c}{%
+\subsubsection{(c)}\label{c}}
+
+Let \(H\) be a family of \((d_1,d_2,p_1,p_2)\)-locality-sensitive hash
+functions. Assume that \(p_2=\frac{1}{n}\) and assume we have \(n\) data
+points \(\bf P\) which are stored in a hash table using a randomly
+chosen function \(h\) from \(H\). Given a query point \(\bf q\), we
+retrieve the points in the hash bucket with index \(h(\bf q)\) to search
+for a point which has small distance to \(\bf q\). Let \(X\) be a random
+variable that is equal to the size of the set
+
+\[
+\begin{aligned}
+\left\{{\bf p \in P}~:~ h({\bf p})=h({\bf q}) ~\wedge~ d({\bf p,q}) \geq d_2\right\}\
+\end{aligned}
+\]
+
+which consists of the false positives of this query. Derive the expected
+number of false-positives \(E\left[ X \right]\).
+
 
     % Add a bibliography block to the postdoc
     
