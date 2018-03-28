@@ -10,6 +10,48 @@
 %included in part 1
 \tableofcontents %included in part 1
 \newpage
+
+\section{PCA and Isomap}
+\subsection{a}
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_4_1}}}
+\hfill
+\caption{Scatter plot for the first two principal components}
+\label{41}
+\end{figure}
+
+\subsection{b}
+
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_1}}}
+\hfill
+\caption{Scatter plot for aligned data, $n\_neighbours$ = 5.}
+\label{51}
+\end{figure}
+
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_2}}}
+\hfill
+\caption{Scatter plot for aligned data, $n\_neighbours$ = 50.}
+\label{52}
+\end{figure}
+
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_3}}}
+\hfill
+\caption{Scatter plot for aligned data, $n\_neighbours$ = N-1. }
+\label{53}
+\end{figure}
+\subsection{c}
+More neighbours seems to decrease the computed score. As the number of neighbours increases, the separation of the different classes seems to become more vague. For n=5 the classes seem decently seperated, while for n=50 and n=N-1 there is increasingly more overlap. If the score is zero, it means that the matrix norm of the transformed dataset minus the reference data (y) is zero for one of the 8 transformations. We expect this to happen if the transformed dataset is equal to the reference data for some transformation.
+
+
+
+
 \section{Classical multidimensional scaling}
 \subsection{a}
 
@@ -137,7 +179,7 @@ Y(p)= \begin{cases}
 \text{0 otherwise} \end{cases}
 \end{aligned}
 \end{equation}
-The number of false positive is given by:
+The expected number of false positive is given by:
 \begin{equation}
 \begin{aligned}
 E(x)=\sum_{{\bf p}\; \in \;  {\bf P}}Y(p)
