@@ -13,21 +13,25 @@
 
 \section{PCA and Isomap}
 \subsection{a}
+The first two principle components of PCA for all classes are:
 \begin{figure}[H]
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_4_1}}}
 \hfill
 \caption{Scatter plot for the first two principal components}
+\label{fig:a}
 \label{41}
 \end{figure}
 
-\subsection{b}
+The classes are not very well separated. 
 
+\subsection{b}
+The manifold is constructed using the isomap with the given conditions. The results are: 
 \begin{figure}[H]
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_1}}}
 \hfill
-\caption{Scatter plot for aligned data, $n\_neighbours$ = 5.}
+\caption{Scatter plot for aligned data, $n_{neighbours}$ = 5.}
 \label{51}
 \end{figure}
 
@@ -35,7 +39,7 @@
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_2}}}
 \hfill
-\caption{Scatter plot for aligned data, $n\_neighbours$ = 50.}
+\caption{Scatter plot for aligned data, $n_{neighbours}$ = 50.}
 \label{52}
 \end{figure}
 
@@ -43,12 +47,12 @@
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_3}}}
 \hfill
-\caption{Scatter plot for aligned data, $n\_neighbours$ = N-1. }
+\caption{Scatter plot for aligned data, $n_{neighbours}$ = N-1. }
 \label{53}
 \end{figure}
 \subsection{c}
-More neighbours seems to decrease the computed score. As the number of neighbours increases, the separation of the different classes seems to become more vague. For n=5 the classes seem decently seperated, while for n=50 and n=N-1 there is increasingly more overlap. If the score is zero, it means that the matrix norm of the transformed dataset minus the reference data (y) is zero for one of the 8 transformations. We expect this to happen if the transformed dataset is equal to the reference data for some transformation.
-
+More neighbours decreases the computed score. As the number of neighbours increases, the separation of the different classes becomes more vague. For $n_{neighbours}=5$ the classes are decently separated, while for $n_{neighbours}=50$ and $n_{neighbours}=N-1$ there is increasingly more overlap. If the 1-norm (score) is zero, it means that the of the transformed dataset is identical to the the reference data (PCA) for one of the 8 transformations.
+This is the case when the isomap embedding does not have any effect on the PCA data, as can been seen by comparing figures \ref{fig:a} and \ref{53}. The reason for this is that  all the the neighbours are used the isomap cannot make a manifold. 
 
 
 
