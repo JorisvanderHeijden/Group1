@@ -7,7 +7,8 @@
 \long\def\/*#1*/{}
 
 \begin{document}
-%included in part 1
+\include{Titlepage} %included in part 1
+
 \tableofcontents %included in part 1
 \newpage
 
@@ -31,7 +32,7 @@ The manifold is constructed using the isomap with the given conditions. The resu
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_1}}}
 \hfill
-\caption{Scatter plot for aligned data, $n_{neighbours}$ = 5.}
+\caption{Scatter plot for aligned data, $n_{neighbours}$ = 5. Score: 102234.2}
 \label{51}
 \end{figure}
 
@@ -39,7 +40,7 @@ The manifold is constructed using the isomap with the given conditions. The resu
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_2}}}
 \hfill
-\caption{Scatter plot for aligned data, $n_{neighbours}$ = 50.}
+\caption{Scatter plot for aligned data, $n_{neighbours}$ = 50. Score: 31067.5 }
 \label{52}
 \end{figure}
 
@@ -47,11 +48,11 @@ The manifold is constructed using the isomap with the given conditions. The resu
 \hfill
 \makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/output_5_3}}}
 \hfill
-\caption{Scatter plot for aligned data, $n_{neighbours}$ = N-1. }
+\caption{Scatter plot for aligned data, $n_{neighbours}$ = N-1. Score: 0.0 }
 \label{53}
 \end{figure}
 \subsection{c}
-More neighbours decreases the computed score. As the number of neighbours increases, the separation of the different classes becomes more vague. For $n_{neighbours}=5$ the classes are decently separated, while for $n_{neighbours}=50$ and $n_{neighbours}=N-1$ there is increasingly more overlap. If the 1-norm (score) is zero, it means that the of the transformed dataset is identical to the the reference data (PCA) for one of the 8 transformations.
+The 1-norm score is shown in the caption of the figures of question b. More neighbours decreases the computed score. As the number of neighbours increases, the separation of the different classes becomes more vague. For $n_{neighbours}=5$ the classes are decently separated, while for $n_{neighbours}=50$ and $n_{neighbours}=N-1$ there is increasingly more overlap. If the 1-norm (score) is zero, it means that the of the transformed dataset is identical to the the reference data (PCA) for one of the 8 transformations.
 This is the case when the isomap embedding does not have any effect on the PCA data, as can been seen by comparing figures \ref{fig:a} and \ref{53}. The reason for this is that  all the the neighbours are used the isomap cannot make a manifold. 
 
 
