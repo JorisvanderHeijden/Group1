@@ -292,8 +292,8 @@ as).
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}1}]:} \PY{c+c1}{\PYZsh{} Please fill in your names here}
-        \PY{n}{NAME\PYZus{}STUDENT\PYZus{}1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}
-        \PY{n}{NAME\PYZus{}STUDENT\PYZus{}2} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{NAME\PYZus{}STUDENT\PYZus{}1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Bram van der Pol}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{NAME\PYZus{}STUDENT\PYZus{}2} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Joris van der Heijden}\PY{l+s+s2}{\PYZdq{}}
 \end{Verbatim}
 
 
@@ -652,7 +652,7 @@ your modification. Submit your code and 6 plots (can be overlaid) for
 the training performance of both models with different depths.
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}27}]:} \PY{c+c1}{\PYZsh{} (You don\PYZsq{}t need to change this part of the code)}
+{\color{incolor}In [{\color{incolor}19}]:} \PY{c+c1}{\PYZsh{} (You don\PYZsq{}t need to change this part of the code)}
          \PY{k+kn}{from} \PY{n+nn}{\PYZus{}\PYZus{}future\PYZus{}\PYZus{}} \PY{k}{import} \PY{n}{print\PYZus{}function}
          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
          \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{1234}\PY{p}{)}
@@ -673,7 +673,7 @@ the training performance of both models with different depths.
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}42}]:} \PY{c+c1}{\PYZsh{} (You don\PYZsq{}t need to change this part of the code)}
+{\color{incolor}In [{\color{incolor}20}]:} \PY{c+c1}{\PYZsh{} (You don\PYZsq{}t need to change this part of the code)}
          \PY{c+c1}{\PYZsh{} the data, shuffled and split between train and test sets}
          \PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}test}\PY{p}{)} \PY{o}{=} \PY{n}{mnist}\PY{o}{.}\PY{n}{load\PYZus{}data}\PY{p}{(}\PY{p}{)}
          
@@ -700,148 +700,394 @@ the training performance of both models with different depths.
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}55}]:} \PY{c+c1}{\PYZsh{} Use this parameter to change the depth of the model}
-         \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{=} \PY{l+m+mi}{2}  \PY{c+c1}{\PYZsh{} Number of hidden layers}
+{\color{incolor}In [{\color{incolor}21}]:} \PY{c+c1}{\PYZsh{} Use this parameter to change the depth of the model}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}56}]:} \PY{c+c1}{\PYZsh{} Model}
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{=} \PY{l+m+mi}{1}  \PY{c+c1}{\PYZsh{} Number of hidden layers}
+         \PY{c+c1}{\PYZsh{} Model}
          \PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
-         
          \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{,} \PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{784}\PY{p}{,}\PY{p}{)}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
-         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.15}\PY{p}{)}\PY{p}{)}
-         
-         
-         \PY{k}{if} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{:}
-             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{128}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+         \PY{k}{while} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{:}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{)}\PY{p}{)}
              \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
-             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.15}\PY{p}{)}\PY{p}{)}
-         \PY{k}{if} \PY{n}{number\PYZus{}hidden\PYZus{}layers}\PY{o}{\PYZgt{}}\PY{l+m+mi}{2}\PY{p}{:}
-             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{)}\PY{p}{)}
-             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
-             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.15}\PY{p}{)}\PY{p}{)}
-         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         
-         
-         \PY{l+s+sd}{while number\PYZus{}hidden\PYZus{}layers \PYZgt{} 1:}
-         \PY{l+s+sd}{    model.add(Dense(512))}
-         \PY{l+s+sd}{    model.add(Activation(\PYZsq{}sigmoid\PYZsq{}))}
-         \PY{l+s+sd}{    model.add(Dropout(0.2))}
-         \PY{l+s+sd}{    number\PYZus{}hidden\PYZus{}layers \PYZhy{}= 1}
-         \PY{l+s+sd}{\PYZsq{}\PYZsq{}\PYZsq{}}
-         
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+             \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
          
          \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
          \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{softmax}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
          
-         \PY{n}{model}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                       \PY{n}{optimizer}\PY{o}{=}\PY{n}{SGD}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                       \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{model1} \PY{o}{=} \PY{n}{model}
+         
+         \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{=} \PY{l+m+mi}{2} \PY{c+c1}{\PYZsh{} Number of hidden layers}
+         \PY{c+c1}{\PYZsh{} Model}
+         \PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{,} \PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{784}\PY{p}{,}\PY{p}{)}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+         \PY{k}{while} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{:}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+             \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{softmax}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
          
          \PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
                        \PY{n}{optimizer}\PY{o}{=}\PY{n}{SGD}\PY{p}{(}\PY{p}{)}\PY{p}{,}
                        \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{model2} \PY{o}{=} \PY{n}{model}
+         
+         \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{=} \PY{l+m+mi}{3}  \PY{c+c1}{\PYZsh{} Number of hidden layers}
+         \PY{c+c1}{\PYZsh{} Model}
+         \PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{,} \PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{784}\PY{p}{,}\PY{p}{)}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+         \PY{k}{while} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{:}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+             \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{softmax}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                       \PY{n}{optimizer}\PY{o}{=}\PY{n}{SGD}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                       \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{model3} \PY{o}{=} \PY{n}{model}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}56}]:} "\textbackslash{}n\textbackslash{}n\textbackslash{}nwhile number\_hidden\_layers > 1:\textbackslash{}n    model.add(Dense(512))\textbackslash{}n    model.add(Activation('sigmoid'))\textbackslash{}n    model.add(Dropout(0.2))\textbackslash{}n    number\_hidden\_layers -= 1\textbackslash{}n"
-\end{Verbatim}
-            
     \begin{Verbatim}[commandchars=\\\{\}]
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-Layer (type)                 Output Shape              Param \#   
-=================================================================
-dense\_53 (Dense)             (None, 512)               401920    
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-dropout\_38 (Dropout)         (None, 512)               0         
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-dense\_54 (Dense)             (None, 10)                5130      
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-activation\_38 (Activation)   (None, 10)                0         
-=================================================================
-Total params: 407,050
-Trainable params: 407,050
-Non-trainable params: 0
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+{\color{incolor}In [{\color{incolor}27}]:} \PY{c+c1}{\PYZsh{} Training (You don\PYZsq{}t need to change this part of the code)}
+         \PY{n}{history1} \PY{o}{=} \PY{n}{model1}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,}
+                             \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batch\PYZus{}size}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                             \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{)}
+         \PY{n}{score1} \PY{o}{=} \PY{n}{model1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test score:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{history2} \PY{o}{=} \PY{n}{model2}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,}
+                             \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batch\PYZus{}size}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                             \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{)}
+         \PY{n}{score2} \PY{o}{=} \PY{n}{model2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test score:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score2}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score2}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{history3} \PY{o}{=} \PY{n}{model3}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,}
+                             \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batch\PYZus{}size}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                             \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{)}
+         \PY{n}{score3} \PY{o}{=} \PY{n}{model3}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test score:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+c:\textbackslash{}users\textbackslash{}bramv\textbackslash{}appdata\textbackslash{}local\textbackslash{}programs\textbackslash{}python\textbackslash{}python36\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}keras\textbackslash{}models.py:942: UserWarning: The `nb\_epoch` argument in `fit` has been renamed `epochs`.
+  warnings.warn('The `nb\_epoch` argument in `fit` '
 
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}57}]:} \PY{c+c1}{\PYZsh{} Training (You don\PYZsq{}t need to change this part of the code)}
-         \PY{n}{history} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,}
-                             \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batch\PYZus{}size}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
-                             \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{)}
-         \PY{n}{score} \PY{o}{=} \PY{n}{model}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
-         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test score:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-         
-         \PY{c+c1}{\PYZsh{} list all data in history}
+Train on 60000 samples, validate on 10000 samples
+Epoch 1/10
+60000/60000 [==============================] - 3s 51us/step - loss: 1.9917 - acc: 0.3582 - val\_loss: 1.6041 - val\_acc: 0.7164
+Epoch 2/10
+60000/60000 [==============================] - 2s 36us/step - loss: 1.4465 - acc: 0.6318 - val\_loss: 1.1644 - val\_acc: 0.8020
+Epoch 3/10
+60000/60000 [==============================] - 2s 36us/step - loss: 1.1126 - acc: 0.7254 - val\_loss: 0.9091 - val\_acc: 0.8197
+Epoch 4/10
+60000/60000 [==============================] - 2s 36us/step - loss: 0.9134 - acc: 0.7677 - val\_loss: 0.7563 - val\_acc: 0.8485
+Epoch 5/10
+60000/60000 [==============================] - 2s 37us/step - loss: 0.7932 - acc: 0.7927 - val\_loss: 0.6609 - val\_acc: 0.8583
+Epoch 6/10
+60000/60000 [==============================] - 2s 36us/step - loss: 0.7099 - acc: 0.8108 - val\_loss: 0.5953 - val\_acc: 0.8644
+Epoch 7/10
+60000/60000 [==============================] - 2s 36us/step - loss: 0.6538 - acc: 0.8220 - val\_loss: 0.5486 - val\_acc: 0.8713
+Epoch 8/10
+60000/60000 [==============================] - 2s 37us/step - loss: 0.6102 - acc: 0.8325 - val\_loss: 0.5142 - val\_acc: 0.8759
+Epoch 9/10
+60000/60000 [==============================] - 2s 37us/step - loss: 0.5790 - acc: 0.8374 - val\_loss: 0.4858 - val\_acc: 0.8803
+Epoch 10/10
+60000/60000 [==============================] - 2s 37us/step - loss: 0.5529 - acc: 0.8432 - val\_loss: 0.4641 - val\_acc: 0.8842
+Test score: 0.8642424201011658
+Test accuracy: 0.7895
+Train on 60000 samples, validate on 10000 samples
+Epoch 1/10
+60000/60000 [==============================] - 3s 55us/step - loss: 2.3320 - acc: 0.1172 - val\_loss: 2.2420 - val\_acc: 0.2262
+Epoch 2/10
+60000/60000 [==============================] - 3s 44us/step - loss: 2.2597 - acc: 0.1613 - val\_loss: 2.1683 - val\_acc: 0.5631
+Epoch 3/10
+60000/60000 [==============================] - 3s 43us/step - loss: 2.1763 - acc: 0.2294 - val\_loss: 2.0741 - val\_acc: 0.5869
+Epoch 4/10
+60000/60000 [==============================] - 3s 42us/step - loss: 2.0711 - acc: 0.3088 - val\_loss: 1.9358 - val\_acc: 0.6655
+Epoch 5/10
+60000/60000 [==============================] - 3s 42us/step - loss: 1.9187 - acc: 0.4054 - val\_loss: 1.7468 - val\_acc: 0.6602
+Epoch 6/10
+60000/60000 [==============================] - 2s 42us/step - loss: 1.7217 - acc: 0.4930 - val\_loss: 1.5201 - val\_acc: 0.6733
+Epoch 7/10
+60000/60000 [==============================] - 2s 41us/step - loss: 1.5087 - acc: 0.5594 - val\_loss: 1.2981 - val\_acc: 0.7510
+Epoch 8/10
+60000/60000 [==============================] - 3s 42us/step - loss: 1.3148 - acc: 0.6128 - val\_loss: 1.1193 - val\_acc: 0.7426
+Epoch 9/10
+60000/60000 [==============================] - 2s 41us/step - loss: 1.1565 - acc: 0.6559 - val\_loss: 0.9803 - val\_acc: 0.7686
+Epoch 10/10
+60000/60000 [==============================] - 2s 41us/step - loss: 1.0436 - acc: 0.6839 - val\_loss: 0.8774 - val\_acc: 0.7961
+Test score: 0.8642424201011658
+Test accuracy: 0.7895
+Train on 60000 samples, validate on 10000 samples
+Epoch 1/10
+60000/60000 [==============================] - 4s 62us/step - loss: 2.3661 - acc: 0.1025 - val\_loss: 2.2967 - val\_acc: 0.1316
+Epoch 2/10
+60000/60000 [==============================] - 3s 47us/step - loss: 2.3491 - acc: 0.1048 - val\_loss: 2.2941 - val\_acc: 0.1009
+Epoch 3/10
+60000/60000 [==============================] - 3s 47us/step - loss: 2.3400 - acc: 0.1080 - val\_loss: 2.2887 - val\_acc: 0.1389
+Epoch 4/10
+60000/60000 [==============================] - 3s 47us/step - loss: 2.3288 - acc: 0.1105 - val\_loss: 2.2818 - val\_acc: 0.1390
+Epoch 5/10
+60000/60000 [==============================] - 3s 49us/step - loss: 2.3195 - acc: 0.1160 - val\_loss: 2.2780 - val\_acc: 0.1958
+Epoch 6/10
+60000/60000 [==============================] - 3s 47us/step - loss: 2.3103 - acc: 0.1212 - val\_loss: 2.2729 - val\_acc: 0.2078
+Epoch 7/10
+60000/60000 [==============================] - 3s 48us/step - loss: 2.3025 - acc: 0.1271 - val\_loss: 2.2643 - val\_acc: 0.2059
+Epoch 8/10
+60000/60000 [==============================] - 3s 48us/step - loss: 2.2951 - acc: 0.1319 - val\_loss: 2.2561 - val\_acc: 0.1170
+Epoch 9/10
+60000/60000 [==============================] - 3s 49us/step - loss: 2.2826 - acc: 0.1427 - val\_loss: 2.2462 - val\_acc: 0.1259
+Epoch 10/10
+60000/60000 [==============================] - 3s 49us/step - loss: 2.2730 - acc: 0.1496 - val\_loss: 2.2338 - val\_acc: 0.3722
+Test score: 0.8642424201011658
+Test accuracy: 0.7895
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{c+c1}{\PYZsh{} list all data in history}
          \PY{n+nb}{print}\PY{p}{(}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
          \PY{c+c1}{\PYZsh{} summarize history for accuracy}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{val\PYZus{}acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history1}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history1}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{val\PYZus{}acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history2}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history2}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{val\PYZus{}acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history3}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history3}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{val\PYZus{}acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{model accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{epoch}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{train}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper left}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1 train}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1 test}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2 train}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2 test}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3 train}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3 test}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper left}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
          \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Train on 60000 samples, validate on 10000 samples
-Epoch 1/10
-60000/60000 [==============================] - 5s 90us/step - loss: 1.9890 - acc: 0.3821 - val\_loss: 1.6158 - val\_acc: 0.7009
-Epoch 2/10
-60000/60000 [==============================] - 5s 87us/step - loss: 1.4338 - acc: 0.6643 - val\_loss: 1.1652 - val\_acc: 0.7952
-Epoch 3/10
-60000/60000 [==============================] - 5s 86us/step - loss: 1.0925 - acc: 0.7467 - val\_loss: 0.9063 - val\_acc: 0.8330
-Epoch 4/10
-60000/60000 [==============================] - 5s 87us/step - loss: 0.8925 - acc: 0.7847 - val\_loss: 0.7524 - val\_acc: 0.8467
-Epoch 5/10
-60000/60000 [==============================] - 5s 87us/step - loss: 0.7696 - acc: 0.8083 - val\_loss: 0.6578 - val\_acc: 0.8582
-Epoch 6/10
-60000/60000 [==============================] - 5s 87us/step - loss: 0.6917 - acc: 0.8202 - val\_loss: 0.5934 - val\_acc: 0.8651
-Epoch 7/10
-60000/60000 [==============================] - 5s 88us/step - loss: 0.6343 - acc: 0.8325 - val\_loss: 0.5464 - val\_acc: 0.8718
-Epoch 8/10
-60000/60000 [==============================] - 5s 87us/step - loss: 0.5955 - acc: 0.8394 - val\_loss: 0.5123 - val\_acc: 0.8754
-Epoch 9/10
-60000/60000 [==============================] - 5s 87us/step - loss: 0.5627 - acc: 0.8467 - val\_loss: 0.4841 - val\_acc: 0.8798
-Epoch 10/10
-60000/60000 [==============================] - 5s 88us/step - loss: 0.5369 - acc: 0.8502 - val\_loss: 0.4622 - val\_acc: 0.8834
-Test score: 0.4621768421173096
-Test accuracy: 0.8834
 dict\_keys(['val\_loss', 'val\_acc', 'loss', 'acc'])
 
     \end{Verbatim}
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}57}]:} [<matplotlib.lines.Line2D at 0x2bf244eeb70>]
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}57}]:} [<matplotlib.lines.Line2D at 0x2bf242f6ac8>]
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}57}]:} Text(0.5,1,'model accuracy')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}57}]:} Text(0,0.5,'accuracy')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}57}]:} Text(0.5,0,'epoch')
-\end{Verbatim}
-            
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}57}]:} <matplotlib.legend.Legend at 0x2bf244d6c18>
-\end{Verbatim}
-            
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_7.pdf}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_11_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}51}]:} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{=} \PY{l+m+mi}{1}  \PY{c+c1}{\PYZsh{} Number of hidden layers}
+         \PY{c+c1}{\PYZsh{} Model}
+         \PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{50}\PY{p}{,} \PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{784}\PY{p}{,}\PY{p}{)}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+         \PY{k}{while} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{:}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{)}
+             \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{softmax}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                       \PY{n}{optimizer}\PY{o}{=}\PY{n}{SGD}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                       \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{model1} \PY{o}{=} \PY{n}{model}
+         
+         \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{=} \PY{l+m+mi}{2} \PY{c+c1}{\PYZsh{} Number of hidden layers}
+         \PY{c+c1}{\PYZsh{} Model}
+         \PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{,} \PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{784}\PY{p}{,}\PY{p}{)}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+         \PY{k}{while} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{:}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{)}
+             \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{softmax}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                       \PY{n}{optimizer}\PY{o}{=}\PY{n}{SGD}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                       \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{model2} \PY{o}{=} \PY{n}{model}
+         
+         \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{=} \PY{l+m+mi}{3}  \PY{c+c1}{\PYZsh{} Number of hidden layers}
+         \PY{c+c1}{\PYZsh{} Model}
+         \PY{n}{model} \PY{o}{=} \PY{n}{Sequential}\PY{p}{(}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{,} \PY{n}{input\PYZus{}shape}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{784}\PY{p}{,}\PY{p}{)}\PY{p}{,} \PY{n}{activation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.2}\PY{p}{)}\PY{p}{)}
+         \PY{k}{while} \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1}\PY{p}{:}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{512}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sigmoid}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+             \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dropout}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{)}
+             \PY{n}{number\PYZus{}hidden\PYZus{}layers} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{l+m+mi}{1}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Dense}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{model}\PY{o}{.}\PY{n}{add}\PY{p}{(}\PY{n}{Activation}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{softmax}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n}{model}\PY{o}{.}\PY{n}{compile}\PY{p}{(}\PY{n}{loss}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{categorical\PYZus{}crossentropy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                       \PY{n}{optimizer}\PY{o}{=}\PY{n}{SGD}\PY{p}{(}\PY{p}{)}\PY{p}{,}
+                       \PY{n}{metrics}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{model3} \PY{o}{=} \PY{n}{model}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{n}{nb\PYZus{}epoch} \PY{o}{=} \PY{l+m+mi}{10}
+         
+         \PY{n}{history1} \PY{o}{=} \PY{n}{model1}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,}
+                             \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batch\PYZus{}size}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                             \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{)}
+         \PY{n}{score1} \PY{o}{=} \PY{n}{model1}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test score:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{history2} \PY{o}{=} \PY{n}{model2}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,}
+                             \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batch\PYZus{}size}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                             \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{)}
+         \PY{n}{score2} \PY{o}{=} \PY{n}{model2}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test score:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score2}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score2}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{history3} \PY{o}{=} \PY{n}{model3}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{Y\PYZus{}train}\PY{p}{,}
+                             \PY{n}{batch\PYZus{}size}\PY{o}{=}\PY{n}{batch\PYZus{}size}\PY{p}{,} \PY{n}{nb\PYZus{}epoch}\PY{o}{=}\PY{n}{nb\PYZus{}epoch}\PY{p}{,}
+                             \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{validation\PYZus{}data}\PY{o}{=}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{)}\PY{p}{)}
+         \PY{n}{score3} \PY{o}{=} \PY{n}{model3}\PY{o}{.}\PY{n}{evaluate}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{Y\PYZus{}test}\PY{p}{,} \PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test score:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Test accuracy:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{score3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+c:\textbackslash{}users\textbackslash{}bramv\textbackslash{}appdata\textbackslash{}local\textbackslash{}programs\textbackslash{}python\textbackslash{}python36\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}keras\textbackslash{}models.py:942: UserWarning: The `nb\_epoch` argument in `fit` has been renamed `epochs`.
+  warnings.warn('The `nb\_epoch` argument in `fit` '
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Train on 60000 samples, validate on 10000 samples
+Epoch 1/10
+60000/60000 [==============================] - 4s 60us/step - loss: 2.1201 - acc: 0.2839 - val\_loss: 1.8443 - val\_acc: 0.6337
+Epoch 2/10
+60000/60000 [==============================] - 2s 35us/step - loss: 1.7248 - acc: 0.5263 - val\_loss: 1.5008 - val\_acc: 0.7216
+Epoch 3/10
+60000/60000 [==============================] - 2s 36us/step - loss: 1.4392 - acc: 0.6275 - val\_loss: 1.2409 - val\_acc: 0.7698
+Epoch 4/10
+60000/60000 [==============================] - 2s 35us/step - loss: 1.2260 - acc: 0.6894 - val\_loss: 1.0543 - val\_acc: 0.7937
+Epoch 5/10
+60000/60000 [==============================] - 2s 36us/step - loss: 1.0752 - acc: 0.7241 - val\_loss: 0.9198 - val\_acc: 0.8129
+Epoch 6/10
+60000/60000 [==============================] - 2s 37us/step - loss: 0.9671 - acc: 0.7481 - val\_loss: 0.8209 - val\_acc: 0.8277
+Epoch 7/10
+60000/60000 [==============================] - 2s 36us/step - loss: 0.8822 - acc: 0.7656 - val\_loss: 0.7453 - val\_acc: 0.8426
+Epoch 8/10
+60000/60000 [==============================] - 2s 36us/step - loss: 0.8175 - acc: 0.7809 - val\_loss: 0.6867 - val\_acc: 0.8514
+Epoch 9/10
+60000/60000 [==============================] - 2s 36us/step - loss: 0.7638 - acc: 0.7948 - val\_loss: 0.6401 - val\_acc: 0.8576
+Epoch 10/10
+60000/60000 [==============================] - 2s 37us/step - loss: 0.7262 - acc: 0.8038 - val\_loss: 0.6022 - val\_acc: 0.8640
+Test score: 0.6021801494121551
+Test accuracy: 0.864
+Train on 60000 samples, validate on 10000 samples
+Epoch 1/10
+60000/60000 [==============================] - 4s 64us/step - loss: 2.2806 - acc: 0.1558 - val\_loss: 2.2335 - val\_acc: 0.3234
+Epoch 2/10
+60000/60000 [==============================] - 3s 44us/step - loss: 2.2010 - acc: 0.2933 - val\_loss: 2.1451 - val\_acc: 0.5020
+Epoch 3/10
+60000/60000 [==============================] - 3s 42us/step - loss: 2.1053 - acc: 0.4255 - val\_loss: 2.0263 - val\_acc: 0.5781
+Epoch 4/10
+60000/60000 [==============================] - 3s 42us/step - loss: 1.9653 - acc: 0.5199 - val\_loss: 1.8547 - val\_acc: 0.6199
+Epoch 5/10
+60000/60000 [==============================] - 3s 42us/step - loss: 1.7714 - acc: 0.5867 - val\_loss: 1.6229 - val\_acc: 0.7129
+Epoch 6/10
+60000/60000 [==============================] - 3s 43us/step - loss: 1.5417 - acc: 0.6409 - val\_loss: 1.3785 - val\_acc: 0.7105
+Epoch 7/10
+60000/60000 [==============================] - 3s 43us/step - loss: 1.3199 - acc: 0.6853 - val\_loss: 1.1662 - val\_acc: 0.7607
+Epoch 8/10
+60000/60000 [==============================] - 3s 43us/step - loss: 1.1376 - acc: 0.7201 - val\_loss: 1.0045 - val\_acc: 0.7919
+Epoch 9/10
+60000/60000 [==============================] - 3s 44us/step - loss: 1.0003 - acc: 0.7471 - val\_loss: 0.8816 - val\_acc: 0.8039
+Epoch 10/10
+60000/60000 [==============================] - 3s 44us/step - loss: 0.8951 - acc: 0.7701 - val\_loss: 0.7915 - val\_acc: 0.8137
+Test score: 0.7914924234390259
+Test accuracy: 0.8137
+Train on 60000 samples, validate on 10000 samples
+Epoch 1/10
+60000/60000 [==============================] - 4s 73us/step - loss: 2.3042 - acc: 0.1108 - val\_loss: 2.2967 - val\_acc: 0.1135
+Epoch 2/10
+60000/60000 [==============================] - 3s 49us/step - loss: 2.2972 - acc: 0.1211 - val\_loss: 2.2889 - val\_acc: 0.1135
+Epoch 3/10
+60000/60000 [==============================] - 3s 50us/step - loss: 2.2908 - acc: 0.1368 - val\_loss: 2.2835 - val\_acc: 0.1242
+Epoch 4/10
+60000/60000 [==============================] - 3s 50us/step - loss: 2.2842 - acc: 0.1481 - val\_loss: 2.2753 - val\_acc: 0.1697
+Epoch 5/10
+60000/60000 [==============================] - 3s 50us/step - loss: 2.2767 - acc: 0.1629 - val\_loss: 2.2681 - val\_acc: 0.1638
+Epoch 6/10
+60000/60000 [==============================] - 3s 51us/step - loss: 2.2676 - acc: 0.1871 - val\_loss: 2.2573 - val\_acc: 0.3107
+Epoch 7/10
+60000/60000 [==============================] - 3s 50us/step - loss: 2.2553 - acc: 0.2119 - val\_loss: 2.2427 - val\_acc: 0.5033
+Epoch 8/10
+60000/60000 [==============================] - 3s 52us/step - loss: 2.2386 - acc: 0.2479 - val\_loss: 2.2215 - val\_acc: 0.4798
+Epoch 9/10
+60000/60000 [==============================] - 3s 51us/step - loss: 2.2167 - acc: 0.2815 - val\_loss: 2.1954 - val\_acc: 0.4569
+Epoch 10/10
+60000/60000 [==============================] - 3s 51us/step - loss: 2.1845 - acc: 0.3165 - val\_loss: 2.1536 - val\_acc: 0.4025
+Test score: 2.153604244995117
+Test accuracy: 0.4025
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}50}]:} \PY{c+c1}{\PYZsh{} list all data in history}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{history}\PY{o}{.}\PY{n}{history}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{} summarize history for accuracy}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history1}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}plt.plot(history1.history[\PYZsq{}val\PYZus{}acc\PYZsq{}])}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history2}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}plt.plot(history2.history[\PYZsq{}val\PYZus{}acc\PYZsq{}])}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{history3}\PY{o}{.}\PY{n}{history}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{acc}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{c+c1}{\PYZsh{}plt.plot(history3.history[\PYZsq{}val\PYZus{}acc\PYZsq{}])}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{model accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{accuracy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{epoch}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{1 train}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{2 train}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{3 train}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper left}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+dict\_keys(['val\_loss', 'val\_acc', 'loss', 'acc'])
+
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_14_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -880,99 +1126,94 @@ functions, loss function, regularization and training hyperparameters)
 Note: Use the 60000/10000 train/test split of the MNIST dataset
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} Imports}
-        \PY{k+kn}{import} \PY{n+nn}{keras}
-        \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{datasets} \PY{k}{import} \PY{n}{mnist}
-        \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{models} \PY{k}{import} \PY{n}{Sequential}
-        \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{layers} \PY{k}{import} \PY{n}{Dense}\PY{p}{,} \PY{n}{Dropout}\PY{p}{,} \PY{n}{Flatten}
-        \PY{k+kn}{from} \PY{n+nn}{keras} \PY{k}{import} \PY{n}{layers}
-        \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{layers} \PY{k}{import} \PY{n}{Conv2D}\PY{p}{,} \PY{n}{MaxPooling2D}\PY{p}{,} \PY{n}{Conv1D}\PY{p}{,} \PY{n}{Dense}\PY{p}{,} \PY{n}{TimeDistributed}\PY{p}{,} \PY{n}{Activation}
-        \PY{c+c1}{\PYZsh{}from keras import layers }
-        \PY{k+kn}{from} \PY{n+nn}{keras} \PY{k}{import} \PY{n}{backend} \PY{k}{as} \PY{n}{K}
-        
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-        \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{figure.figsize}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{7}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)} \PY{c+c1}{\PYZsh{} Make the figures a bit bigger}
-        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
-        
-        \PY{c+c1}{\PYZsh{} Training parameters}
-        \PY{n}{num\PYZus{}classes} \PY{o}{=} \PY{l+m+mi}{90}
-        \PY{n}{num\PYZus{}images} \PY{o}{=} \PY{l+m+mi}{10}
-        
-        \PY{n}{TRAINING\PYZus{}SIZE} \PY{o}{=} \PY{l+m+mi}{6000}
-        \PY{n}{TESTING\PYZus{}SIZE} \PY{o}{=} \PY{l+m+mi}{1000}
+{\color{incolor}In [{\color{incolor}53}]:} \PY{c+c1}{\PYZsh{} Imports}
+         \PY{k+kn}{import} \PY{n+nn}{keras}
+         \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{datasets} \PY{k}{import} \PY{n}{mnist}
+         \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{models} \PY{k}{import} \PY{n}{Sequential}
+         \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{layers} \PY{k}{import} \PY{n}{Dense}\PY{p}{,} \PY{n}{Dropout}\PY{p}{,} \PY{n}{Flatten}
+         \PY{k+kn}{from} \PY{n+nn}{keras} \PY{k}{import} \PY{n}{layers}
+         \PY{k+kn}{from} \PY{n+nn}{keras}\PY{n+nn}{.}\PY{n+nn}{layers} \PY{k}{import} \PY{n}{Conv2D}\PY{p}{,} \PY{n}{MaxPooling2D}\PY{p}{,} \PY{n}{Conv1D}\PY{p}{,} \PY{n}{Dense}\PY{p}{,} \PY{n}{TimeDistributed}\PY{p}{,} \PY{n}{Activation}
+         \PY{c+c1}{\PYZsh{}from keras import layers }
+         \PY{k+kn}{from} \PY{n+nn}{keras} \PY{k}{import} \PY{n}{backend} \PY{k}{as} \PY{n}{K}
+         
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{figure.figsize}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{7}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)} \PY{c+c1}{\PYZsh{} Make the figures a bit bigger}
+         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+         
+         \PY{c+c1}{\PYZsh{} Training parameters}
+         \PY{n}{num\PYZus{}classes} \PY{o}{=} \PY{l+m+mi}{90}
+         \PY{n}{num\PYZus{}images} \PY{o}{=} \PY{l+m+mi}{10}
+         
+         \PY{n}{TRAINING\PYZus{}SIZE} \PY{o}{=} \PY{l+m+mi}{6000}
+         \PY{n}{TESTING\PYZus{}SIZE} \PY{o}{=} \PY{l+m+mi}{1000}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-Using TensorFlow backend.
-
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} Python code that formats the MNIST dataset such that it can be used for traning and testing your model}
-        
-        \PY{c+c1}{\PYZsh{} Input image dimensions}
-        \PY{n}{img\PYZus{}rows}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{=} \PY{l+m+mi}{28}\PY{p}{,} \PY{l+m+mi}{28}
-        
-        \PY{c+c1}{\PYZsh{} The data, shuffled and split between train and test sets}
-        \PY{p}{(}\PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{,} \PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{x\PYZus{}test\PYZus{}in}\PY{p}{,} \PY{n}{y\PYZus{}test\PYZus{}in}\PY{p}{)} \PY{o}{=} \PY{n}{mnist}\PY{o}{.}\PY{n}{load\PYZus{}data}\PY{p}{(}\PY{p}{)}
-        
-        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gray}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{interpolation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{none}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}
-        
-        \PY{n}{x\PYZus{}train\PYZus{}in} \PY{o}{=} \PY{n}{x\PYZus{}train\PYZus{}in}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float32}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n}{x\PYZus{}test\PYZus{}in} \PY{o}{=} \PY{n}{x\PYZus{}test\PYZus{}in}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float32}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n}{x\PYZus{}train\PYZus{}in} \PY{o}{/}\PY{o}{=} \PY{l+m+mi}{255}
-        \PY{n}{x\PYZus{}test\PYZus{}in} \PY{o}{/}\PY{o}{=} \PY{l+m+mi}{255}
-            
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}train\PYZus{}in}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{train samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}test\PYZus{}in}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} build training set}
-        \PY{n}{x\PYZus{}train} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{TRAINING\PYZus{}SIZE}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{num\PYZus{}images}\PY{p}{,}\PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{float}\PY{p}{)}
-        \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{TRAINING\PYZus{}SIZE}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
-        \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{TRAINING\PYZus{}SIZE}\PY{p}{)}\PY{p}{:}    
-        
-            \PY{c+c1}{\PYZsh{}just split training images in pairs of 10 images}
-            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{num\PYZus{}images}\PY{p}{)}\PY{p}{:}
-        
-                \PY{n}{index} \PY{o}{=} \PY{p}{(}\PY{n}{num\PYZus{}images}\PY{o}{*}\PY{n}{j}\PY{p}{)}\PY{o}{+}\PY{n}{i}
-                \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]} \PY{c+c1}{\PYZsh{} select next image}
-                \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}temp}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)} \PY{c+c1}{\PYZsh{} flatten the image}
-                \PY{n}{x\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{=} \PY{n}{x\PYZus{}temp}
-                \PY{n}{y\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]}
-                
-            \PY{c+c1}{\PYZsh{} make random combinations of training images  }
-            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{num\PYZus{}images}\PY{p}{)}\PY{p}{:}
-        
-                \PY{n}{index} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{TRAINING\PYZus{}SIZE}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
-                \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]} \PY{c+c1}{\PYZsh{} select next image}
-                \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}temp}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)} \PY{c+c1}{\PYZsh{} flatten the image}
-                \PY{n}{x\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{o}{+}\PY{n}{TRAINING\PYZus{}SIZE}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{=} \PY{n}{x\PYZus{}temp}
-                \PY{n}{y\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{o}{+}\PY{n}{TRAINING\PYZus{}SIZE}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]}      
-        
-        \PY{c+c1}{\PYZsh{} build test set}
-        \PY{n}{x\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{TESTING\PYZus{}SIZE}\PY{p}{,} \PY{n}{num\PYZus{}images}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{float}\PY{p}{)}
-        \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{TESTING\PYZus{}SIZE}\PY{p}{)}
-        \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{TESTING\PYZus{}SIZE}\PY{p}{)}\PY{p}{:}    
-            
-            \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{num\PYZus{}images}\PY{p}{)}\PY{p}{:}
-                \PY{c+c1}{\PYZsh{}x\PYZus{}temp = x\PYZus{}train\PYZus{}in[np.random.randint(0, TRAINING\PYZus{}SIZE)] \PYZsh{} select a random image}
-                \PY{n}{index} \PY{o}{=} \PY{p}{(}\PY{n}{num\PYZus{}images}\PY{o}{*}\PY{n}{j}\PY{p}{)}\PY{o}{+}\PY{n}{i}
-                \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}test\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]} \PY{c+c1}{\PYZsh{} select next image}
-                \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}temp}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)} \PY{c+c1}{\PYZsh{} flatten the image}
-                \PY{n}{x\PYZus{}test}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{x\PYZus{}temp}
-                \PY{n}{y\PYZus{}test}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{+}\PY{o}{=} \PY{n}{y\PYZus{}test\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]}
-            
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{train samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        
-        \PY{c+c1}{\PYZsh{} Convert class vectors to binary class matrices}
-        \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{keras}\PY{o}{.}\PY{n}{utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{num\PYZus{}classes}\PY{p}{)}
-        \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{keras}\PY{o}{.}\PY{n}{utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{num\PYZus{}classes}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}54}]:} \PY{c+c1}{\PYZsh{} Python code that formats the MNIST dataset such that it can be used for traning and testing your model}
+         
+         \PY{c+c1}{\PYZsh{} Input image dimensions}
+         \PY{n}{img\PYZus{}rows}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{=} \PY{l+m+mi}{28}\PY{p}{,} \PY{l+m+mi}{28}
+         
+         \PY{c+c1}{\PYZsh{} The data, shuffled and split between train and test sets}
+         \PY{p}{(}\PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{,} \PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{x\PYZus{}test\PYZus{}in}\PY{p}{,} \PY{n}{y\PYZus{}test\PYZus{}in}\PY{p}{)} \PY{o}{=} \PY{n}{mnist}\PY{o}{.}\PY{n}{load\PYZus{}data}\PY{p}{(}\PY{p}{)}
+         
+         \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{n}{i} \PY{o}{+} \PY{l+m+mi}{1}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{off}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{imshow}\PY{p}{(}\PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{,} \PY{n}{cmap}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gray}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{interpolation}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{none}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+         
+         \PY{n}{x\PYZus{}train\PYZus{}in} \PY{o}{=} \PY{n}{x\PYZus{}train\PYZus{}in}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float32}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{x\PYZus{}test\PYZus{}in} \PY{o}{=} \PY{n}{x\PYZus{}test\PYZus{}in}\PY{o}{.}\PY{n}{astype}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{float32}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{x\PYZus{}train\PYZus{}in} \PY{o}{/}\PY{o}{=} \PY{l+m+mi}{255}
+         \PY{n}{x\PYZus{}test\PYZus{}in} \PY{o}{/}\PY{o}{=} \PY{l+m+mi}{255}
+             
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}train\PYZus{}in}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{train samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}test\PYZus{}in}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} build training set}
+         \PY{n}{x\PYZus{}train} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{TRAINING\PYZus{}SIZE}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{num\PYZus{}images}\PY{p}{,}\PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{float}\PY{p}{)}
+         \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{TRAINING\PYZus{}SIZE}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{TRAINING\PYZus{}SIZE}\PY{p}{)}\PY{p}{:}    
+         
+             \PY{c+c1}{\PYZsh{}just split training images in pairs of 10 images}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{num\PYZus{}images}\PY{p}{)}\PY{p}{:}
+         
+                 \PY{n}{index} \PY{o}{=} \PY{p}{(}\PY{n}{num\PYZus{}images}\PY{o}{*}\PY{n}{j}\PY{p}{)}\PY{o}{+}\PY{n}{i}
+                 \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]} \PY{c+c1}{\PYZsh{} select next image}
+                 \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}temp}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)} \PY{c+c1}{\PYZsh{} flatten the image}
+                 \PY{n}{x\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{=} \PY{n}{x\PYZus{}temp}
+                 \PY{n}{y\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]}
+                 
+             \PY{c+c1}{\PYZsh{} make random combinations of training images  }
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{num\PYZus{}images}\PY{p}{)}\PY{p}{:}
+         
+                 \PY{n}{index} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{randint}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{TRAINING\PYZus{}SIZE}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
+                 \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]} \PY{c+c1}{\PYZsh{} select next image}
+                 \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}temp}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)} \PY{c+c1}{\PYZsh{} flatten the image}
+                 \PY{n}{x\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{o}{+}\PY{n}{TRAINING\PYZus{}SIZE}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{=} \PY{n}{x\PYZus{}temp}
+                 \PY{n}{y\PYZus{}train}\PY{p}{[}\PY{n}{j}\PY{o}{+}\PY{n}{TRAINING\PYZus{}SIZE}\PY{p}{]} \PY{o}{+}\PY{o}{=} \PY{n}{y\PYZus{}train\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]}      
+         
+         \PY{c+c1}{\PYZsh{} build test set}
+         \PY{n}{x\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{(}\PY{n}{TESTING\PYZus{}SIZE}\PY{p}{,} \PY{n}{num\PYZus{}images}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{float}\PY{p}{)}
+         \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{TESTING\PYZus{}SIZE}\PY{p}{)}
+         \PY{k}{for} \PY{n}{j} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{TESTING\PYZus{}SIZE}\PY{p}{)}\PY{p}{:}    
+             
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{num\PYZus{}images}\PY{p}{)}\PY{p}{:}
+                 \PY{c+c1}{\PYZsh{}x\PYZus{}temp = x\PYZus{}train\PYZus{}in[np.random.randint(0, TRAINING\PYZus{}SIZE)] \PYZsh{} select a random image}
+                 \PY{n}{index} \PY{o}{=} \PY{p}{(}\PY{n}{num\PYZus{}images}\PY{o}{*}\PY{n}{j}\PY{p}{)}\PY{o}{+}\PY{n}{i}
+                 \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}test\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]} \PY{c+c1}{\PYZsh{} select next image}
+                 \PY{n}{x\PYZus{}temp} \PY{o}{=} \PY{n}{x\PYZus{}temp}\PY{o}{.}\PY{n}{reshape}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{img\PYZus{}cols} \PY{o}{*} \PY{n}{img\PYZus{}rows}\PY{p}{)} \PY{c+c1}{\PYZsh{} flatten the image}
+                 \PY{n}{x\PYZus{}test}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{x\PYZus{}temp}
+                 \PY{n}{y\PYZus{}test}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{+}\PY{o}{=} \PY{n}{y\PYZus{}test\PYZus{}in}\PY{p}{[}\PY{n}{index}\PY{p}{]}
+             
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}train}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{train samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{x\PYZus{}test}\PY{o}{.}\PY{n}{shape}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{test samples}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} Convert class vectors to binary class matrices}
+         \PY{n}{y\PYZus{}train} \PY{o}{=} \PY{n}{keras}\PY{o}{.}\PY{n}{utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{num\PYZus{}classes}\PY{p}{)}
+         \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{keras}\PY{o}{.}\PY{n}{utils}\PY{o}{.}\PY{n}{to\PYZus{}categorical}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{num\PYZus{}classes}\PY{p}{)}
 \end{Verbatim}
 
 
@@ -985,12 +1226,12 @@ Using TensorFlow backend.
     \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_13_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_17_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}14}]:} \PY{c+c1}{\PYZsh{}Implementation in keras of your model (for training and testing)}
+{\color{incolor}In [{\color{incolor}55}]:} \PY{c+c1}{\PYZsh{}Implementation in keras of your model (for training and testing)}
          
          \PY{n}{RNN} \PY{o}{=} \PY{n}{layers}\PY{o}{.}\PY{n}{LSTM}
          \PY{n}{BATCH\PYZus{}SIZE} \PY{o}{=} \PY{l+m+mi}{128}
@@ -1033,27 +1274,27 @@ Using TensorFlow backend.
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 Layer (type)                 Output Shape              Param \#   
 =================================================================
-dense\_16 (Dense)             (None, 10, 784)           615440    
+dense\_109 (Dense)            (None, 10, 784)           615440    
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-dropout\_7 (Dropout)          (None, 10, 784)           0         
+dropout\_68 (Dropout)         (None, 10, 784)           0         
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-dense\_17 (Dense)             (None, 10, 128)           100480    
+dense\_110 (Dense)            (None, 10, 128)           100480    
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-dropout\_8 (Dropout)          (None, 10, 128)           0         
+dropout\_69 (Dropout)         (None, 10, 128)           0         
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-dense\_18 (Dense)             (None, 10, 10)            1290      
+dense\_111 (Dense)            (None, 10, 10)            1290      
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-flatten\_7 (Flatten)          (None, 100)               0         
+flatten\_9 (Flatten)          (None, 100)               0         
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-repeat\_vector\_4 (RepeatVecto (None, 2, 100)            0         
+repeat\_vector\_5 (RepeatVecto (None, 2, 100)            0         
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-lstm\_4 (LSTM)                (None, 2, 128)            117248    
+lstm\_5 (LSTM)                (None, 2, 128)            117248    
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-time\_distributed\_4 (TimeDist (None, 2, 10)             1290      
+time\_distributed\_5 (TimeDist (None, 2, 10)             1290      
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-flatten\_8 (Flatten)          (None, 20)                0         
+flatten\_10 (Flatten)         (None, 20)                0         
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-dense\_20 (Dense)             (None, 90)                1890      
+dense\_113 (Dense)            (None, 90)                1890      
 =================================================================
 Total params: 837,638
 Trainable params: 837,638

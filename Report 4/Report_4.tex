@@ -151,6 +151,15 @@ As can been seen in \ref{eq:handmade} and \ref{eq:python} is that the handmade c
 
 \section{Assignment 2}
 
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/3.PNG}}}
+\hfill
+\caption{model accuracy for1, 2 and 3 hidden layer network}
+\label{model1}
+\end{figure}
+
+Figure \ref{model1} shows the training accuracy for a 1, 2 and 3 hidden layer network. Several attempts were made to have an improving accuracy for a higher hidden layer number (neurons per layer, different dropout levels, activation functions) but we were unable to do so within time constraints. We decided to focus on assignment 3 instead.
 
 %\begin{figure}
 %    \centering
@@ -172,10 +181,18 @@ Intuitively, the keras model consists of two parts. In the first part, the input
 
 The first part of the network consist of a Dense(128) relu layer for recognising a single image, just like in the example. This layer was followed by a Dense(10) sigmoid that is intended to recognize a number between 0 and 9. This was duplicated 10 times for each of the 10 images. This network should be able to learn to recognise a digit from an image.
 
-To link the first part to the second part, a flatten layer was inserted such that the output of the 10 image recognition layers could be the input for the RNN. The second part is basically the same RNN(128) network used to sum two numbers as given in the example, but with an extra hidden layer and with a different output length. Only 2 RepeatVectors were used as the sum needed has a maximum of two numbers. This part should be able to learn how to sum the images. To do so, a TimeDistributed layer with 10 neurons was added in order to generate the sum. The output layer consists of Dense(90) sigmoid layer that determines the final output class, that is the sum of the 10 images. Since each image has a value of [0-9], summing 10 images yields sums in the [0-90] range.
-After 30 epochs this resulted in a validation accuracy of 0.45. More epochs did not improve this score\\
+To link the first part to the second part, a flatten layer was inserted such that the output of the 10 image recognition layers could be the input for the RNN. The second part is basically the same LSTM RNN(128) network used to sum two numbers as given in the example, but with an extra hidden layer and with a different output length. Only 2 RepeatVectors were used as the sum needed has a maximum of two numbers. This part should be able to learn how to sum the images. To do so, a TimeDistributed layer with 10 neurons was added in order to generate the sum. The output layer consists of Dense(90) sigmoid layer that determines the final output class, that is the sum of the 10 images. Since each image has a value of [0-9], summing 10 images yields sums in the [0-90] range.
+After 30 epochs this resulted in a validation accuracy of 0.45. More epochs did not improve this score.\\
 
-To try and improve efficiency, a new Dense(784) layer was placed in front of the previous Dense(128) layer. The idea was that a network with a neuron for each pixel of an input image might improve the accuracy. Furthermore, a second layer was added to the RNN. After these modifications a validation accuracy of 0.72 resulted after 60 epochs.\\
+To try and improve efficiency, a new Dense(784) layer was placed in front of the previous Dense(128) layer, again duplicated 10 times. The idea was that a network with a neuron for each pixel of an input image might improve the accuracy. Furthermore, a second layer was added to the RNN. After these modifications a validation accuracy of 0.72 resulted after 60 epochs. A Keras model summary printout is availible in figure \ref{arch}. A score of 0.72 is less than perfect, but at least the network came somewhat close to learning how to calculate the sum given a set of 10 images.\\
+
+\begin{figure}[H]
+\hfill
+\makebox[\textwidth][c]{{\includegraphics[width=12cm]{./Figures/arch.PNG}}}
+\hfill
+\caption{final network architecture}
+\label{arch}
+\end{figure}
 
 The first part would have been more efficient if a single network was trained to recognise one image, which could then be used to do the recognition for each of the 10 images, but we were unable to get that to work properly. This also meant the training set had to be larger such that each of the 10 individual image recognition layers could learn to recognise number properly. For 10 images this architecture works fine, but if the network were to be adapted to handle larger sums, this approach will reach its limits. However, for 10 images the training of the network is still not an issue on a normal desktop machine.
 
